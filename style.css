@@ -123,6 +123,10 @@ header .nav nav .btn button:hover {
   color: #572EE5;
 }
 
+.belowHeader_titulos :last-child {
+  text-align: center;
+}
+
 .belowHeader_titulos a {
   color: #50E3C2;
 }
@@ -177,5 +181,116 @@ header .nav nav .btn button:hover {
   font-weight: medium;
   color: #572EE5;
   margin: 10px;
+}
+
+.gifosMenuPrincipal {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #572EE5;
+}
+
+.gifosMenuPrincipal hr {
+  margin: auto;
+  width: 40%;
+  margin-top: 40px;
+  border: 1px solid #9CAFC3;
+}
+
+.gifosMenuPrincipal_title {
+  margin-top: 80px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.gifosMenuPrincipal_boxing {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  margin: 0px 130px;
+}
+
+.gifosMenuPrincipal_boxing .box {
+  border: 1px dotted #572EE5;
+  width: 230px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.gifosMenuPrincipal_boxing .box_refAutor {
+  position: relative;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  margin-left: 13px;
+  margin-bottom: 25px;
+}
+
+.gifosMenuPrincipal_boxing .box_refAutor .p {
+  width: 100px;
+}
+
+.gifosMenuPrincipal_boxing .box_refAutor :first-child {
+  font-size: 15px;
+}
+
+.gifosMenuPrincipal_boxing .box_refAutor :last-child {
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.gifosMenuPrincipal_boxing .box_li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: 1px dotted #572EE5;
+  margin-right: 11px;
+  /*                 &.heart{
+                    
+                }
+                &.down{
+
+                }
+                &.max{
+
+                } */
+}
+
+.gifosMenuPrincipal_btn {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gifosMenuPrincipal_btn button {
+  color: #572EE5;
+  font-weight: bold;
+  background-color: white;
+  width: 110px;
+  height: 45px;
+  border-radius: 25px;
+  border: 1px solid #572EE5;
+}
+
+.gifosMenuPrincipal_btn button:hover {
+  color: white;
+  background-color: #572ee5;
 }
 /*# sourceMappingURL=style.css.map */
