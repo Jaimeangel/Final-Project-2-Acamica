@@ -213,3 +213,46 @@ header{
         }
     }
 }
+.trendingSection{
+    height: 600px;
+    background-color: #F3F5F8; 
+    &_Title{
+        text-align: center;
+        :first-child{
+            font-size: 25px;
+            line-height: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: #572EE5;
+        }
+        :last-child{
+            font-size: 18px;
+            line-height: 21px;
+        }
+    }
+    &_Carousel{
+        display: flex;
+        justify-content: space-around;
+        .btn{
+            display: flex;
+            align-items: center;
+            button{
+                color: #572EE5;
+                font-size: 25px;
+                border: 1px solid #572EE5;
+                width: 40px;
+                height: 40px;
+            }
+        }
+        .carousel{
+            width: 80%;
+            display: flex;
+            justify-content: space-between;
+            .box{
+                border: 1px dotted #572EE5;
+                width: 330px;
+                height: 250px;
+            }
+        }
+    }
+}
