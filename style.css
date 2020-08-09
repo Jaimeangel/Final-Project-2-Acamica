@@ -28,7 +28,7 @@ header .search {
   display: -ms-flexbox;
   display: flex;
   color: #9CAFC3;
-  margin-top: 19px;
+  margin-top: 22px;
 }
 
 header .search input {
@@ -295,7 +295,7 @@ header .nav nav .btn button:hover {
 }
 
 .trendingSection {
-  height: 600px;
+  height: 500px;
   background-color: #F3F5F8;
 }
 
@@ -355,5 +355,35 @@ header .nav nav .btn button:hover {
   border: 1px dotted #572EE5;
   width: 330px;
   height: 250px;
+}
+
+footer {
+  height: 60px;
+  margin-top: 50px;
+  border-bottom: 3px solid #572EE5;
+}
+
+footer .shareIcon {
+  margin-left: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  float: left;
+}
+
+footer .shareIcon p {
+  font-size: 18px;
+  line-height: 15px;
+}
+
+footer .shareIcon a img {
+  margin: 0 20px;
+}
+
+footer .autoRigths {
+  font-size: 15px;
+  line-height: 15px;
+  margin-right: 150px;
+  float: right;
 }
 /*# sourceMappingURL=style.css.map */
