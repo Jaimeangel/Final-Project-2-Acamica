@@ -294,16 +294,21 @@ header .nav nav .btn button:hover {
   background-color: #572ee5;
 }
 
-.trendingSection {
-  height: 500px;
+.trendingBox {
+  height: 600px;
   background-color: #F3F5F8;
 }
 
-.trendingSection_Title {
+.trendingBox .trendingSection {
+  position: relative;
+  top: 70px;
+}
+
+.trendingBox .trendingSection_Title {
   text-align: center;
 }
 
-.trendingSection_Title :first-child {
+.trendingBox .trendingSection_Title :first-child {
   font-size: 25px;
   line-height: 30px;
   font-family: 'Montserrat', sans-serif;
@@ -311,12 +316,7 @@ header .nav nav .btn button:hover {
   color: #572EE5;
 }
 
-.trendingSection_Title :last-child {
-  font-size: 18px;
-  line-height: 21px;
-}
-
-.trendingSection_Carousel {
+.trendingBox .trendingSection_Carousel {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -324,7 +324,7 @@ header .nav nav .btn button:hover {
       justify-content: space-around;
 }
 
-.trendingSection_Carousel .btn {
+.trendingBox .trendingSection_Carousel .btn {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,7 +333,7 @@ header .nav nav .btn button:hover {
           align-items: center;
 }
 
-.trendingSection_Carousel .btn button {
+.trendingBox .trendingSection_Carousel .btn button {
   color: #572EE5;
   font-size: 25px;
   border: 1px solid #572EE5;
@@ -341,7 +341,7 @@ header .nav nav .btn button:hover {
   height: 40px;
 }
 
-.trendingSection_Carousel .carousel {
+.trendingBox .trendingSection_Carousel .carousel {
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -351,7 +351,7 @@ header .nav nav .btn button:hover {
           justify-content: space-between;
 }
 
-.trendingSection_Carousel .carousel .box {
+.trendingBox .trendingSection_Carousel .carousel .box {
   border: 1px dotted #572EE5;
   width: 330px;
   height: 250px;
