@@ -1,246 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
+
     <head>
         <title>GIFOS</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="SASS CSS/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     </head>
+
     <body>
+
         <header>
             <div class="img">
                 <img src="GIFOS-UI-Desktop+Mobile 6/assets/logo-desktop.svg" alt="">
             </div>
+
             <div class="search">
                 <input type="search" placeholder="          Busca GIFOS y mas">
                 <div class="search_img">
                     <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
                 </div>
             </div>
-            <div class="nav">
+
+            <section class="nav">
                 <nav>
                     <ul>
                         <li>MODO NOCTURNO</li>
                         <li>FAVORITOS</li>
                         <li>MIS GIFOS</li>
                     </ul>
+
                     <div class="btn">
                         <button>+</button>
                     </div>
                 </nav>
-            </div>
+
+            </section>
+
         </header>
-        <section class="belowHeader">
-            <div class="belowHeader_titulos">
+
+        <main class="mainPage">
+
+            <article class="title">
                 <p>Inspírate, busca, guarda, y crea </p>
                 <p>los mejores <a>GIFOS</a></p>
-            </div>
-            <div class="belowHeader_search">
-                <div class="img">
+            </article>
+
+            <article class="search">
+
+                <div class="search_img-central">
                     <img src="GIFOS-UI-Desktop+Mobile 6/assets/ilustra_header.svg" alt="">
                 </div>
+
                 <div class="search_bar">
-                    <input type="search" placeholder="          Busca GIFOS y mas">
-                    <div class="search_img">
+                    <input class="search_input" type="search" placeholder="          Busca GIFOS y mas">
+                    <div class="search_img" id="search_lupa" >
                         <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
                     </div>
                 </div>
-            </div>
-            <div class="belowHeader_trending">
+                
+            </article>
+
+            <article class="trending">
                 <p>Trending:</p>
                 <p>Reactions, Entertainment, Sports, Stickers, Artists</p>
-            </div>
-        </section>
-        <section class="gifosMenuPrincipal">
-            <hr>
-            <div class="gifosMenuPrincipal_title">
-                <h2>Resultado Busqueda</h2>
-            </div>
-            <div class="gifosMenuPrincipal_boxing">
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
+            </article>
+
+            <section class="gifCtn">
+                
+                <hr>
+    
+                <article class="title">
+                    
+                </article>
+    
+                <div class="gifBox">
+                    
+                    <div class="box">
+
+                        <div class="box_imgBack">
+                            <img src="GIFOS-UI-Desktop+Mobile 6/escudo.jpg" alt="">
+                            <div class="box_refAutor">
+                                <div class="p">User</div>
+                                <div class="p">Título GIFO</div>
+                            </div>
+        
+                            <div class="box_li heart">
+                                <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
+                            </div>
+        
+                            <div class="box_li down">
+                                <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
+                            </div>
+        
+                            <div class="box_li max">
+                                <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
+    
+                </div> 
+                   
+                <div class="btn">
+                    <button>VER MÁS</button>
                 </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-                <div class="box">
-                    <div class="box_refAutor">
-                        <div class="p">User</div>
-                        <div class="p">Título GIFO</div>
-                    </div>
-                    <div class="box_li heart">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg" alt="">
-                    </div>
-                    <div class="box_li down">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg" alt="">
-                    </div>
-                    <div class="box_li max">
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg" alt="">
-                    </div>
-                </div>
-            </div>    
-            <div class="gifosMenuPrincipal_btn">
-                <button>VER MÁS</button>
-            </div>
-        </section>
+    
+            </section>
+
+
+        </main>
+
+
+
+
         <section class="trendingBox">
             <div class="trendingSection">
                 <div class="trendingSection_Title">
@@ -279,5 +150,7 @@
                 <p> © GIFOS 2020 All Rights Reserved.</p>
             </div>
         </footer>
+        <script src="JS/app.js"></script>
     </body>
+    
 </html>
