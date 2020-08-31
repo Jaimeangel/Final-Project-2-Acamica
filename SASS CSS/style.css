@@ -224,13 +224,54 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn .gifBox .box {
-  border: 1px dotted #572EE5;
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 230px;
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.mainPage .gifCtn .gifBox .box_img img {
-  width: 100%;
+.mainPage .gifCtn .gifBox .box .box_li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.mainPage .gifCtn .gifBox .box .box_li_btn {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.mainPage .gifCtn .gifBox .box .box_li_btn button {
+  border: none;
+  /*  opacity: 0.7;
+                            background: #FFFFFF; */
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+}
+
+.mainPage .gifCtn .gifBox .box .box_autor {
+  margin-left: 13px;
+  margin-bottom: 20px;
+}
+
+.mainPage .gifCtn .gifBox .box .box_autor .p {
+  margin-bottom: 3px;
 }
 
 .mainPage .gifCtn .btn {
