@@ -227,65 +227,10 @@ header .nav nav .btn button:hover {
   border: 1px dotted #572EE5;
   width: 230px;
   height: 200px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
 }
 
-.mainPage .gifCtn .gifBox .box_imgBack {
+.mainPage .gifCtn .gifBox .box_img img {
   width: 100%;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack img {
-  width: 100%;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack_refAutor {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack_refAutor .p {
-  width: 100px;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack_refAutor :first-child {
-  font-size: 15px;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack_refAutor :last-child {
-  font-size: 17px;
-  font-weight: bold;
-}
-
-.mainPage .gifCtn .gifBox .box_imgBack_li {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 30px;
-  height: 30px;
-  border: 1px dotted #572EE5;
-  margin-right: 11px;
-  /*                         &.heart{
-                            
-                        }
-                        &.down{
-        
-                        }
-                        &.max{
-        
-                        }  */
 }
 
 .mainPage .gifCtn .btn {

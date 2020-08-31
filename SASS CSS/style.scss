@@ -177,45 +177,11 @@ header{
                 border: 1px dotted #572EE5;
                 width: 230px;
                 height: 200px;
-                display: flex;
-                justify-content: flex-end;
 
-                &_imgBack{
-                    width: 100%;
+                &_img{
+
                     img{
                         width: 100%;
-                    }
-                    &_refAutor{
-                        display: flex;
-                        flex-direction: column;
-                        .p{
-                            width: 100px;
-                        }
-                        :first-child{
-                            font-size: 15px;
-                        }
-                        :last-child{
-                            font-size: 17px;
-                            font-weight: bold;
-                        }
-                    }
-    
-                    &_li{
-                        display: flex;
-                        justify-content: center;
-                        width: 30px;
-                        height: 30px;
-                        border: 1px dotted #572EE5;
-                        margin-right: 11px;
-/*                         &.heart{
-                            
-                        }
-                        &.down{
-        
-                        }
-                        &.max{
-        
-                        }  */
                     }
                 }
 
