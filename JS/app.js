@@ -14,25 +14,27 @@ searchValue.addEventListener("click",getSearch)
 function getSearch(e){
     e.preventDefault()
     const item = e.target
+
     if(item.classList[0] === "search_img"){
         let valueBusqueda = valueSearch.value
-        getGyphy(valueBusqueda)
         
-    }
+        let hrElement= document.createElement("hr")
+        ctnMain.appendChild(hrElement)
+    
+        let ctnTitle = document.createElement("div")
+        ctnTitle.classList.add("title")
+        let h2Ttile = document.createElement("h2")
+        h2Ttile.innerText=`${valueBusqueda}`
+        h2Ttile.classList.add("titleSearch")
+        ctnTitle.appendChild(h2Ttile)
+        ctnMain.appendChild(ctnTitle)
+    
+        hrElement.after(ctnGyphy)
+        ctnTitle.after(ctnGyphy)
 
-    function titleSearch(valueBusqueda){
-        if(ctnGyphy === null){
-            //Contenido main
-            let hrElement= document.createElement("hr")
-            ctnMain.appendChild(hrElement)
-
-            let ctnTitle = document.createElement("div")
-            ctnTitle.classList.add("title")
-            let h2Ttile = document.createElement("h2")
-            h2Ttile.innerText=`${valueBusqueda}`
-            ctnTitle.appendChild(h2Ttile)
-            ctnMain.appendChild(ctnTitle)
-        }
+      
+         
+        getGyphy(valueBusqueda)
     }
 }
 
