@@ -31,6 +31,7 @@ header .img {
 }
 
 header .search {
+  visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,7 +225,7 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn .gifBox .box {
-  border: 1px solid black;
+  background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -243,6 +244,8 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn .gifBox .box .box_li {
+  z-index: 2;
+  visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -258,20 +261,52 @@ header .nav nav .btn button:hover {
 
 .mainPage .gifCtn .gifBox .box .box_li_btn button {
   border: none;
-  /*  opacity: 0.7;
-                            background: #FFFFFF; */
+  opacity: 0.7;
+  background: #FFFFFF;
   border-radius: 6px;
   width: 32px;
   height: 32px;
 }
 
+.mainPage .gifCtn .gifBox .box .box_li_btn button:hover {
+  opacity: 1;
+}
+
 .mainPage .gifCtn .gifBox .box .box_autor {
+  z-index: 2;
+  visibility: hidden;
   margin-left: 13px;
   margin-bottom: 20px;
 }
 
 .mainPage .gifCtn .gifBox .box .box_autor .p {
+  font-size: 15px;
+  color: #FFFFFF;
   margin-bottom: 3px;
+}
+
+.mainPage .gifCtn .gifBox .box {
+  position: relative;
+}
+
+.mainPage .gifCtn .gifBox .box:hover .box_autor {
+  visibility: visible;
+}
+
+.mainPage .gifCtn .gifBox .box:hover .box_li {
+  visibility: visible;
+}
+
+.mainPage .gifCtn .gifBox .box:hover::before {
+  content: "";
+  width: 230px;
+  height: 200px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #572EE5;
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .mainPage .gifCtn .btn {

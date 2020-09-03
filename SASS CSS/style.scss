@@ -22,6 +22,7 @@ header{
         margin-top: 18px;
     }
     .search{
+        visibility: hidden;
         display: flex;
         color: #9CAFC3;
         margin-top: 22px;
@@ -183,8 +184,10 @@ header{
                 display:flex;
                 flex-direction:column;
                 justify-content: space-between;
-
-/*                 .box_li{
+                
+                .box_li{
+                    z-index: 2;
+                    visibility: hidden; 
                     display:flex;
                     justify-content:flex-end;
                     &_btn{
@@ -193,23 +196,55 @@ header{
                         button{
                             border: none;
                             opacity: 0.7;
-                            background: #FFFFFF;
+                            background: #FFFFFF; 
                             border-radius: 6px;
                             width: 32px;
                             height: 32px;
+                            &:hover{
+                                opacity: 1;
+                            }
                         }
                     }
-                } */
-
-/*                 .box_autor{
+                } 
+                
+                .box_autor{
+                    z-index: 2;
+                    visibility: hidden; 
                     margin-left: 13px;
                     margin-bottom: 20px;
                     .p{
+                        font-size: 15px;
+                        color: #FFFFFF;
                         margin-bottom: 3px;
                     }
+                }                
+            }
+            //Agregamos efecto :hover
+            .box{
+                position: relative;
+                &:hover{
+                    .box_autor{
+                        visibility: visible;
+                    }
+                    .box_li{
+                        visibility: visible;
+                    }
+                    &::before{
+                        content:"";
+                        width: 230px;
+                        height: 200px;
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        
+                        background: #572EE5;
+                        opacity:0.7;
+                        z-index: 1;
+                    }                                          
                 }
-            } */
+            } 
         }
+
     
         .btn{
             margin-top: 70px;
