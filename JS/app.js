@@ -6,9 +6,24 @@ let searchValue = document.querySelector(".search_bar")
 let valueSearch = document.querySelector(".search_input")
 let ctnGyphy = document.querySelector(".gifBox")
 let ctnMain = document.querySelector(".gifCtn")
+let changeTitle = document.getElementById("title")
+let hrElement = document.getElementById("hr")
+
+let rowCarousel = document.querySelector(".carousel")
+let ctnCarousel = document.querySelector(".ctn-slide")
+let leftarrow = document.getElementById("left-arrow")
+let rightarrow = document.getElementById("right-arrow")
 
 //Eventos
 searchValue.addEventListener("click",getSearch)
+rightarrow.addEventListener ('click', () => {
+    rowCarousel.scrollLeft += rowCarousel.offsetWidth;
+  });
+  
+leftarrow.addEventListener ('click', () => {
+    rowCarousel.scrollLeft -= rowCarousel.offsetWidth;
+    
+  });
 
 //Funciones
 function getSearch(e){
@@ -17,23 +32,14 @@ function getSearch(e){
 
     if(item.classList[0] === "search_img"){
         let valueBusqueda = valueSearch.value
-        
-        let hrElement= document.createElement("hr")
-        ctnMain.appendChild(hrElement)
-    
-        let ctnTitle = document.createElement("div")
-        ctnTitle.classList.add("title")
-        let h2Ttile = document.createElement("h2")
-        h2Ttile.innerText=`${valueBusqueda}`
-        h2Ttile.classList.add("titleSearch")
-        ctnTitle.appendChild(h2Ttile)
-        ctnMain.appendChild(ctnTitle)
-    
-        hrElement.after(ctnGyphy)
-        ctnTitle.after(ctnGyphy)
 
-      
-         
+        let parentTitle = changeTitle.childNodes[1]
+        newTitle = document.createElement("h2")
+        newTitle.innerText = `${valueBusqueda}`
+
+        console.log(parentTitle)
+        changeTitle.replaceChild(newTitle,parentTitle)
+
         getGyphy(valueBusqueda)
     }
 }
@@ -49,7 +55,7 @@ async function getGyphy(valueBusqueda){
 
         for(let i=0; i < giphyResponse.length; i++){
 
-            console.log(giphyResponse[i])
+            /* console.log(giphyResponse[i]) */
     
             let img = giphyResponse[i].images.original.url
             let title = giphyResponse[i].title
@@ -122,3 +128,28 @@ async function getGyphy(valueBusqueda){
         console.log("Este Gyphy no se encuentra")
     }
 }
+
+
+ async  function getTrending(){
+    let url= `https://api.giphy.com/v1/gifs/trending?api_key=${conf_k_on}`
+
+    const response = await fetch(url)
+    const responseJSON = await response.json()
+
+    try{
+        let giphyResponse = responseJSON.data
+        for(let i=0; i < giphyResponse.length; i++){
+            
+            let img = giphyResponse[i].images.original.url
+            
+            let ctnSlide = document.createElement("div")
+            ctnSlide.style.backgroundImage = `url(${img})`
+            ctnSlide.classList.add("box")
+
+            ctnCarousel.appendChild(ctnSlide)
+        }
+    }catch{
+
+    } 
+}
+getTrending()

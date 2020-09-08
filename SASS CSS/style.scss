@@ -72,7 +72,7 @@ header{
                     width: 54px;
                     height: 54px;
                     border-radius: 50%;
-                    font-size: 40px;
+                    font-size: 16px;
                     &:hover{
                         color: white;
                         background-color: #572ee5;
@@ -156,6 +156,7 @@ header{
     
     
         hr{
+            visibility: hidden;
             margin: auto;
             width: 40%;
             margin-top: 40px;
@@ -273,10 +274,12 @@ header{
 
 .trendingBox{
     height: 600px;
-    background-color: #F3F5F8; 
+    background-color: #F3F5F8;
+
     .trendingSection{
         position: relative;
         top: 70px;
+
         &_Title{
             text-align: center;
             :first-child{
@@ -287,6 +290,7 @@ header{
                 color: #572EE5;
             }
         }
+        
         &_Carousel{
             display: flex;
             justify-content: space-around;
@@ -294,6 +298,7 @@ header{
                 display: flex;
                 align-items: center;
                 button{
+                    cursor: pointer;
                     color: #572EE5;
                     font-size: 25px;
                     border: 1px solid #572EE5;
@@ -303,12 +308,20 @@ header{
             }
             .carousel{
                 width: 80%;
-                display: flex;
-                justify-content: space-between;
-                .box{
-                    border: 1px dotted #572EE5;
-                    width: 330px;
-                    height: 250px;
+                overflow: hidden;
+                scroll-behavior: smooth;
+                .ctn-slide{
+                    display: flex;
+                    flex-wrap: nowrap;
+                    .box{
+                        background-image:url();
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position:center;
+                        min-width: 30%;
+                        height: 250px;
+                        margin: 18px;
+                    }
                 }
             }
         }

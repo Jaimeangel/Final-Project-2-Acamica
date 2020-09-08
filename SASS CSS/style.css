@@ -100,7 +100,7 @@ header .nav nav .btn button {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  font-size: 40px;
+  font-size: 16px;
 }
 
 header .nav nav .btn button:hover {
@@ -203,6 +203,7 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn hr {
+  visibility: hidden;
   margin: auto;
   width: 40%;
   margin-top: 40px;
@@ -375,6 +376,7 @@ header .nav nav .btn button:hover {
 }
 
 .trendingBox .trendingSection_Carousel .btn button {
+  cursor: pointer;
   color: #572EE5;
   font-size: 25px;
   border: 1px solid #572EE5;
@@ -384,18 +386,26 @@ header .nav nav .btn button:hover {
 
 .trendingBox .trendingSection_Carousel .carousel {
   width: 80%;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+.trendingBox .trendingSection_Carousel .carousel .ctn-slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
 
-.trendingBox .trendingSection_Carousel .carousel .box {
-  border: 1px dotted #572EE5;
-  width: 330px;
+.trendingBox .trendingSection_Carousel .carousel .ctn-slide .box {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-width: 30%;
   height: 250px;
+  margin: 18px;
 }
 
 footer {
