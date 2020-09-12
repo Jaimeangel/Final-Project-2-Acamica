@@ -8,11 +8,14 @@ let ctnGyphy = document.querySelector(".gifBox")
 let ctnMain = document.querySelector(".gifCtn")
 let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
+let gifBox = document.querySelector("box")
 
 let rowCarousel = document.querySelector(".carousel")
 let ctnCarousel = document.querySelector(".ctn-slide")
 let leftarrow = document.getElementById("left-arrow")
 let rightarrow = document.getElementById("right-arrow")
+let darkModeEvent = document.getElementById("darkMode")
+let btnDark = document.getElementById("darkMode")
 
 //Eventos
 searchValue.addEventListener("click",getSearch)
@@ -24,6 +27,13 @@ leftarrow.addEventListener ('click', () => {
     rowCarousel.scrollLeft -= rowCarousel.offsetWidth;
     
   });
+  btnDark.addEventListener("click",darkStyles)
+/*   gifBox.addEventListener("onmouseover", function(){
+      gifBox.classList.add("box--hover")
+  })
+  gifBox.addEventListener("onmouseout", function(){
+    gifBox.classList.remove("box--hover")
+}) */
 
 //Funciones
 function getSearch(e){
@@ -141,15 +151,78 @@ async function getGyphy(valueBusqueda){
         for(let i=0; i < giphyResponse.length; i++){
             
             let img = giphyResponse[i].images.original.url
+            let title = giphyResponse[i].title
+            let user = giphyResponse[i].username  
             
             let ctnSlide = document.createElement("div")
             ctnSlide.style.backgroundImage = `url(${img})`
             ctnSlide.classList.add("box")
 
-            ctnCarousel.appendChild(ctnSlide)
+                        //Creamos caja de botones
+                        divBtn = document.createElement("div")
+                        divBtn.classList.add("box_li")
+            
+                        //Botones Individuales
+            
+                        let divHeart= document.createElement("div")
+                        divHeart.classList.add("box_li_btn")
+                        btnHeart = document.createElement("button")
+                        imgBtnHeart= document.createElement("img")
+                        imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+                        btnHeart.appendChild(imgBtnHeart)
+                        divHeart.appendChild(btnHeart)
+                        divBtn.appendChild(divHeart)
+            
+                        let divDown= document.createElement("div")
+                        divDown.classList.add("box_li_btn")
+                        btnDown = document.createElement("button")
+                        imgBtnDown = document.createElement("img")
+                        imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
+                        btnDown.appendChild(imgBtnDown)
+                        divDown.appendChild(btnDown)
+                        divBtn.appendChild(divDown)
+            
+            
+            
+                        let divMax= document.createElement("div")
+                        divMax.classList.add("box_li_btn")
+                        btnMax = document.createElement("button")
+                        imgBtnMax = document.createElement("img")
+                        imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
+                        btnMax.appendChild(imgBtnMax)
+                        divMax.appendChild(btnMax)
+                        divBtn.appendChild(divMax)
+            
+                        ctnSlide.appendChild(divBtn)
+                        
+                        divAutor = document.createElement("div")
+                        divAutor.classList.add("box_autor")
+            
+                        divPrfOne = document.createElement("div")
+                        divPrfOne.classList.add("p") 
+                        divPrfOne.innerText=`${user}`
+                        divAutor.appendChild(divPrfOne)
+            
+                        divPrfTwo = document.createElement("div")
+                        divPrfTwo.classList.add("p") 
+                        divPrfTwo.innerText=`${title}`
+                        divAutor.appendChild(divPrfTwo)
+            
+                        ctnSlide.appendChild(divAutor) 
+            
+
+                        ctnCarousel.appendChild(ctnSlide)
         }
     }catch{
 
     } 
 }
 getTrending()
+
+function darkStyles(){
+    if(darkModeEvent.checked){
+        document.body.classList.add("dark-mode")
+    }else{
+        document.body.classList.remove("dark-mode")
+    }
+}
