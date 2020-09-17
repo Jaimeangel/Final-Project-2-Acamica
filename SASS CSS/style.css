@@ -502,6 +502,89 @@ header .nav nav .btn button:hover {
   z-index: 1;
 }
 
+.ctnModal {
+  z-index: 1;
+  position: fixed;
+  /* Stay in place */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: var(--backBtnWhite);
+}
+
+.ctnModal .contentModal {
+  position: relative;
+  background-color: var(--backBtnWhite);
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+}
+
+.ctnModal .contentModal span {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+}
+
+.ctnModal .contentModal span button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--backBtnWhite);
+  color: var(--colorLetra);
+}
+
+.ctnModal .contentModal span button i {
+  font-size: 16px;
+}
+
+.ctnModal .contentModal .imgGif {
+  width: 600px;
+  height: 300px;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+
+.ctnModal .contentModal .refAutorBtn {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+.ctnModal .contentModal .refAutorBtn .autor {
+  margin-top: 30px;
+}
+
+.ctnModal .contentModal .refAutorBtn .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 22px;
+  margin-right: 10px;
+}
+
+.ctnModal .contentModal .refAutorBtn .btn button {
+  opacity: 0.7;
+  background: var(--backBtnWhite);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+}
+
 footer {
   height: 60px;
   margin-top: 50px;
