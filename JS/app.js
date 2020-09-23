@@ -78,15 +78,15 @@ async function getGyphy(valueBusqueda){
             divCtn.classList.add("box")
 
             //Creamos caja de botones
-            divBtn = document.createElement("div")
+            let divBtn = document.createElement("div")
             divBtn.classList.add("box_li")
 
             //Botones Individuales
 
             let divHeart= document.createElement("div")
             divHeart.classList.add("box_li_btn")
-            btnHeart = document.createElement("button")
-            imgBtnHeart= document.createElement("img")
+            let btnHeart = document.createElement("button")
+            let imgBtnHeart= document.createElement("img")
             imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
             btnHeart.appendChild(imgBtnHeart)
             divHeart.appendChild(btnHeart)
@@ -94,8 +94,8 @@ async function getGyphy(valueBusqueda){
 
             let divDown= document.createElement("div")
             divDown.classList.add("box_li_btn")
-            btnDown = document.createElement("button")
-            imgBtnDown = document.createElement("img")
+            let btnDown = document.createElement("button")
+            let imgBtnDown = document.createElement("img")
             imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
             btnDown.appendChild(imgBtnDown)
             divDown.appendChild(btnDown)
@@ -105,8 +105,8 @@ async function getGyphy(valueBusqueda){
 
             let divMax= document.createElement("div")
             divMax.classList.add("box_li_btn")
-            btnMax = document.createElement("button")
-            imgBtnMax = document.createElement("img")
+            let btnMax = document.createElement("button")
+            let imgBtnMax = document.createElement("img")
             imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
             btnMax.appendChild(imgBtnMax)
             divMax.appendChild(btnMax)
@@ -115,15 +115,15 @@ async function getGyphy(valueBusqueda){
             divCtn.appendChild(divBtn)
 
 
-            divAutor = document.createElement("div")
+            let divAutor = document.createElement("div")
             divAutor.classList.add("box_autor")
 
-            divPrfOne = document.createElement("div")
+            let divPrfOne = document.createElement("div")
             divPrfOne.classList.add("p") 
             divPrfOne.innerText=`${user}`
             divAutor.appendChild(divPrfOne)
 
-            divPrfTwo = document.createElement("div")
+            let divPrfTwo = document.createElement("div")
             divPrfTwo.classList.add("p") 
             divPrfTwo.innerText=`${title}`
             divAutor.appendChild(divPrfTwo)
@@ -158,63 +158,63 @@ async function getGyphy(valueBusqueda){
             ctnSlide.style.backgroundImage = `url(${img})`
             ctnSlide.classList.add("box")
 
-                        //Creamos caja de botones
-                        divBtn = document.createElement("div")
-                        divBtn.classList.add("box_li")
+            //Creamos caja de botones
+            let divBtn = document.createElement("div")
+            divBtn.classList.add("box_li")
             
-                        //Botones Individuales
+            //Botones Individuales
             
-                        let divHeart= document.createElement("div")
-                        divHeart.classList.add("box_li_btn")
-                        btnHeart = document.createElement("button")
-                        imgBtnHeart= document.createElement("img")
-                        imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-                        btnHeart.appendChild(imgBtnHeart)
-                        divHeart.appendChild(btnHeart)
-                        divBtn.appendChild(divHeart)
+            let divHeart= document.createElement("div")
+            divHeart.classList.add("box_li_btn")
+            let btnHeart = document.createElement("button")
+            let imgBtnHeart= document.createElement("img")
+            imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+            btnHeart.appendChild(imgBtnHeart)
+            divHeart.appendChild(btnHeart)
+            divBtn.appendChild(divHeart)
             
-                        let divDown= document.createElement("div")
-                        divDown.classList.add("box_li_btn")
-                        btnDown = document.createElement("button")
-                        imgBtnDown = document.createElement("img")
-                        imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-                        btnDown.appendChild(imgBtnDown)
-                        divDown.appendChild(btnDown)
-                        divBtn.appendChild(divDown)
+            let divDown= document.createElement("div")
+            divDown.classList.add("box_li_btn")
+            let btnDown = document.createElement("button")
+            let imgBtnDown = document.createElement("img")
+            imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
+            btnDown.appendChild(imgBtnDown)
+            divDown.appendChild(btnDown)
+            divBtn.appendChild(divDown)
             
             
             
-                        let divMax= document.createElement("div")
-                        divMax.classList.add("box_li_btn")
-                        btnMax = document.createElement("button")
-                        imgBtnMax = document.createElement("img")
-                        imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
-                        btnMax.appendChild(imgBtnMax)
-                        divMax.appendChild(btnMax)
-                        divBtn.appendChild(divMax)
+            let divMax= document.createElement("div")
+            divMax.classList.add("box_li_btn")
+            let btnMax = document.createElement("button")
+            let imgBtnMax = document.createElement("img")
+            imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
+            btnMax.appendChild(imgBtnMax)
+            divMax.appendChild(btnMax)
+            divBtn.appendChild(divMax)
             
-                        ctnSlide.appendChild(divBtn)
+            ctnSlide.appendChild(divBtn)
                         
-                        divAutor = document.createElement("div")
-                        divAutor.classList.add("box_autor")
+            let divAutor = document.createElement("div")
+            divAutor.classList.add("box_autor")
             
-                        divPrfOne = document.createElement("div")
-                        divPrfOne.classList.add("p") 
-                        divPrfOne.innerText=`${user}`
-                        divAutor.appendChild(divPrfOne)
+            let divPrfOne = document.createElement("div")
+            divPrfOne.classList.add("p") 
+            divPrfOne.innerText=`${user}`
+            divAutor.appendChild(divPrfOne)
             
-                        divPrfTwo = document.createElement("div")
-                        divPrfTwo.classList.add("p") 
-                        divPrfTwo.innerText=`${title}`
-                        divAutor.appendChild(divPrfTwo)
+            let divPrfTwo = document.createElement("div")
+            divPrfTwo.classList.add("p") 
+            divPrfTwo.innerText=`${title}`
+            divAutor.appendChild(divPrfTwo)
             
-                        ctnSlide.appendChild(divAutor) 
+            ctnSlide.appendChild(divAutor) 
             
 
-                        ctnCarousel.appendChild(ctnSlide)
+            ctnCarousel.appendChild(ctnSlide)
         }
     }catch{
-
+        console.log("Este Gyphy no se encuentra")
     } 
 }
 getTrending()
