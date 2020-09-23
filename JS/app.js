@@ -233,7 +233,14 @@ function getModalGif(e){
     let autorRefMax = catchGifCtn.childNodes[1]
     let btnHeartRefMax = catchGifCtn.childNodes[0].childNodes[0]
     let btnDownRefMax =  catchGifCtn.childNodes[0].childNodes[1]
-    
+
+    console.log(imgUrl)
+    console.log(autorRefMax)
+    console.log(btnHeartRefMax)
+    console.log(btnDownRefMax)
+   
+/*     
+
     //Creando modal 
 
     //Parent Content
@@ -297,4 +304,7 @@ function getModalGif(e){
 
     //Agregando modal content gif
     ctnGyphy.appendChild(ctnModal) 
+
+
+     */
 }   
