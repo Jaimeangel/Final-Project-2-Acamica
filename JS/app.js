@@ -63,7 +63,7 @@ async function getGyphy(valueBusqueda){
             let img = giphyResponse[i].images.original.url
             let title = giphyResponse[i].title
             let user = giphyResponse[i].username  
-           /*  let id = giphyResponse[i].id  */
+            let id = giphyResponse[i].id
             
             //Creando Contenedor/incluye gif
             let divCtn = document.createElement("div")
@@ -77,19 +77,21 @@ async function getGyphy(valueBusqueda){
             //Botones Individuales
 
             let divHeart= document.createElement("div")
-            divHeart.classList.add("box_li_btn")
+            divHeart.classList.add("box_li_btn_heart")
             btnHeart = document.createElement("button")
             imgBtnHeart= document.createElement("img")
             imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+            divHeart.setAttribute("data-id",`${id}`)
             btnHeart.appendChild(imgBtnHeart)
             divHeart.appendChild(btnHeart)
             divBtn.appendChild(divHeart)
 
             let divDown= document.createElement("div")
-            divDown.classList.add("box_li_btn")
+            divDown.classList.add("box_li_btn_down")
             btnDown = document.createElement("button")
             imgBtnDown = document.createElement("img")
             imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
+            divDown.setAttribute("data-id",`${id}`)
             btnDown.appendChild(imgBtnDown)
             divDown.appendChild(btnDown)
             divBtn.appendChild(divDown)
@@ -97,7 +99,7 @@ async function getGyphy(valueBusqueda){
 
 
             let divMax= document.createElement("div")
-            divMax.classList.add("box_li_btn")
+            divMax.classList.add("box_li_btn_max")
             btnMax = document.createElement("button")
             imgBtnMax = document.createElement("img")
             imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
@@ -109,18 +111,18 @@ async function getGyphy(valueBusqueda){
             divCtn.appendChild(divBtn)
             
             //Event listener obtener modal
-            divMax.addEventListener("click", getModalGif) 
+        divMax.addEventListener("click", getModalGif)  
 
             divAutor = document.createElement("div")
             divAutor.classList.add("box_autor")
 
             divPrfOne = document.createElement("div")
-            divPrfOne.classList.add("p") 
+            divPrfOne.classList.add("p_user") 
             divPrfOne.innerText=`${user}`
             divAutor.appendChild(divPrfOne)
 
             divPrfTwo = document.createElement("div")
-            divPrfTwo.classList.add("p") 
+            divPrfTwo.classList.add("p_name") 
             divPrfTwo.innerText=`${title}`
             divAutor.appendChild(divPrfTwo)
 
@@ -148,7 +150,8 @@ async  function getTrending(){
             
             let img = giphyResponse[i].images.original.url
             let title = giphyResponse[i].title
-            let user = giphyResponse[i].username  
+            let user = giphyResponse[i].username
+            let id = giphyResponse[i].id  
             
             let ctnSlide = document.createElement("div")
             ctnSlide.style.backgroundImage = `url(${img})`
@@ -162,15 +165,17 @@ async  function getTrending(){
             
                         let divHeart= document.createElement("div")
                         divHeart.classList.add("box_li_btn")
+                        divHeart.setAttribute("data-id",`${id}`)
                         btnHeart = document.createElement("button")
                         imgBtnHeart= document.createElement("img")
                         imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-                        btnHeart.appendChild(imgBtnHeart)
                         divHeart.appendChild(btnHeart)
+                        btnHeart.appendChild(imgBtnHeart)
                         divBtn.appendChild(divHeart)
             
                         let divDown= document.createElement("div")
                         divDown.classList.add("box_li_btn")
+                        divDown.setAttribute("data-id",`${id}`)
                         btnDown = document.createElement("button")
                         imgBtnDown = document.createElement("img")
                         imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
@@ -191,7 +196,7 @@ async  function getTrending(){
             
                         ctnSlide.appendChild(divBtn)
                         //Evento modal
-                        divMax.addEventListener("click",getModalGif)
+                        divMax.addEventListener("click",getModalGif) 
                         
                         divAutor = document.createElement("div")
                         divAutor.classList.add("box_autor")
@@ -226,33 +231,38 @@ function darkStyles(){
 }
 
 function getModalGif(e){
-    //Variables
-    let catchGifCtn = e.currentTarget.parentNode.parentNode
+    const catchGifCtn = e.currentTarget.parentNode.parentNode
+    readingInfoGif(catchGifCtn)
+} 
 
-    let imgUrl = catchGifCtn.style.backgroundImage
-    let autorRefMax = catchGifCtn.childNodes[1]
-    let btnHeartRefMax = catchGifCtn.childNodes[0].childNodes[0]
-    let btnDownRefMax =  catchGifCtn.childNodes[0].childNodes[1]
+function readingInfoGif(catchGifCtn){
+    const infoGif = {
+        imgUrl: catchGifCtn.style.backgroundImage,
+        autorRefMaxUser: catchGifCtn.querySelector(".box_autor .p_user").innerText,
+        autorRefMaxName: catchGifCtn.querySelector(".box_autor .p_name").innerText,
+        btnHeartRefMax: catchGifCtn.querySelector(".box_li .box_li_btn_heart"),
+        btnDownRefMax: catchGifCtn.querySelector(".box_li .box_li_btn_down"),
+        btnDownRefMax: catchGifCtn.querySelector(".box_li .box_li_btn_max")
+    }
+    tryLog(infoGif)
+} 
 
-    console.log(imgUrl)
-    console.log(autorRefMax)
-    console.log(btnHeartRefMax)
-    console.log(btnDownRefMax)
-   
-/*     
-
+function tryLog(catchGifCtn){
+    console.log(catchGifCtn)
+}
+/* function buildingModal(infoGif){
     //Creando modal 
-
+    
     //Parent Content
     let ctnModal = document.createElement("div")
     ctnModal.classList.add("ctnModal")
     ctnModal.style.display="block"
-
+    
     //Child Conten
     let contentModal = document.createElement("div")
     contentModal.classList.add("contentModal")
     ctnModal.appendChild(contentModal)
-
+    
     //Btn close modal
     let spanElement = document.createElement("span")
     spanElement.setAttribute("id","btnClose")
@@ -267,44 +277,49 @@ function getModalGif(e){
     spanElement.addEventListener("click",() =>{
         ctnModal.style.display="none"
     })
-
+    
     //Img Gif
     let ctnGifMax = document.createElement("div")
     ctnGifMax.classList.add("imgGif")
     ctnGifMax.style.backgroundImage = `${imgUrl}`
     contentModal.appendChild(ctnGifMax)
-
+    
     //Reference autor/buttons
-
+    
     //Content autor/buttons
     let refAutorBtn = document.createElement("div")
     refAutorBtn.classList.add("refAutorBtn")
     contentModal.appendChild(refAutorBtn)
-
+    
     //autor
     let autorCtnMax = document.createElement("div")
     autorCtnMax.classList.add("autor")
     autorCtnMax.appendChild(autorRefMax)
     refAutorBtn.appendChild(autorCtnMax)
-
+    
     //Buttons Content
     let btnCtnMax = document.createElement("div")
     btnCtnMax.classList.add("btn")
     refAutorBtn.appendChild(btnCtnMax)
-
+    
     //Heart Button
     let btnHeartBotone = document.createElement("button")
     btnHeartBotone.appendChild(btnHeartRefMax)
     btnCtnMax.appendChild(btnHeartBotone)
-
+    
     //Down Button
     let btnDownBotone = document.createElement("button")
     btnDownBotone.appendChild(btnDownRefMax)
     btnCtnMax.appendChild(btnDownBotone)
-
+    
     //Agregando modal content gif
     ctnGyphy.appendChild(ctnModal) 
 
+} */
 
-     */
-}   
+
+
+
+
+
+

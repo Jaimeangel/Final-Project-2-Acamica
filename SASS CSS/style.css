@@ -268,12 +268,12 @@ header .nav nav .btn button:hover {
           justify-content: flex-end;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .gifBox .box .box_li_btn_down, .mainPage .gifCtn .gifBox .box .box_li_btn_max {
   margin-top: 10px;
   margin-right: 10px;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn button {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart button, .mainPage .gifCtn .gifBox .box .box_li_btn_down button, .mainPage .gifCtn .gifBox .box .box_li_btn_max button {
   border: none;
   opacity: 0.7;
   background: #FFFFFF;
@@ -282,7 +282,7 @@ header .nav nav .btn button:hover {
   height: 32px;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn button:hover {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_down button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_max button:hover {
   opacity: 1;
 }
 
@@ -291,11 +291,11 @@ header .nav nav .btn button:hover {
   visibility: hidden;
   margin-left: 13px;
   margin-bottom: 20px;
+  color: #FFFFFF;
 }
 
 .mainPage .gifCtn .gifBox .box .box_autor .p {
   font-size: 15px;
-  color: #FFFFFF;
   margin-bottom: 3px;
 }
 
