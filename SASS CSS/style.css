@@ -250,8 +250,7 @@ header .nav nav .btn button:hover {
 .mainPage .gifCtn .gifBox {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
   margin: 0px 8.2rem;
 }
@@ -286,12 +285,12 @@ header .nav nav .btn button:hover {
           justify-content: flex-end;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .gifBox .box .box_li_btn_down, .mainPage .gifCtn .gifBox .box .box_li_btn_max {
   margin-top: 0.6rem;
   margin-right: 0.6rem;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn button {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart button, .mainPage .gifCtn .gifBox .box .box_li_btn_down button, .mainPage .gifCtn .gifBox .box .box_li_btn_max button {
   border: none;
   opacity: 0.7;
   background: #FFFFFF;
@@ -300,7 +299,7 @@ header .nav nav .btn button:hover {
   height: 2rem;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn button:hover {
+.mainPage .gifCtn .gifBox .box .box_li_btn_heart button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_down button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_max button:hover {
   opacity: 1;
 }
 
@@ -309,11 +308,11 @@ header .nav nav .btn button:hover {
   visibility: hidden;
   margin-left: 1rem;
   margin-bottom: 1.2rem;
+  color: #FFFFFF;
 }
 
 .mainPage .gifCtn .gifBox .box .box_autor .p {
   font-size: 1rem;
-  color: #FFFFFF;
   margin-bottom: 0.2rem;
 }
 
@@ -493,6 +492,89 @@ header .nav nav .btn button:hover {
   background: #572EE5;
   opacity: 0.7;
   z-index: 1;
+}
+
+.ctnModal {
+  z-index: 1;
+  position: fixed;
+  /* Stay in place */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: var(--backBtnWhite);
+}
+
+.ctnModal .contentModal {
+  position: relative;
+  background-color: var(--backBtnWhite);
+  margin: auto;
+  padding: 20px;
+  width: 50%;
+}
+
+.ctnModal .contentModal span {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+}
+
+.ctnModal .contentModal span button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--backBtnWhite);
+  color: var(--colorLetra);
+}
+
+.ctnModal .contentModal span button i {
+  font-size: 16px;
+}
+
+.ctnModal .contentModal .imgGif {
+  width: 600px;
+  height: 300px;
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+}
+
+.ctnModal .contentModal .refAutorBtn {
+  width: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: auto;
+}
+
+.ctnModal .contentModal .refAutorBtn .autor {
+  margin-top: 30px;
+}
+
+.ctnModal .contentModal .refAutorBtn .btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 22px;
+  margin-right: 10px;
+}
+
+.ctnModal .contentModal .refAutorBtn .btn button {
+  opacity: 0.7;
+  background: var(--backBtnWhite);
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
 }
 
 footer {
