@@ -43,7 +43,7 @@ header .search {
   display: -ms-flexbox;
   display: flex;
   color: #9CAFC3;
-  margin-top: 22px;
+  margin-top: 1.4rem;
 }
 
 header .search input {
@@ -81,7 +81,6 @@ header .nav nav {
 }
 
 header .nav nav ul {
-  cursor: pointer;
   width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -98,6 +97,10 @@ header .nav nav ul li {
 
 header .nav nav ul li input {
   display: none;
+}
+
+header .nav nav ul li label {
+  cursor: pointer;
 }
 
 header .nav nav .btn {
@@ -213,24 +216,6 @@ header .nav nav .btn button:hover {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: var(--colorLetra);
-  /*         .btn{
-            margin-top: 4.5rem;
-            margin-bottom: 1.8rem;
-            display: flex;
-            justify-content: center;
-            button{
-                color: #572EE5;
-                font-weight: bold;
-                width: 6.8rem;
-                height: 2.8rem;
-                border-radius: 1.5rem;
-                border: 1px solid #572EE5;
-                &:hover{
-                    color: white;
-                    background-color: #572ee5;
-                }
-            }
-        } */
 }
 
 .mainPage .gifCtn hr {
@@ -250,7 +235,8 @@ header .nav nav .btn button:hover {
 .mainPage .gifCtn .gifBox {
   display: -ms-grid;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
   margin: 0px 8.2rem;
 }
@@ -338,6 +324,54 @@ header .nav nav .btn button:hover {
   background: #572EE5;
   opacity: 0.7;
   z-index: 1;
+}
+
+.mainPage .gifCtn .btn-moreGif {
+  margin-top: 4.5rem;
+  margin-bottom: 1.8rem;
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mainPage .gifCtn .btn-moreGif button {
+  cursor: pointer;
+  color: #572EE5;
+  font-weight: bold;
+  width: 6.8rem;
+  height: 2.8rem;
+  border-radius: 1.5rem;
+  border: 1px solid #572EE5;
+}
+
+.mainPage .gifCtn .btn-moreGif button:hover {
+  color: white;
+  background-color: #572ee5;
+}
+
+.favoritePage {
+  width: 100%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.misGifPage {
+  width: 100%;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .trendingBox {
