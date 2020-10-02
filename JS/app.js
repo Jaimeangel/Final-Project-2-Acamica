@@ -2,6 +2,9 @@
 const conf_k_on = "wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
 
 //Variables
+let numberGifInit = 8
+let offSetVariable = 0
+
 let searchValue = document.querySelector(".search_bar")
 let valueSearch = document.querySelector(".search_input")
 let ctnGyphy = document.querySelector(".gifBox")
@@ -9,12 +12,19 @@ let ctnMain = document.querySelector(".gifCtn")
 let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
 let gifBox = document.querySelector("box")
+let btnMoreGif = document.getElementById("moreGifBtn")
+let mainPage = document.querySelector(".mainPage")
+let favoritePage = document.querySelector(".favoritePage")
+let misGifPage = document.querySelector(".misGifPage")
 //Carousel Variables
 let rowCarousel = document.querySelector(".carousel")
 let ctnCarousel = document.querySelector(".ctn-slide")
 let leftarrow = document.getElementById("left-arrow")
 let rightarrow = document.getElementById("right-arrow")
+
 let darkModeEvent = document.getElementById("darkMode")
+let favoriteTabMode = document.getElementById("favoriteTab")
+let misGifTabMode = document.getElementById("misGifTab")
 let btnDark = document.getElementById("darkMode")
 
 //Eventos
@@ -27,7 +37,23 @@ leftarrow.addEventListener ('click', () => {
     rowCarousel.scrollLeft -= rowCarousel.offsetWidth;
     
   });
+btnMoreGif.addEventListener("click",getMoreGif)
 btnDark.addEventListener("click",darkStyles)
+
+
+favoriteTabMode.addEventListener("click",(e)=>{
+    e.preventDefault() 
+    const item = e.target.parentNode.childNodes[1].id
+    /* console.log(item) */
+    selectTab(item)
+})
+
+misGifTabMode.addEventListener("click",(e)=>{
+    e.preventDefault() 
+    const item = e.target.parentNode.childNodes[1].id
+    /* console.log(item) */
+    selectTab(item)
+}) 
 
 
 //Funciones
@@ -38,17 +64,33 @@ function getSearch(e){
     if(item.classList[0] === "search_img"){
         let valueBusqueda = valueSearch.value
 
+        //Replace Search Result 
         let parentTitle = changeTitle.childNodes[1]
-        newTitle = document.createElement("h2")
+        let newTitle = document.createElement("h2")
         newTitle.innerText = `${valueBusqueda}`
         changeTitle.replaceChild(newTitle,parentTitle)
 
+        //Block display "Ver más" button
+        btnMoreGif.style.display="flex"
+
+        getGyphy(valueBusqueda)
+        console.log(offSetVariable)
+    }
+}
+function getMoreGif(e){
+    e.preventDefault()
+    const item = e.target
+    if(item.classList[0] === "btnGifVermas"){
+        let valueBusqueda = valueSearch.value
+
+        offSetVariable = offSetVariable + numberGifInit
         getGyphy(valueBusqueda)
     }
 }
 
+
 async function getGyphy(valueBusqueda){
-    let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=4`
+    let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
 
     const response = await fetch(url)
     const responseJSON = await response.json()
@@ -243,6 +285,28 @@ function darkStyles(){
     }
 }
 
+function selectTab(item){
+    if(item === "favoriteTab"){
+        favoriteChangeTab()
+    }else if(item === "misGifTab"){
+        misGifChangeTab()
+    }
+}
+
+function favoriteChangeTab(){
+    if(favoriteTabMode.checked){
+        mainPage.style.display="none"
+        misGifPage.style.display="none"
+        favoritePage.style.display="flex"
+    }
+} 
+function misGifChangeTab(){
+    if(misGifTabMode.checked){
+        mainPage.style.display="none"
+        favoritePage.style.display="none"
+        misGifPage.style.display="flex"
+    }
+} 
 
 function buildingModal(imgGifUrl,userGif,nameGif,idGif){
     //Creando modal 

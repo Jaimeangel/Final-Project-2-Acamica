@@ -28,8 +28,14 @@
                             <input type="checkbox" id="darkMode" name="dark">
                             <label for="darkMode">MODO NOCTURNO</label>
                         </li>
-                        <li>FAVORITOS</li>
-                        <li>MIS GIFOS</li>
+                        <li>
+                            <input type="checkbox" id="favoriteTab" name="favorite">
+                            <label for="favoriteTab">FAVORITOS</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="misGifTab" name="misGif">
+                            <label for="misGifTab">MIS GIFOS</label>
+                        </li>
                     </ul>
 
                     <div class="btn">
@@ -84,16 +90,48 @@
 
                 </div> 
                    
-               <!--  <div class="btn">
-                    <button>VER MÁS</button>
-                </div> -->
+               <div id="moreGifBtn" class="btn-moreGif">
+                    <button class="btnGifVermas">Ver Más</button>
+                </div>
     
             </section>
 
 
         </main>
 
+        <main class="favoritePage">
+            <article>
+                <div>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-favoritos.svg" alt="">
+                </div>
+                <div>
+                    <h1>Favoritos</h1>
+                </div>
 
+                <div class="gifBox">
+
+
+                </div>
+
+            </article>
+        </main>
+
+        <main class="misGifPage">
+            <article>
+                <div>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-mis-gifos.svg" alt="">
+                </div>
+                <div>
+                    <h1>Mis GIFOS</h1>
+                </div>
+
+                <div class="gifBox">
+
+
+                </div>
+
+            </article>
+        </main>
 
 
         <section class="trendingBox">
@@ -115,6 +153,7 @@
 
                             <div class="ctn-slide">
 
+                                
                             </div>
 
                         </div>
@@ -128,8 +167,6 @@
             </div>
 
         </section>
-
-
 
         <footer>
             <div class="shareIcon">
@@ -151,6 +188,7 @@
 
         <script src="https://kit.fontawesome.com/741bcac093.js" crossorigin="anonymous"></script>
         <script src="JS/app.js"></script>
+
     </body>
     
 </html>

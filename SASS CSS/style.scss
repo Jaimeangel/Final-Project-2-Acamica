@@ -30,7 +30,7 @@ header{
         visibility: hidden;
         display: flex;
         color: #9CAFC3;
-        margin-top: 22px;
+        margin-top: 1.4rem;
         input{
             width: 20.8rem;
             height: 3.2rem;
@@ -60,7 +60,6 @@ header{
             display: flex;
             justify-content: flex-end;
             ul{
-                cursor: pointer;
                 width: 80%;
                 display: flex;
                 margin-top: 2.5rem;
@@ -69,6 +68,9 @@ header{
                     list-style: none;
                     input{
                         display: none;
+                    }
+                    label{
+                        cursor: pointer;
                     } 
                 }
             }
@@ -259,12 +261,13 @@ header{
         }
 
     
-/*         .btn{
+        .btn-moreGif{
             margin-top: 4.5rem;
             margin-bottom: 1.8rem;
-            display: flex;
+            display: none;
             justify-content: center;
             button{
+                cursor: pointer;
                 color: #572EE5;
                 font-weight: bold;
                 width: 6.8rem;
@@ -276,11 +279,21 @@ header{
                     background-color: #572ee5;
                 }
             }
-        } */
+        } 
     }
 }
-
-
+.favoritePage{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+.misGifPage{
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .trendingBox{
