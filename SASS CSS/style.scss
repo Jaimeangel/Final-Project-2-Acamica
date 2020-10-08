@@ -312,8 +312,8 @@ header{
                     cursor: pointer;
                     color: var(--colorLetra);
                     background-color: var(--backTrending);
-                    font-size: 1.5rem;
                     border: 1px solid var(--borderInput);
+                    font-size: 1.5rem;
                     width: 2.5rem;
                     height: 2.5rem;
                     &:hover{
@@ -499,8 +499,7 @@ footer{
         float: right;
     }  
 }
-.dark-mode 
-{
+.dark-mode{
     --borderColor : #000000;
     --borderInput : #FFFFFF;   
     --colorLetra : #FFFFFF;
@@ -508,4 +507,106 @@ footer{
     --backBtnPurple : #FFFFFF;
     --BackBody : #37383C;
     --backTrending: #222326;
+}
+
+.createGif{
+    display: flex;
+    justify-content: center;
+    .gifCam{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--borderInput);
+        width: 40rem;
+        height: 21.3rem;
+        
+        .intro_text{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            &--font25{
+                color: var(--colorLetra);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+            &--font16{
+                font-size: 1rem;
+                line-height: 1.8rem;
+            } 
+        }
+
+        .letCam{
+            display: none;
+            flex-direction: column;
+            align-items: center;
+
+            &--font25{
+                color: var(--colorLetra);
+                font-size: 1.5rem;
+                line-height: 2.2rem;
+            }
+            &--font16{
+                font-size: 1rem;
+                line-height: 1.8rem;
+            }
+
+            #gum{
+                display: none;
+            }
+        }
+    }
+}
+
+.controlBtn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .btn{
+        button{
+            width: 2rem;
+            height: 2rem;
+            margin: 1rem;
+            border-radius: 50%;
+            outline: none;
+            color: var(--colorLetra);
+            background-color: var(--backTrending);
+            border: 1px solid var(--borderInput);
+            &:hover{
+                background-color: var(--backBtnPurple);
+                color: var(--backBtnWhite);
+            }
+        }
+    }
+
+    .hr--border7{
+        background-color: var(--borderInput);
+        width: 48rem;
+        height: 0.5rem;
+    }
+
+    .btnStart{
+        display: block;
+        button{
+            width: auto;
+            margin: 1rem;
+            border-radius: 30px;
+            font-size: 13px;
+            padding: 16px 24px;
+            outline: none;
+            color: var(--colorLetra);
+            background-color: var(--backTrending);
+            border: 1px solid var(--borderInput);
+            &:hover{
+                background-color: var(--backBtnPurple);
+                color: var(--backBtnWhite);
+            }
+        }
+    }
+}
+
+.hoverBtnCamAct{
+    background-color: var(--backBtnPurple);
+    color: var(--backBtnWhite);
 }

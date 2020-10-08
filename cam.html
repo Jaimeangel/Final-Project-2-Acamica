@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+
+
+    <head>
+        <title>GIFOS</title>
+        <link rel="stylesheet" href="SASS CSS/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        
+        <header>
+            <div class="img">
+                <img src="GIFOS-UI-Desktop+Mobile 6/assets/logo-desktop.svg" alt="">
+            </div>
+
+            <div class="search">
+                <input type="search" placeholder="          Busca GIFOS y mas">
+                <div class="search_img">
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
+                </div>
+            </div>
+
+            <section class="nav">
+                <nav>
+                    <ul>
+                        <li>
+                            <input type="checkbox" id="darkMode" name="dark">
+                            <label for="darkMode">MODO NOCTURNO</label>
+                        </li>
+                        <li>FAVORITOS</li>
+                        <li>MIS GIFOS</li>
+                    </ul>
+
+                    <div class="btn">
+                        <button><i class="fas fa-plus"></i></button>
+                    </div>
+                </nav>
+
+            </section>
+
+        </header>
+
+        <main>
+
+            <div class="createGif">
+
+                <div>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/camara.svg" alt="">
+                </div>
+
+                <section class="gifCam">
+
+                    <article id="introSlide" class="intro_text">
+
+                        <p class="intro_text--font25">Aquí podrás</p>
+                        <p class="intro_text--font25">crear tus propios GIFOS</p>
+                        <p class="intro_text--font16">¡Crea tu GIFO en sólo 3 pasos!</p>
+                        <p class="intro_text--font16">(sólo necesitas una cámara para grabar un video)</p>
+
+                    </article>
+                    
+                    <article id="camSlide" class="letCam">
+
+                        <video id="gum" playsinline autoplay muted></video>
+
+                        <p class="letCam--font25">¿Nós das acceso</p>
+                        <p class="letCam--font25">a tu cámara?</p>
+                        <p class="letCam--font16">El acceso a tu camara será válido sólo</p>
+                        <p class="letCam--font16">por el tiempo en el que estés creando el GIFO.</p>
+                        
+                    </article>
+
+
+
+                </section>
+                
+                <div>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/pelicula.svg" alt="">
+                </div>
+
+            </div>
+
+
+            <section class="controlBtn">
+
+                <div class="btn">
+                    <button id="btn_1">1</button>
+                    <button id="btn_2">2</button>
+                    <button id="btn_3">3</button>
+                </div>
+
+                <hr class="hr--border7">
+
+                <div class="btnStart" id="btnCam">
+                    <button>COMENZAR</button>
+                </div>
+
+            </section>
+            
+        </main>
+
+
+        <footer>
+            <div class="shareIcon">
+                <p>Compartir en:</p>
+                <a>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_facebook.svg" alt="">
+                </a>
+                <a>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-twitter.svg" alt="">
+                </a>
+                <a>
+                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_instagram.svg" alt="">
+                </a>
+            </div>
+            <div class="autoRigths">
+                <p> © GIFOS 2020 All Rights Reserved.</p>
+            </div>
+        </footer>
+
+
+
+        <script src="https://kit.fontawesome.com/741bcac093.js" crossorigin="anonymous"></script>
+        <script src="JS/temas.js"></script>
+        <script src="JS/cam.js"></script>
+    </body>
+</html>
