@@ -100,14 +100,14 @@ async function getGyphy(valueBusqueda){
             divCtn.appendChild(divBtn)
             
             //Event Handler Modal
-/*             divMax.addEventListener("click", ()=>{
+            divMax.addEventListener("click", ()=>{
                 imgGifUrl = img
                 userGif = user
                 nameGif = title
                 idGif = id
 
-                export default buildingModal(imgGifUrl,userGif,nameGif,idGif)
-            }) */ 
+                buildingModal(imgGifUrl,userGif,nameGif,idGif)
+            })  
 
             let divAutor = document.createElement("div")
             divAutor.classList.add("box_autor")

@@ -2,6 +2,7 @@ let btnCam = document.getElementById("btnCam")
 
 let introSlide = document.getElementById("introSlide")
 let camSlide = document.getElementById("camSlide")
+let camSlideText = document.getElementById("camSlideText")
 
 let videoGum = document.getElementById("gum")
 
@@ -11,17 +12,21 @@ let btnTwo = document.getElementById("btn_2")
 let mediaRecorder
 let recordedBlobs
 
-btnCam.addEventListener("click",onCam)  //{}
 
-
-
+btnCam.addEventListener("click",(e)=>{
+  e.preventDefault()
+  if(btnCam.innerText===`COMENZAR`){
+    onCam()
+  }else if(btnCam.innerText===`GRABAR`){
+    recordCam()
+  }else if(btnCam.innerText===`FINALIZAR`){
+    stopCam()
+  }}) 
 
 
 function onCam(){
 
   console.log("Camera Access")
-  let tryBtn = btnCam.childNodes[1]
-  console.log(tryBtn)
 
   let btnStyles = function changedStyles(){
     //btn style
@@ -45,8 +50,6 @@ function onCam(){
 }
 
 
-
-
 async function init(constraints){
   try{
     const stream = await navigator.mediaDevices.getUserMedia(constraints);
@@ -57,27 +60,27 @@ async function init(constraints){
 }
 
 
-
-
-
 function handleSuccess(stream) {
-  videoGum.style.display="flex"
-
+  
   let btnStyles = function changedStyles(){
+    
     //Style btn
     btnOne.classList.remove("hoverBtnCamAct")
     btnTwo.classList.add("hoverBtnCamAct")
-
+    
+    camSlideText.style.display="none"
+    videoGum.style.display="flex"
     btnCam.style.display="block" 
-    camSlide.style.display="none"
 
     //Changed text btn
-    let buttonCam = btnCam.childNodes[1]
-    let buttonChangedCam = document.createElement("button")
-    buttonChangedCam.innerText = `GRABAR`
-    btnCam.replaceChild(buttonChangedCam,buttonCam)
+    let btnOldCam = btnCam.childNodes[1]
+    console.log(btnOldCam)
+    let btnNewCam = document.createElement("button")
+    let btnNewCamText = document.createElement("p")
+    btnNewCamText.innerText = `GRABAR`
 
-    buttonChangedCam.addEventListener("click",recordCam)
+    btnNewCam.appendChild(btnNewCamText)
+    btnCam.replaceChild(btnNewCam,btnOldCam)  
   }
   btnStyles()
 
@@ -90,11 +93,64 @@ function handleSuccess(stream) {
 
 
 function recordCam(e){
-  if(buttonChangedCam.innerText ===`GRABAR`){
-    startRecording()
-    buttonChangedCam.innerText ===`FINALIZAR`
-  }else{
-    stopRecording();
-    buttonChangedCam.innerText ===`SUBIR GIFO`
+  startRecording()
+
+  let btnOldCam = btnCam.childNodes[1]
+  console.log(btnOldCam)
+  let btnNewCam = document.createElement("button")
+  let btnNewCamText = document.createElement("p")
+  btnNewCamText.innerText = `FINALIZAR`
+
+  btnNewCam.appendChild(btnNewCamText)
+  btnCam.replaceChild(btnNewCam,btnOldCam)  
+
+  console.log("Empieza grabando")
+}
+
+function stopCam(e){
+  stopRecording();
+
+  let btnOldCam = btnCam.childNodes[1]
+  console.log(btnOldCam)
+
+  
+  let btnNewCam = document.createElement("button")
+  let btnNewCamText = document.createElement("p")
+  btnNewCamText.innerText = `SUBIR GIFO`
+
+  btnNewCam.appendChild(btnNewCamText)
+  btnCam.replaceChild(btnNewCam,btnOldCam)
+
+  console.log("para de grabar")
+}
+
+
+
+
+function startRecording() {
+  recordedBlobs = []
+  let options = {mimeType: 'video/webm;codecs=vp9,opus'}
+
+  try {
+    mediaRecorder = new MediaRecorder(window.stream, options)
+  } catch (e) {
+    console.error('Exception while creating MediaRecorder:', e)
+    errorMsgElement.innerHTML = `Exception while creating MediaRecorder: ${JSON.stringify(e)}`
+    return;
+  }
+
+  mediaRecorder.ondataavailable = handleDataAvailable
+  mediaRecorder.start()
+}
+
+
+function stopRecording() {
+  mediaRecorder.stop();
+}
+
+function handleDataAvailable(event) {
+  console.log('handleDataAvailable', event)
+  if (event.data && event.data.size > 0) {
+    recordedBlobs.push(event.data)
   }
 }

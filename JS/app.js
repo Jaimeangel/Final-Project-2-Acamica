@@ -40,12 +40,9 @@ function getSearch(e){
         let valueBusqueda = valueSearch.value
 
         let parentTitle = changeTitle.childNodes[1]
-        console.log(parentTitle)
-
-        
         newTitle = document.createElement("h2")
         newTitle.innerText = `${valueBusqueda}`
-        changeTitle.replaceChild(newTitle,parentTitle)
+        changeTitle.replaceChild(newTitle,parentTitle) 
 
         getGyphy(valueBusqueda)
     }

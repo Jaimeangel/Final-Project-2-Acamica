@@ -679,13 +679,15 @@ footer .autoRigths {
           align-items: center;
 }
 
-.createGif .gifCam .letCam--font25 {
+.createGif .gifCam .letCam #camSlideText .font25 {
+  text-align: center;
   color: var(--colorLetra);
   font-size: 1.5rem;
   line-height: 2.2rem;
 }
 
-.createGif .gifCam .letCam--font16 {
+.createGif .gifCam .letCam #camSlideText .font16 {
+  text-align: center;
   font-size: 1rem;
   line-height: 1.8rem;
 }
