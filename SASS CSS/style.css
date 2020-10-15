@@ -417,8 +417,8 @@ header .nav nav .btn button:hover {
   cursor: pointer;
   color: var(--colorLetra);
   background-color: var(--backTrending);
-  font-size: 1.5rem;
   border: 1px solid var(--borderInput);
+  font-size: 1.5rem;
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -651,5 +651,146 @@ footer .autoRigths {
   --backBtnPurple: #FFFFFF;
   --BackBody: #37383C;
   --backTrending: #222326;
+}
+
+.createGif {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.createGif .gifCam {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 1px solid var(--borderInput);
+  width: 40rem;
+  height: 21.3rem;
+}
+
+.createGif .gifCam .intro_text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createGif .gifCam .intro_text--font25 {
+  color: var(--colorLetra);
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+
+.createGif .gifCam .intro_text--font16 {
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+.createGif .gifCam .letCam {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.createGif .gifCam .letCam #camSlideText .font25 {
+  text-align: center;
+  color: var(--colorLetra);
+  font-size: 1.5rem;
+  line-height: 2.2rem;
+}
+
+.createGif .gifCam .letCam #camSlideText .font16 {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.8rem;
+}
+
+.createGif .gifCam .letCam #gum {
+  display: none;
+}
+
+.createGif .gifCam .recoVideo {
+  display: none;
+}
+
+.controlBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.controlBtn .btn button {
+  width: 2rem;
+  height: 2rem;
+  margin: 1rem;
+  border-radius: 50%;
+  outline: none;
+  color: var(--colorLetra);
+  background-color: var(--backTrending);
+  border: 1px solid var(--borderInput);
+}
+
+.controlBtn .btn button:hover {
+  background-color: var(--backBtnPurple);
+  color: var(--backBtnWhite);
+}
+
+.controlBtn .hr--border7 {
+  background-color: var(--borderInput);
+  width: 48rem;
+  height: 0.5rem;
+}
+
+.controlBtn .btnStart {
+  display: block;
+}
+
+.controlBtn .btnStart button {
+  width: auto;
+  margin: 1rem;
+  border-radius: 30px;
+  font-size: 13px;
+  padding: 16px 24px;
+  outline: none;
+  color: var(--colorLetra);
+  background-color: var(--backTrending);
+  border: 1px solid var(--borderInput);
+}
+
+.controlBtn .btnStart button:hover {
+  background-color: var(--backBtnPurple);
+  color: var(--backBtnWhite);
+}
+
+.hoverBtnCamAct {
+  background-color: var(--backBtnPurple);
+  color: var(--backBtnWhite);
 }
 /*# sourceMappingURL=style.css.map */
