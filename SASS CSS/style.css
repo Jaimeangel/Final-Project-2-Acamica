@@ -362,6 +362,112 @@ header .nav nav .btn button:hover {
           align-items: center;
 }
 
+.favoritePage .img {
+  text-align: center;
+}
+
+.favoritePage .title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: var(--colorLetra);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.favoritePage .gifBox {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.8rem;
+  margin: 0px 8.2rem;
+}
+
+.favoritePage .gifBox .box {
+  background-image: url();
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 14.5rem;
+  height: 12.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.favoritePage .gifBox .box .box_li {
+  z-index: 2;
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.favoritePage .gifBox .box .box_li_btn_heart, .favoritePage .gifBox .box .box_li_btn_down, .favoritePage .gifBox .box .box_li_btn_max {
+  margin-top: 0.6rem;
+  margin-right: 0.6rem;
+}
+
+.favoritePage .gifBox .box .box_li_btn_heart button, .favoritePage .gifBox .box .box_li_btn_down button, .favoritePage .gifBox .box .box_li_btn_max button {
+  border: none;
+  opacity: 0.7;
+  background: #FFFFFF;
+  border-radius: 0.4rem;
+  width: 2rem;
+  height: 2rem;
+}
+
+.favoritePage .gifBox .box .box_li_btn_heart button:hover, .favoritePage .gifBox .box .box_li_btn_down button:hover, .favoritePage .gifBox .box .box_li_btn_max button:hover {
+  opacity: 1;
+}
+
+.favoritePage .gifBox .box .box_autor {
+  z-index: 2;
+  visibility: hidden;
+  margin-left: 1rem;
+  margin-bottom: 1.2rem;
+  color: #FFFFFF;
+}
+
+.favoritePage .gifBox .box .box_autor .p {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.favoritePage .gifBox .box {
+  position: relative;
+}
+
+.favoritePage .gifBox .box:hover .box_autor {
+  visibility: visible;
+}
+
+.favoritePage .gifBox .box:hover .box_li {
+  visibility: visible;
+}
+
+.favoritePage .gifBox .box:hover::before {
+  content: "";
+  width: 14.5rem;
+  height: 12.5rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #572EE5;
+  opacity: 0.7;
+  z-index: 1;
+}
+
 .misGifPage {
   width: 100%;
   display: none;

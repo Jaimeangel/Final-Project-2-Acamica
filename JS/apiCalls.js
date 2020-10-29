@@ -4,7 +4,7 @@ const conf_k_on = "wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
 /* Search Gif Main Page */
 
 //Api varibales
-let numberGifInit = 8
+let numberGifInit = 12
 let offSetVariable = 0
 
 //Main Ctn Gif
@@ -92,6 +92,17 @@ async function getGyphy(valueBusqueda){
             btnHeart.appendChild(imgBtnHeart)
             divHeart.appendChild(btnHeart)
             divBtn.appendChild(divHeart)
+
+            //Event Handler Modal
+            divHeart.addEventListener("click", ()=>{
+
+                    imgGifUrl = img
+                    userGif = user
+                    nameGif = title
+                    idGif = id
+       
+                    getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
+            }) 
 
             let divDown= document.createElement("div")
             divDown.classList.add("box_li_btn_down")

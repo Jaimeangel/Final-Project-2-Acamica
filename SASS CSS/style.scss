@@ -287,6 +287,95 @@ header{
     display: none;
     flex-direction: column;
     align-items: center;
+
+    .img{
+        text-align: center;
+    }    
+    .title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: var(--colorLetra);
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .gifBox{
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-gap: 1.8rem;
+        margin: 0px 8.2rem;
+
+        .box{
+            background-image:url();
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position:center;
+            width: 14.5rem;
+            height: 12.5rem;
+            display:flex;
+            flex-direction:column;
+            justify-content: space-between;
+            
+            .box_li{
+                z-index: 2;
+                visibility: hidden; 
+                display:flex;
+                justify-content:flex-end;
+                &_btn{
+                    &_heart,&_down,&_max{
+                        margin-top: 0.6rem;
+                        margin-right:0.6rem;
+                        button{
+                            border: none;
+                            opacity: 0.7;
+                            background: #FFFFFF; 
+                            border-radius: 0.4rem;
+                            width: 2rem;
+                            height: 2rem;
+                            &:hover{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            } 
+            
+            .box_autor{
+                z-index: 2;
+                visibility: hidden; 
+                margin-left: 1rem;
+                margin-bottom: 1.2rem;
+                color: #FFFFFF;
+                .p{
+                    font-size: 1rem;
+                    margin-bottom: 0.2rem;
+                }
+            }                
+        }
+        //Agregamos efecto :hover
+        .box{
+            position: relative;
+            &:hover{
+                .box_autor{
+                    visibility: visible;
+                }
+                .box_li{
+                    visibility: visible;
+                }
+                &::before{
+                    content:"";
+                    width: 14.5rem;
+                    height: 12.5rem;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    background: #572EE5;
+                    opacity:0.7;
+                    z-index: 1;
+                }                                          
+            }
+        } 
+    }
 }
 .misGifPage{
     width: 100%;
