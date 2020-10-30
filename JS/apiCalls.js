@@ -20,7 +20,7 @@ let gifBox = document.querySelector("box")
 let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
 
-//Event 
+//Event
 searchValue.addEventListener("click",getSearch)
 btnMoreGif.addEventListener("click",getMoreGif)
 

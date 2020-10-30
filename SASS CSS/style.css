@@ -326,6 +326,16 @@ header .nav nav .btn button:hover {
   z-index: 1;
 }
 
+.mainPage .gifCtn .gifBox .show {
+  display: block;
+  -webkit-animation: show .5s ease;
+          animation: show .5s ease;
+}
+
+.mainPage .gifCtn .gifBox .hide {
+  display: none;
+}
+
 .mainPage .gifCtn .btn-moreGif {
   margin-top: 4.5rem;
   margin-bottom: 1.8rem;
@@ -717,6 +727,23 @@ header .nav nav .btn button:hover {
   height: 32px;
 }
 
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.pagination div {
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--borderColor);
+}
+
 footer {
   height: 3.5rem;
   margin-top: 3.2rem;
@@ -863,7 +890,7 @@ footer .autoRigths {
   border: 1px solid var(--borderInput);
 }
 
-.controlBtn .btn button:hover {
+.controlBtn .btn .hoverBtnCamAct {
   background-color: var(--backBtnPurple);
   color: var(--backBtnWhite);
 }
@@ -891,11 +918,6 @@ footer .autoRigths {
 }
 
 .controlBtn .btnStart button:hover {
-  background-color: var(--backBtnPurple);
-  color: var(--backBtnWhite);
-}
-
-.hoverBtnCamAct {
   background-color: var(--backBtnPurple);
   color: var(--backBtnWhite);
 }

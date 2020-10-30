@@ -233,7 +233,7 @@ header{
                         font-size: 1rem;
                         margin-bottom: 0.2rem;
                     }
-                }                
+                }  
             }
             //Agregamos efecto :hover
             .box{
@@ -257,10 +257,16 @@ header{
                         z-index: 1;
                     }                                          
                 }
+            }
+            .show{
+                display: block;
+	            animation: show .5s ease;
+            }
+            .hide{
+                display: none;
             } 
         }
 
-    
         .btn-moreGif{
             margin-top: 4.5rem;
             margin-bottom: 1.8rem;
@@ -290,7 +296,8 @@ header{
 
     .img{
         text-align: center;
-    }    
+    }
+
     .title{
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
@@ -574,6 +581,18 @@ header{
 }
 }
 
+.pagination{
+    display: flex;
+    justify-content: center;
+    div{
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 1rem;
+        padding: 1rem;
+        border: 1px solid var(--borderColor);
+    }
+}
+
 footer{
     height: 3.5rem;
     margin-top: 3.2rem;
@@ -671,13 +690,10 @@ footer{
 }
 
 
-
-
 .controlBtn{
     display: flex;
     flex-direction: column;
     align-items: center;
-
 
     .btn{
         button{
@@ -689,10 +705,10 @@ footer{
             color: var(--colorLetra);
             background-color: var(--backTrending);
             border: 1px solid var(--borderInput);
-            &:hover{
-                background-color: var(--backBtnPurple);
-                color: var(--backBtnWhite);
-            }
+        }
+        .hoverBtnCamAct{
+            background-color: var(--backBtnPurple);
+            color: var(--backBtnWhite);
         }
     }
 
@@ -720,9 +736,5 @@ footer{
             }
         }
     }
-}
 
-.hoverBtnCamAct{
-    background-color: var(--backBtnPurple);
-    color: var(--backBtnWhite);
 }
