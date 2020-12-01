@@ -258,13 +258,13 @@ header{
                     }                                          
                 }
             }
-            .show{
+/*             .show{
                 display: block;
 	            animation: show .5s ease;
             }
             .hide{
                 display: none;
-            } 
+            }  */
         }
 
         .btn-moreGif{
@@ -590,6 +590,11 @@ header{
         margin: 1rem;
         padding: 1rem;
         border: 1px solid var(--borderColor);
+    }
+    .disabled{
+        border-color: gray;
+        color:gray;
+        pointer-events: none;
     }
 }
 
