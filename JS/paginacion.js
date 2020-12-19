@@ -7,6 +7,16 @@ let index = 1
 
 const pagination = Math.ceil(galleryItems.length/maxItem)
 
+function contarGif(){
+	if(galleryItems.length > maxItem){
+		console.log(galleryItems.length)
+		console.log(galleryItems)
+		startBegin()
+	}else{
+		console.log('No hay suficientes Gifos')
+	}
+}
+
 prev.addEventListener("click",function(){
     index--
     check(); 
@@ -30,22 +40,8 @@ function check(){
     }else{
   	    prev.classList.remove("disabled");	
     }
-} 
-
-function verifierGifLength(){
-
-	let promesa =  new Promise(function(resolve,reject){
-		
-		for(let i=0;i<galleryItems.length;i++){
-
-			if(galleryItems.length > 12){
-				resolve()
-			}else{
-				reject(error)
-			}
-		} 
-	})
-}  
+}
+ 
 
 function showItems() {
   	for(let i=0;i<galleryItems.length; i++){
@@ -59,9 +55,9 @@ function showItems() {
             galleryItems[i].classList.add("show")
     	}
   	}
-}
+} 
 
-window.onload=function(){
+function startBegin(){
 	showItems()
   	check(); 
-}
+} 

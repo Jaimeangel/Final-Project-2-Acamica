@@ -160,6 +160,7 @@ async function getGyphy(valueBusqueda){
     }catch{
         console.log("Este Gyphy no se encuentra")
     }
+    contarGif()
 }
 
 

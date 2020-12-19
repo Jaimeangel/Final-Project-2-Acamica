@@ -239,16 +239,10 @@ header .nav nav .btn button:hover {
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
   margin: 0px 8.2rem;
-  /*             .show{
-                display: block;
-	            animation: show .5s ease;
-            }
-            .hide{
-                display: none;
-            }  */
 }
 
 .mainPage .gifCtn .gifBox .box {
+  position: relative;
   background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
@@ -310,7 +304,7 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn .gifBox .box {
-  position: relative;
+  /* position: relative; */
 }
 
 .mainPage .gifCtn .gifBox .box:hover .box_autor {
@@ -331,6 +325,16 @@ header .nav nav .btn button:hover {
   background: #572EE5;
   opacity: 0.7;
   z-index: 1;
+}
+
+.mainPage .gifCtn .gifBox .show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainPage .gifCtn .gifBox .hide {
+  display: none;
 }
 
 .mainPage .gifCtn .btn-moreGif {
@@ -846,6 +850,31 @@ footer .autoRigths {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  /*       .boxCam{
+                &::before{
+                    content:"";
+                    width: 14.5rem;
+                    height: 12.5rem; 
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    background: #572EE5;
+                    opacity:0.7;
+                    z-index: 1;
+                }                                       
+            }  */
+}
+
+.createGif .gifCam .letCam::before {
+  content: "";
+  width: 232px;
+  height: 200px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background: #572EE5;
+  opacity: 0.7;
+  z-index: 1;
 }
 
 .createGif .gifCam .letCam #camSlideText .font25 {
@@ -863,6 +892,7 @@ footer .autoRigths {
 
 .createGif .gifCam .letCam #gum {
   display: none;
+  z-index: -1;
 }
 
 .createGif .gifCam .recoVideo {
