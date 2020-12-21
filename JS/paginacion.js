@@ -1,5 +1,6 @@
 
 const galleryItems = document.querySelector(".gifBox").children
+const paginationInsert = document.querySelector(".pagination")
 const prev = document.querySelector(".prev")
 const next = document.querySelector(".next")
 const maxItem = 12
@@ -13,7 +14,7 @@ function contarGif(){
 		console.log(galleryItems)
 		startBegin()
 	}else{
-		console.log('No hay suficientes Gifos')
+		console.log('12 Gif')
 	}
 }
 
@@ -29,7 +30,7 @@ next.addEventListener("click",function(){
 })
 
 function check(){
-    if(index==pagination){
+    if(index==paginationInsert){
 	    next.classList.add("disabled");
     }else{
   	    next.classList.remove("disabled");	
@@ -42,7 +43,6 @@ function check(){
     }
 }
  
-
 function showItems() {
   	for(let i=0;i<galleryItems.length; i++){
   	 	galleryItems[i].classList.remove("show")

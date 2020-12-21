@@ -24,6 +24,7 @@ let hrElement = document.getElementById("hr")
 searchValue.addEventListener("click",getSearch)
 btnMoreGif.addEventListener("click",getMoreGif)
 
+let contador=1
 //Value Search Input
 function getSearch(e){
     e.preventDefault()
@@ -39,6 +40,10 @@ function getSearch(e){
 
         btnMoreGif.style.display="flex"
         getGyphy(valueBusqueda)
+
+        paginationNumber()
+        console.log(contador)
+        contador++
     }
 }
 
@@ -265,3 +270,18 @@ async function getTrending(){
 
 getTrending()
 
+function paginationNumber(){
+    console.log("Funcion contador andando")
+	if(contador){
+			let btn = document.createElement("div")
+			let btnNumber = document.createElement("button")
+			btnNumber.textContent=`${contador}`
+			btn.appendChild(btnNumber)
+
+            let insertNumberPagination = paginationInsert.insertBefore(btn,next)
+
+            console.log("haciendo numeracion")
+	}else{
+        console.log("no ahora no se puede")
+    }
+}
