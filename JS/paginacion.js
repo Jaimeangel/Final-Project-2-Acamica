@@ -1,42 +1,39 @@
-
 const galleryItems = document.querySelector(".gifBox").children
 const paginationInsert = document.querySelector(".pagination")
+const ctnNumberPagination = document.querySelector(".numberPaginationDiv")
 const prev = document.querySelector(".prev")
 const next = document.querySelector(".next")
 const maxItem = 12
+const maxBtn = 5
 let index = 1
-
-const pagination = Math.ceil(galleryItems.length/maxItem)
+let contBtn = 1
 
 function contarGif(){
 	if(galleryItems.length > maxItem){
 		console.log(galleryItems.length)
-		console.log(galleryItems)
 		startBegin()
 	}else{
-		console.log('12 Gif')
+		console.log('No hay suficientes Gif')
 	}
 }
 
 prev.addEventListener("click",function(){
-    index--
-    check(); 
-    showItems()
+	contBtn--
+	showNumberPagination()
 })
 next.addEventListener("click",function(){
-  	index++
-  	check(); 
-    showItems() 
+	contBtn++
+	showNumberPagination()
 })
 
 function check(){
-    if(index==paginationInsert){
+    if(index == ctnNumberPagination.lastChild.textContent){
 	    next.classList.add("disabled");
-    }else{
+	}else{
   	    next.classList.remove("disabled");	
     }
 
-    if(index==1){
+    if(index == ctnNumberPagination.firstChild.textContent){
   	    prev.classList.add("disabled");
     }else{
   	    prev.classList.remove("disabled");	
@@ -57,7 +54,20 @@ function showItems() {
   	}
 } 
 
+function showNumberPagination(){
+	for(let i=0; i<ctnNumberPagination.children.length ;i++){
+		ctnNumberPagination.children[i].classList.remove("show")
+		ctnNumberPagination.children[i].classList.add("hide")
+
+		if(i>=(contBtn*maxBtn)-maxBtn && i<contBtn*maxBtn){
+			ctnNumberPagination.children[i].classList.remove("hide")
+			ctnNumberPagination.children[i].classList.add("show")
+		}
+	}
+}
+
 function startBegin(){
 	showItems()
-  	check(); 
+	showNumberPagination()
+	check()
 } 

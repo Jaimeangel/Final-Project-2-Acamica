@@ -12,6 +12,15 @@
     --BackBody : white;
     --backTrending: #F3F5F8;
   }
+.dark-mode{
+    --borderColor : #000000;
+    --borderInput : #FFFFFF;   
+    --colorLetra : #FFFFFF;
+    --backBtnWhite : #222326;
+    --backBtnPurple : #FFFFFF;
+    --BackBody : #37383C;
+    --backTrending: #222326;
+}
 body{
     background-color: var(--BackBody);
 }
@@ -274,15 +283,15 @@ header{
             justify-content: center;
             button{
                 cursor: pointer;
-                color: #572EE5;
+                color: var(--borderInput);
                 font-weight: bold;
                 width: 6.8rem;
                 height: 2.8rem;
                 border-radius: 1.5rem;
-                border: 1px solid #572EE5;
+                border: 1px solid var(--borderInput);
                 &:hover{
-                    color: white;
-                    background-color: #572ee5;
+                    color: var(--backBtnWhite);
+                    background-color: var(--backBtnPurple);
                 }
             }
         } 
@@ -584,18 +593,46 @@ header{
 .pagination{
     display: flex;
     justify-content: center;
-    div{
-        border-radius: 50%;
+    align-items: center; 
+    .prev{
+        display: none;
         cursor: pointer;
         margin: 1rem;
         padding: 1rem;
-        border: 1px solid var(--borderColor);
+        i{
+            font-size: 28px;
+        }
+    }
+    .next{
+        display: none;
+        cursor: pointer;
+        margin: 1rem;
+        padding: 1rem;
+        i{
+            font-size: 28px;
+        }
+    }
+    .numberPaginationDiv{
+        display: flex;
+    }
+    .btnNumberPagination{
+        border-radius: 50%;
+        border:1px solid var(--borderInput);
+        color: var(--colorLetra);
+        padding: 0.375rem 0.6875rem;
+        margin: 0.9375rem;
     }
     .disabled{
         border-color: gray;
         color:gray;
         pointer-events: none;
     }
+    .show{
+        display:flex;
+    }
+    .hide{
+        display: none;
+    }  
 }
 
 footer{
@@ -625,16 +662,6 @@ footer{
         float: right;
     }  
 }
-.dark-mode{
-    --borderColor : #000000;
-    --borderInput : #FFFFFF;   
-    --colorLetra : #FFFFFF;
-    --backBtnWhite : #222326;
-    --backBtnPurple : #FFFFFF;
-    --BackBody : #37383C;
-    --backTrending: #222326;
-}
-
 .createGif{
     display: flex;
     justify-content: center;
