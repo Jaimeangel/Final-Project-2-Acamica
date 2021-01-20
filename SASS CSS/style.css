@@ -883,6 +883,7 @@ footer .autoRigths {
 }
 
 .createGif .gifCam .letCam {
+  position: relative;
   display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -891,31 +892,6 @@ footer .autoRigths {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  /*       .boxCam{
-                &::before{
-                    content:"";
-                    width: 14.5rem;
-                    height: 12.5rem; 
-                    position: absolute;
-                    top:0;
-                    left:0;
-                    background: #572EE5;
-                    opacity:0.7;
-                    z-index: 1;
-                }                                       
-            }  */
-}
-
-.createGif .gifCam .letCam::before {
-  content: "";
-  width: 232px;
-  height: 200px;
-  position: relative;
-  top: 0;
-  left: 0;
-  background: #572EE5;
-  opacity: 0.7;
-  z-index: 1;
 }
 
 .createGif .gifCam .letCam #camSlideText .font25 {
@@ -936,7 +912,35 @@ footer .autoRigths {
   z-index: -1;
 }
 
-.createGif .gifCam .recoVideo {
+.createGif .gifCam .letCam .overVideoGum {
+  position: absolute;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 23.125rem;
+  height: 18.125rem;
+  top: 0;
+  left: 0;
+  background: #572EE5;
+  opacity: 0.7;
+  z-index: 1;
+}
+
+.createGif .gifCam .letCam .overVideoGum #textContVideoGum {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+.createGif .gifCam .recordCam #recordCamSlide {
   display: none;
 }
 

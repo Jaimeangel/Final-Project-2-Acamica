@@ -6,6 +6,10 @@ let btnCam = document.getElementById("btnCam")
 let introSlide = document.getElementById("introSlide")
 let camSlide = document.getElementById("camSlide")
 let camSlideText = document.getElementById("camSlideText")
+let overVideoDiv = document.getElementById("overVideo")
+let overVideoImg = document.getElementById("imgVideoGum")
+let overVideotext = document.getElementById("textContVideoGum")
+let recordCamVideo = document.getElementById("recordCamSlide")
 
 let videoGum = document.getElementById("gum")
 
@@ -27,6 +31,7 @@ btnCam.addEventListener("click",(e)=>{
   }}) 
 
 
+
 function onCam(){
 
   console.log("Camera Access")
@@ -43,7 +48,8 @@ function onCam(){
   btnStyles()
 
  
-  function getStreamAndDisplay() {
+
+function getStreamAndDisplay() {
     navigator.mediaDevices
       .getUserMedia({
         audio: false,
@@ -94,6 +100,8 @@ function onCam(){
   getStreamAndDisplay()
 }
 
+
+
 function recordCam(){
   recorder.startRecording()
 
@@ -109,6 +117,8 @@ function recordCam(){
   }
   btnStyles()
 }
+
+
 
 function stopCam(){
 
@@ -133,26 +143,41 @@ function stopCam(){
   const form = new FormData();
   form.append("file", recorder.getBlob(), "myGif.gif");
 
-  btnCam.addEventListener("click", async (e)=>{
+  camSlide.style.display="none"
+  recordCamVideo.style.display="flex"
+  recordCamVideo.srcObject = recorder.getBlob()
+  recordCamVideo.initRecorder()
+  
+
+
+ /*  btnCam.addEventListener("click", (e)=>{
     e.preventDefault()
-    videoGum.classList.add("boxCam")
-    if(btnCam.innerText===`SUBIR GIFO`){
-      try{
+    if(btnCam.innerText ===`SUBIR GIFO`){
         let btnStyles = function changedStyles(){
-          btnCam.style.display="none" 
-          btnTwo.classList.remove("hoverBtnCamAct")
-          btnThree.classList.add("hoverBtnCamAct")
+        btnCam.style.display="none" 
+        btnTwo.classList.remove("hoverBtnCamAct")
+        btnThree.classList.add("hoverBtnCamAct")
+        overVideo.style.display="flex"
         }
         btnStyles()
-        await fetch(`${URL}?api_key=${conf_k_on}`, 
-        { method: "POST", body: form });
-        console.log("El Gif fue subido con exito")
-      }catch(error) {
-        console.log("algo salio mal: ", error);
-      } 
+        fetch(`${URL}?api_key=${conf_k_on}`, 
+        { method: "POST", body: form })
+        .then(function(res){
+          if(res.status === 200){
+            overVideoImg.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/check.svg")
+            overVideotext.innerText="GIFO subido con éxito"
+            console.log("El gif fue subido con exito")
+            return res.json()
+          }
+        })
+        .then(function(res){
+          console.log(res.data.id)
+        })
+        .catch((error) =>{
+          console.log("El gif no fue cargado",error)
+        })
     }
-  })
-  
+  }) */
   });  
 
 }
