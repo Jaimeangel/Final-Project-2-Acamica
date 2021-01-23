@@ -143,14 +143,7 @@ function stopCam(){
   const form = new FormData();
   form.append("file", recorder.getBlob(), "myGif.gif");
 
-  camSlide.style.display="none"
-  recordCamVideo.style.display="flex"
-  recordCamVideo.srcObject = recorder.getBlob()
-  recordCamVideo.initRecorder()
-  
-
-
- /*  btnCam.addEventListener("click", (e)=>{
+  btnCam.addEventListener("click", (e)=>{
     e.preventDefault()
     if(btnCam.innerText ===`SUBIR GIFO`){
         let btnStyles = function changedStyles(){
@@ -177,7 +170,7 @@ function stopCam(){
           console.log("El gif no fue cargado",error)
         })
     }
-  }) */
+  }) 
   });  
 
 }
