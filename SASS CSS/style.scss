@@ -748,6 +748,7 @@ footer{
 
 
 .controlBtn{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -766,6 +767,31 @@ footer{
         .hoverBtnCamAct{
             background-color: var(--backBtnPurple);
             color: var(--backBtnWhite);
+        }
+    }
+
+    .gadgets{
+        .chronometer{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color: var(--colorLetra);
+            position: absolute;
+            display: none;
+            right: 23.5rem;
+            bottom: 110px;
+        }
+        .repeatCapt{
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-decoration: underline;
+            text-decoration-color: #5ED7C6;
+            text-decoration-thickness: 3px;
+            color: var(--colorLetra);
+            position: absolute;
+            display: none;
+            right: 23.5rem;
+            bottom: 110px;
         }
     }
 

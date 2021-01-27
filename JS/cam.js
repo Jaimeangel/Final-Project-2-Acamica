@@ -13,11 +13,16 @@ let recordCamVideo = document.getElementById("recordCamSlide")
 
 let videoGum = document.getElementById("gum")
 
+
+let cronometreScreen = document.querySelector(".chronometer") 
+let textRepeat = document.querySelector(".repeatCapt")
+
 let btnOne = document.getElementById("btn_1")
 let btnTwo = document.getElementById("btn_2")
 let btnThree = document.getElementById("btn_3")
 
 let recorder
+let form
 
 
 btnCam.addEventListener("click",(e)=>{
@@ -28,6 +33,8 @@ btnCam.addEventListener("click",(e)=>{
     recordCam()
   }else if(btnCam.innerText===`FINALIZAR`){
     stopCam()
+  }else if(btnCam.innerText===`SUBIR GIFO`){
+    uploadGifMethod()
   }}) 
 
 
@@ -72,6 +79,7 @@ function getStreamAndDisplay() {
           camSlideText.style.display="none"
           videoGum.style.display="flex"
           btnCam.style.display="block" 
+          /* cronometreScreen.style.display="flex" */
       
           //Changed text btn
           let btnOldCam = btnCam.childNodes[1]
@@ -101,11 +109,12 @@ function getStreamAndDisplay() {
 }
 
 
-
 function recordCam(){
   recorder.startRecording()
+  start()
 
   let btnStyles = function changedStyles(){
+    cronometreScreen.style.display="flex"
     let btnOldCam = btnCam.childNodes[1]
     console.log(btnOldCam)
     let btnNewCam = document.createElement("button")
@@ -121,8 +130,10 @@ function recordCam(){
 
 
 function stopCam(){
-
+  reset()
   let btnStyles = function changedStyles(){
+    cronometreScreen.style.display="none"
+    textRepeat.style.display="flex"
     let btnOldCam = btnCam.childNodes[1]
     console.log(btnOldCam)
   
@@ -140,38 +151,59 @@ function stopCam(){
   recorder.stopRecording((recording) => {
   console.log("grabacion:", recording);
 
-  const form = new FormData();
+  form = new FormData();
   form.append("file", recorder.getBlob(), "myGif.gif");
 
-  btnCam.addEventListener("click", (e)=>{
-    e.preventDefault()
-    if(btnCam.innerText ===`SUBIR GIFO`){
-        let btnStyles = function changedStyles(){
-        btnCam.style.display="none" 
-        btnTwo.classList.remove("hoverBtnCamAct")
-        btnThree.classList.add("hoverBtnCamAct")
-        overVideo.style.display="flex"
-        }
-        btnStyles()
-        fetch(`${URL}?api_key=${conf_k_on}`, 
-        { method: "POST", body: form })
-        .then(function(res){
-          if(res.status === 200){
-            overVideoImg.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/check.svg")
-            overVideotext.innerText="GIFO subido con éxito"
-            console.log("El gif fue subido con exito")
-            return res.json()
-          }
-        })
-        .then(function(res){
-          console.log(res.data.id)
-        })
-        .catch((error) =>{
-          console.log("El gif no fue cargado",error)
-        })
-    }
-  }) 
   });  
 
 }
 
+function uploadGifMethod(){
+  let btnStyles = function changedStyles(){
+    btnCam.style.display="none" 
+    btnTwo.classList.remove("hoverBtnCamAct")
+    btnThree.classList.add("hoverBtnCamAct")
+    overVideo.style.display="flex"
+    textRepeat.style.display="none"
+    }
+    btnStyles()
+    fetch(`${URL}?api_key=${conf_k_on}`, 
+    { method: "POST", body: form })
+    .then(function(res){
+      if(res.status === 200){
+        overVideoImg.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/check.svg")
+        overVideotext.innerText="GIFO subido con éxito"
+        console.log("El gif fue subido con exito")
+        return res.json()
+      }
+    })
+    .then(function(res){
+      console.log(res.data.id)
+    })
+    .catch((error) =>{
+      console.log("El gif no fue cargado",error)
+    })
+}
+
+
+
+function deleteRecorder(){
+
+  let btnStyles = function changedStyles(){
+    let btnOldCam = btnCam.childNodes[1]
+    console.log(btnOldCam)
+    let btnNewCam = document.createElement("button")
+    let btnNewCamText = document.createElement("p")
+    btnNewCamText.innerText = `GRABAR`
+
+    btnNewCam.appendChild(btnNewCamText)
+    btnCam.replaceChild(btnNewCam,btnOldCam) 
+
+    textRepeat.style.display="none"
+  }
+  btnStyles()
+
+  recorder.reset()
+  form.delete("file")
+
+}

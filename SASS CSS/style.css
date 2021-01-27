@@ -945,6 +945,7 @@ footer .autoRigths {
 }
 
 .controlBtn {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -971,6 +972,31 @@ footer .autoRigths {
 .controlBtn .btn .hoverBtnCamAct {
   background-color: var(--backBtnPurple);
   color: var(--backBtnWhite);
+}
+
+.controlBtn .gadgets .chronometer {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: var(--colorLetra);
+  position: absolute;
+  display: none;
+  right: 23.5rem;
+  bottom: 110px;
+}
+
+.controlBtn .gadgets .repeatCapt {
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  text-decoration: underline;
+  -webkit-text-decoration-color: #5ED7C6;
+          text-decoration-color: #5ED7C6;
+  text-decoration-thickness: 3px;
+  color: var(--colorLetra);
+  position: absolute;
+  display: none;
+  right: 23.5rem;
+  bottom: 110px;
 }
 
 .controlBtn .hr--border7 {
