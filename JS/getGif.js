@@ -14,14 +14,14 @@ function getGifFavorites(imgGifUrl,userGif,nameGif,idGif){
     }
 
     //Verificar duplicado GIF
-    let productosLS;
-    productosLS = obtenerProductosLocalStorage()
-    productosLS.forEach(function(productoLS){
-        if(productoLS.idGif === infoGif.idGif){
-            productosLS = productoLS.idGif
+    let GifsFavoritoLS;
+    GifsFavoritoLS = obtenerGifsFavoritosLocalStorage()
+    GifsFavoritoLS.forEach(function(GifFavorito){
+        if(GifFavorito.idGif === infoGif.idGif){
+            GifsFavoritoLS = GifFavorito.idGif
         }
     })
-    if(productosLS === infoGif.idGif){
+    if(GifsFavoritoLS === infoGif.idGif){
         console.log("El gif ya esta en favoritos")
     }
     else{
@@ -118,35 +118,34 @@ function insertFavoriteSection(infoGif){
 }
 
 function guardarGifLS(infoGif){
-    let productos;
+    let favoritos;
     //Toma valor de un arreglo con datos del LS
-    productos = obtenerProductosLocalStorage()
+    favoritos = obtenerGifsFavoritosLocalStorage()
     //Agregar el producto al carrito
-    productos.push(infoGif)
+    favoritos.push(infoGif)
     //Agregamos al LS
-    localStorage.setItem('productos', JSON.stringify(productos))
+    localStorage.setItem('favoritos', JSON.stringify(favoritos))
 }
-
-
-function obtenerProductosLocalStorage(){
-    let productoLS;
+function obtenerGifsFavoritosLocalStorage(){
+    let GifFavorito;
     //Comprobar si hay algo en LS
-    if(localStorage.getItem('productos') === null){
-        productoLS = [];
+    if(localStorage.getItem('favoritos') === null){
+        GifFavorito = [];
     }
     else {
-        productoLS = JSON.parse(localStorage.getItem('productos'));
+        GifFavorito = JSON.parse(localStorage.getItem('favoritos'));
     }
-    return productoLS;
+    return GifFavorito;
 }
 
 function leerLSGifLoad(){
-    let productosLS;
-    productosLS = obtenerProductosLocalStorage();
-    productosLS.forEach(function (producto){
+    let GifsFavoritoLS;
+   /*  console.log(GifsFavoritoLS) */
+    GifsFavoritoLS = obtenerGifsFavoritosLocalStorage();
+    GifsFavoritoLS.forEach(function (GifFavorito){
         //Creando Contenedor/incluye gif
     let divCtn = document.createElement("div")
-    divCtn.style.backgroundImage = `url(${producto.imgGifUrl})`
+    divCtn.style.backgroundImage = `url(${GifFavorito.imgGifUrl})`
     divCtn.classList.add("box")
        
     //Creamos caja de botones
@@ -160,7 +159,7 @@ function leerLSGifLoad(){
     btnHeart = document.createElement("button")
     imgBtnHeart= document.createElement("img")
     imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-    divHeart.setAttribute("data-id",`${producto.idGif}`)
+    divHeart.setAttribute("data-id",`${GifFavorito.idGif}`)
     btnHeart.appendChild(imgBtnHeart)
     divHeart.appendChild(btnHeart)
     divBtn.appendChild(divHeart)
@@ -180,7 +179,7 @@ function leerLSGifLoad(){
     btnDown = document.createElement("button")
     imgBtnDown = document.createElement("img")
     imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-    divDown.setAttribute("data-id",`${producto.idGif}`)
+    divDown.setAttribute("data-id",`${GifFavorito.idGif}`)
     btnDown.appendChild(imgBtnDown)
     divDown.appendChild(btnDown)
     divBtn.appendChild(divDown)
@@ -214,12 +213,12 @@ function leerLSGifLoad(){
        
     divPrfOne = document.createElement("div")
     divPrfOne.classList.add("p_user") 
-    divPrfOne.innerText=`${producto.userGif}`
+    divPrfOne.innerText=`${GifFavorito.userGif}`
     divAutor.appendChild(divPrfOne)
        
     divPrfTwo = document.createElement("div")
     divPrfTwo.classList.add("p_name") 
-    divPrfTwo.innerText=`${producto.nameGif}`
+    divPrfTwo.innerText=`${GifFavorito.nameGif}`
     divAutor.appendChild(divPrfTwo)
        
     divCtn.appendChild(divAutor) 

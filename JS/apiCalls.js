@@ -56,8 +56,8 @@ function getMoreGif(e){
 
 //get Gif from APIGiphy [Endpoint search]
 async function getGyphy(valueBusqueda){
-    let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
-
+    
+let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
     const response = await fetch(url)
     const responseJSON = await response.json()
 
@@ -85,8 +85,8 @@ async function getGyphy(valueBusqueda){
 
             let divHeart= document.createElement("div")
             divHeart.classList.add("box_li_btn_heart")
-            btnHeart = document.createElement("button")
-            imgBtnHeart= document.createElement("img")
+            let btnHeart = document.createElement("button")
+            let imgBtnHeart= document.createElement("img")
             imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
             divHeart.setAttribute("data-id",`${id}`)
             btnHeart.appendChild(imgBtnHeart)
@@ -106,8 +106,8 @@ async function getGyphy(valueBusqueda){
 
             let divDown= document.createElement("div")
             divDown.classList.add("box_li_btn_down")
-            btnDown = document.createElement("button")
-            imgBtnDown = document.createElement("img")
+            let btnDown = document.createElement("button")
+            let imgBtnDown = document.createElement("img")
             imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
             divDown.setAttribute("data-id",`${id}`)
             btnDown.appendChild(imgBtnDown)
@@ -118,8 +118,8 @@ async function getGyphy(valueBusqueda){
 
             let divMax= document.createElement("div")
             divMax.classList.add("box_li_btn_max")
-            btnMax = document.createElement("button")
-            imgBtnMax = document.createElement("img")
+            let btnMax = document.createElement("button")
+            let imgBtnMax = document.createElement("img")
             imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
             btnMax.appendChild(imgBtnMax)
             divMax.appendChild(btnMax)
@@ -141,12 +141,12 @@ async function getGyphy(valueBusqueda){
             let divAutor = document.createElement("div")
             divAutor.classList.add("box_autor")
 
-            divPrfOne = document.createElement("div")
+            let divPrfOne = document.createElement("div")
             divPrfOne.classList.add("p_user") 
             divPrfOne.innerText=`${user}`
             divAutor.appendChild(divPrfOne)
 
-            divPrfTwo = document.createElement("div")
+            let divPrfTwo = document.createElement("div")
             divPrfTwo.classList.add("p_name") 
             divPrfTwo.innerText=`${title}`
             divAutor.appendChild(divPrfTwo)

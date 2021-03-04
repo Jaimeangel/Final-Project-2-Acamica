@@ -35,8 +35,7 @@ btnCam.addEventListener("click",(e)=>{
     stopCam()
   }else if(btnCam.innerText===`SUBIR GIFO`){
     uploadGifMethod()
-  }}) 
-
+}}) 
 
 
 function onCam(){
@@ -127,8 +126,6 @@ function recordCam(){
   btnStyles()
 }
 
-
-
 function stopCam(){
   reset()
   let btnStyles = function changedStyles(){
@@ -167,6 +164,7 @@ function uploadGifMethod(){
     textRepeat.style.display="none"
     }
     btnStyles()
+
     fetch(`${URL}?api_key=${conf_k_on}`, 
     { method: "POST", body: form })
     .then(function(res){
@@ -179,13 +177,43 @@ function uploadGifMethod(){
     })
     .then(function(res){
       console.log(res.data.id)
+      const dataId = res.data.id
+
+      let btnStyles = function changedStyles(){
+
+        let botonesUpload = document.createElement("div")
+        botonesUpload.classList.add("boxliUp")
+
+        let divDownLoad = document.createElement("div")
+        divDownLoad.classList.add("boxliUp_btnDown")
+        let botonDownLoad = document.createElement("button")
+        let imgDownLoad = document.createElement("img")
+        botonDownLoad.appendChild(imgDownLoad)
+        imgDownLoad.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
+        divDownLoad.setAttribute("data-id",`${res.data.id}`)
+        divDownLoad.appendChild(botonDownLoad)
+        botonesUpload.appendChild(divDownLoad)
+
+        let divLink = document.createElement("div")
+        divLink.classList.add("boxliUp_btnLink")
+        let botonLink = document.createElement("button")
+        let imgLink = document.createElement("img")
+        botonLink.appendChild(imgLink)
+        imgLink.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-link.svg")
+        divLink.appendChild(botonLink)
+        botonesUpload.appendChild(divLink)
+
+        overVideoDiv.prepend(botonesUpload)
+
+      }
+      btnStyles()
+      saveIdGifLS(dataId)
+
     })
     .catch((error) =>{
       console.log("El gif no fue cargado",error)
     })
 }
-
-
 
 function deleteRecorder(){
 
@@ -206,4 +234,28 @@ function deleteRecorder(){
   recorder.reset()
   form.delete("file")
 
+}
+
+
+function saveIdGifLS(dataId){
+  let uploadGifId;
+  //Toma valor de un arreglo con datos del LS
+  uploadGifId = getIdGifLS()
+  //Agregar el producto al carrito
+  uploadGifId.push(dataId)
+  //Agregamos al LS
+  localStorage.setItem('uploadGifId', JSON.stringify(uploadGifId))
+}
+
+
+function getIdGifLS(){
+  let GifUploadId;
+  //Comprobar si hay algo en LS
+  if(localStorage.getItem('uploadGifId') === null){
+      GifUploadId = [];
+  }
+  else {
+      GifUploadId = JSON.parse(localStorage.getItem('uploadGifId'));
+  }
+  return GifUploadId;
 }
