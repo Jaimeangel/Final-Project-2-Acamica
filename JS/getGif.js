@@ -2,11 +2,10 @@
 let favoriteTemplateGif = document.getElementById("favoritosSectionGif")
 
 document.addEventListener("DOMContentLoaded",leerLSGifLoad)
-
 //Funciones
 function getGifFavorites(imgGifUrl,userGif,nameGif,idGif){
 
-    const infoGif = {
+    let infoGif = {
         imgGifUrl : imgGifUrl,
         userGif : userGif,
         nameGif : nameGif,
@@ -45,7 +44,7 @@ function insertFavoriteSection(infoGif){
     divHeart.classList.add("box_li_btn_heart")
     btnHeart = document.createElement("button")
     imgBtnHeart= document.createElement("img")
-    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
     divHeart.setAttribute("data-id",`${infoGif.idGif}`)
     btnHeart.appendChild(imgBtnHeart)
     divHeart.appendChild(btnHeart)
@@ -87,10 +86,10 @@ function insertFavoriteSection(infoGif){
                    
     //Event Handler Modal
     divMax.addEventListener("click", ()=>{
-        imgGifUrl = infoGif.imgGifUrl 
-        userGif = infoGif.userGif
-        nameGif = infoGif.nameGif
-        idGif = infoGif.idGif
+        let imgGifUrl = infoGif.imgGifUrl 
+        let userGif = infoGif.userGif
+        let nameGif = infoGif.nameGif
+        let idGif = infoGif.idGif
        
         buildingModal(imgGifUrl,userGif,nameGif,idGif)
     })
@@ -156,28 +155,35 @@ function leerLSGifLoad(){
        
     let divHeart= document.createElement("div")
     divHeart.classList.add("box_li_btn_heart")
-    btnHeart = document.createElement("button")
-    imgBtnHeart= document.createElement("img")
-    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+    let btnHeart = document.createElement("button")
+    let imgBtnHeart= document.createElement("img")
+    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
     divHeart.setAttribute("data-id",`${GifFavorito.idGif}`)
     btnHeart.appendChild(imgBtnHeart)
     divHeart.appendChild(btnHeart)
     divBtn.appendChild(divHeart)
        
-                   //Event Handler Modal
-    /*                divHeart.addEventListener("click", ()=>{
-                           imgGifUrl = img
-                           userGif = user
-                           nameGif = title
-                           idGif = id
-       
-                       getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
-                   })  */ 
+    //Event Handler Modal
+     divHeart.addEventListener("click", (e)=>{
+            e.preventDefault()
+            let item = e.target
+            let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
+            
+            let btnStyles = function changedStyles(){
+                imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+            }
+            btnStyles()
+
+            setTimeout(function(){
+                deleteBoxGif.remove()
+                console.log("elemento borrado")
+            },0500)
+        })  
        
     let divDown= document.createElement("div")
     divDown.classList.add("box_li_btn_down")
-    btnDown = document.createElement("button")
-    imgBtnDown = document.createElement("img")
+    let btnDown = document.createElement("button")
+    let imgBtnDown = document.createElement("img")
     imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
     divDown.setAttribute("data-id",`${GifFavorito.idGif}`)
     btnDown.appendChild(imgBtnDown)
@@ -188,8 +194,8 @@ function leerLSGifLoad(){
        
     let divMax= document.createElement("div")
     divMax.classList.add("box_li_btn_max")
-    btnMax = document.createElement("button")
-    imgBtnMax = document.createElement("img")
+    let btnMax = document.createElement("button")
+    let imgBtnMax = document.createElement("img")
     imgBtnMax.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-max.svg")
     btnMax.appendChild(imgBtnMax)
     divMax.appendChild(btnMax)
@@ -200,10 +206,10 @@ function leerLSGifLoad(){
                    
     //Event Handler Modal
     divMax.addEventListener("click", ()=>{
-        imgGifUrl = infoGif.imgGifUrl 
-        userGif = infoGif.userGif
-        nameGif = infoGif.nameGif
-        idGif = infoGif.idGif
+        imgGifUrl = GifFavorito.imgGifUrl 
+        userGif =  GifFavorito.userGif
+        nameGif =  GifFavorito.nameGif
+        idGif =  GifFavorito.idGif
        
         buildingModal(imgGifUrl,userGif,nameGif,idGif)
     })

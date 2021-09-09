@@ -1,7 +1,5 @@
     window.onload = function cargando(){
         let myGifTemplateGif = document.getElementById("myGifSectionGifNew")
-        /* document.addEventListener("DOMContentLoaded",leerLSGifUploadLoad)  */
-        /* leerLSGifUploadLoad()  */
         
         function getGifUploadAPI(){
         
@@ -14,6 +12,7 @@
                 const response = await fetch(url)
                 const responseJSON = await response.json()
                 const giphyResponse = responseJSON.data
+                console.log(giphyResponse)
             
                 let infoGif = {
                     imgGifUrl :giphyResponse.images.original.url,

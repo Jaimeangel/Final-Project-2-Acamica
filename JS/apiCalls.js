@@ -15,6 +15,7 @@ let btnMoreGif = document.getElementById("moreGifBtn")
 
 let ctnMain = document.querySelector(".gifCtn")
 let ctnGyphy = document.querySelector(".gifBox")
+let ctnGyphyBody = document.body
 let gifBox = document.querySelector("box")
 
 let changeTitle = document.getElementById("title")
@@ -102,6 +103,11 @@ let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusq
                     idGif = id
        
                     getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
+
+                    let btnStyles = function changedStyles(){
+                        imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
+                    }
+                    btnStyles()
             }) 
 
             let divDown= document.createElement("div")

@@ -23,6 +23,7 @@ let btnThree = document.getElementById("btn_3")
 
 let recorder
 let form
+let infoGifUrl
 
 
 btnCam.addEventListener("click",(e)=>{
@@ -176,6 +177,7 @@ function uploadGifMethod(){
       }
     })
     .then(function(res){
+      console.log(res)
       console.log(res.data.id)
       const dataId = res.data.id
 
@@ -196,11 +198,17 @@ function uploadGifMethod(){
 
         let divLink = document.createElement("div")
         divLink.classList.add("boxliUp_btnLink")
+
+        let linkBoton = document.createElement("a")
+        /* linkBoton.href=`${infoGifUrl.imgGifUrl}`  */
+
+        
         let botonLink = document.createElement("button")
         let imgLink = document.createElement("img")
         botonLink.appendChild(imgLink)
         imgLink.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-link.svg")
-        divLink.appendChild(botonLink)
+        linkBoton.appendChild(botonLink)
+        divLink.appendChild(linkBoton)
         botonesUpload.appendChild(divLink)
 
         overVideoDiv.prepend(botonesUpload)

@@ -87,6 +87,6 @@ function buildingModal(imgGifUrl,userGif,nameGif,idGif){
     btnCtnMax.appendChild(btnDownBotone)
     
     //Agregando modal content gif
-    ctnGyphy.appendChild(ctnModal) 
+    ctnGyphyBody.appendChild(ctnModal) 
 
 } 
