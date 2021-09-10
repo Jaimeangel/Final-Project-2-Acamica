@@ -50,15 +50,21 @@ function insertFavoriteSection(infoGif){
     divHeart.appendChild(btnHeart)
     divBtn.appendChild(divHeart)
        
-                   //Event Handler Modal
-    /*                divHeart.addEventListener("click", ()=>{
-                           imgGifUrl = img
-                           userGif = user
-                           nameGif = title
-                           idGif = id
-       
-                       getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
-                   })  */ 
+    //Event Handler Modal
+    divHeart.addEventListener("click", (e)=>{
+            e.preventDefault()
+            let item = e.target
+            let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
+                    
+            let btnStyles = ()=>{
+                    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+            }
+            btnStyles()
+        
+            deleteBoxGif.remove()
+            console.log("elemento borrado")
+           
+    })   
        
     let divDown= document.createElement("div")
     divDown.classList.add("box_li_btn_down")
@@ -164,7 +170,7 @@ function leerLSGifLoad(){
     divBtn.appendChild(divHeart)
        
     //Event Handler Modal
-     divHeart.addEventListener("click", (e)=>{
+    divHeart.addEventListener("click", (e)=>{
             e.preventDefault()
             let item = e.target
             let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
@@ -178,7 +184,7 @@ function leerLSGifLoad(){
                 deleteBoxGif.remove()
                 console.log("elemento borrado")
             },0500)
-        })  
+    })  
        
     let divDown= document.createElement("div")
     divDown.classList.add("box_li_btn_down")
