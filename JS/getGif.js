@@ -52,17 +52,20 @@ function insertFavoriteSection(infoGif){
        
     //Event Handler Modal
     divHeart.addEventListener("click", (e)=>{
-            e.preventDefault()
-            let item = e.target
-            let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
-                    
-            let btnStyles = ()=>{
-                    imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-            }
-            btnStyles()
-        
+        e.preventDefault()
+        let item = e.target
+        let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
+                
+        let btnStyles = ()=>{
+                imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
+        }
+        btnStyles()
+    
+        setTimeout(()=>{
             deleteBoxGif.remove()
-            console.log("elemento borrado")
+        },0)
+
+        removeItem(infoGif.idGif)
            
     })   
        
@@ -171,20 +174,20 @@ function leerLSGifLoad(){
        
     //Event Handler Modal
     divHeart.addEventListener("click", (e)=>{
-            e.preventDefault()
-            let item = e.target
-            let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
-            
-            let btnStyles = function changedStyles(){
+        e.preventDefault()
+        let item = e.target
+        let deleteBoxGif = item.parentElement.parentElement.parentElement.parentElement
+                
+        let btnStyles = ()=>{
                 imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-            }
-            btnStyles()
-
-            setTimeout(function(){
-                deleteBoxGif.remove()
-                console.log("elemento borrado")
-            },0500)
-    })  
+        }
+        btnStyles()
+    
+        setTimeout(()=>{
+            deleteBoxGif.remove()
+        },1000)
+        removeItem(GifFavorito.idGif)
+}) 
        
     let divDown= document.createElement("div")
     divDown.classList.add("box_li_btn_down")
@@ -238,4 +241,17 @@ function leerLSGifLoad(){
 
     favoriteTemplateGif.appendChild(divCtn)
     });
+}
+
+function removeItem(item){
+    let favoritos;
+    //Toma valor de un arreglo con datos del LS
+    favoritos = obtenerGifsFavoritosLocalStorage();
+  
+    favoritosIndexDelete = favoritos.findIndex(function(ed){ return ed.idGif === item})
+
+    
+    favoritos.splice(favoritosIndexDelete,1)
+
+    localStorage.setItem('favoritos', JSON.stringify(favoritos))
 }
