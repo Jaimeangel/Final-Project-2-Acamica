@@ -1,9 +1,10 @@
 //Variables
 let favoriteTemplateGif = document.getElementById("favoritosSectionGif")
 
-document.addEventListener("DOMContentLoaded",leerLSGifLoad)
+document.addEventListener("DOMContentLoaded",()=>{leerLSGifLoad()})
+document.addEventListener("DOMContentLoaded",()=>{nullGif()})
 //Funciones
-function getGifFavorites(imgGifUrl,userGif,nameGif,idGif){
+const getGifFavorites = (imgGifUrl,userGif,nameGif,idGif)=>{
 
     let infoGif = {
         imgGifUrl : imgGifUrl,
@@ -28,7 +29,7 @@ function getGifFavorites(imgGifUrl,userGif,nameGif,idGif){
     }  
 }
 
-function insertFavoriteSection(infoGif){
+const insertFavoriteSection = (infoGif)=>{
     //Creando Contenedor/incluye gif
     let divCtn = document.createElement("div")
     divCtn.style.backgroundImage = `url(${infoGif.imgGifUrl})`
@@ -66,6 +67,7 @@ function insertFavoriteSection(infoGif){
         },0)
 
         removeItem(infoGif.idGif)
+        nullGif()
            
     })   
        
@@ -125,7 +127,7 @@ function insertFavoriteSection(infoGif){
 
 }
 
-function guardarGifLS(infoGif){
+const guardarGifLS = (infoGif)=>{
     let favoritos;
     //Toma valor de un arreglo con datos del LS
     favoritos = obtenerGifsFavoritosLocalStorage()
@@ -134,7 +136,7 @@ function guardarGifLS(infoGif){
     //Agregamos al LS
     localStorage.setItem('favoritos', JSON.stringify(favoritos))
 }
-function obtenerGifsFavoritosLocalStorage(){
+const obtenerGifsFavoritosLocalStorage = ()=>{
     let GifFavorito;
     //Comprobar si hay algo en LS
     if(localStorage.getItem('favoritos') === null){
@@ -146,7 +148,7 @@ function obtenerGifsFavoritosLocalStorage(){
     return GifFavorito;
 }
 
-function leerLSGifLoad(){
+const leerLSGifLoad = ()=>{
     let GifsFavoritoLS;
    /*  console.log(GifsFavoritoLS) */
     GifsFavoritoLS = obtenerGifsFavoritosLocalStorage();
@@ -187,6 +189,7 @@ function leerLSGifLoad(){
             deleteBoxGif.remove()
         },1000)
         removeItem(GifFavorito.idGif)
+        nullGif()
 }) 
        
     let divDown= document.createElement("div")
@@ -243,7 +246,7 @@ function leerLSGifLoad(){
     });
 }
 
-function removeItem(item){
+const removeItem = (item)=>{
     let favoritos;
     //Toma valor de un arreglo con datos del LS
     favoritos = obtenerGifsFavoritosLocalStorage();
@@ -254,4 +257,34 @@ function removeItem(item){
     favoritos.splice(favoritosIndexDelete,1)
 
     localStorage.setItem('favoritos', JSON.stringify(favoritos))
+}
+
+const nullGif = ()=>{
+    let verifyGif = obtenerGifsFavoritosLocalStorage()
+    let articleFav= document.getElementById("articleFavorite")
+    if(Object.keys(verifyGif).length === 0){
+        let divBox = document.createElement("div")
+        divBox.classList.add("nofFoundImg")
+        divBox.setAttribute("id","notFoundImgId")
+        let imgBox = document.createElement("img")
+        imgBox.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-sin-contenido.svg")
+        divBox.appendChild(imgBox)
+        let wordBox = document.createElement("div")
+        wordBox.classList.add("wordsFavorites")
+        let textBox1 = document.createElement("p")
+        textBox1.textContent = `¡Guarda tu primer GIFO en Favoritos`
+        let textBox2 = document.createElement("p")
+        textBox2.textContent = `para que se muestre aquí!`
+        wordBox.appendChild(textBox1)
+        wordBox.appendChild(textBox2)
+        divBox.appendChild(wordBox)
+        articleFav.appendChild(divBox)
+    }else{
+        let divToDelete = document.getElementById("notFoundImgId")
+        if(divToDelete){
+            divToDelete.remove()
+        }else{
+            return 
+        } 
+    }
 }

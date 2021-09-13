@@ -489,6 +489,48 @@ header .nav nav .btn button:hover {
   z-index: 1;
 }
 
+.favoritePage .nofFoundImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8.75rem;
+}
+
+.favoritePage .nofFoundImg .wordsFavorites {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.favoritePage .nofFoundImg .wordsFavorites p {
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #50E3C2;
+}
+
+.favoritePage .nofFoundImg .wordsFavorites :last-child {
+  margin-left: 3.125rem;
+}
+
+.favoritePage .nofFoundImg img {
+  margin-top: 7.5rem;
+  margin-bottom: 1.875rem;
+  width: 9.375rem;
+  height: 9.375rem;
+}
+
 .misGifPage {
   width: 100%;
   display: none;

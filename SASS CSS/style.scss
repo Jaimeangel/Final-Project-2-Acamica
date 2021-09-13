@@ -391,6 +391,36 @@ header{
                 }                                          
             }
         } 
+
+
+    }
+
+    .nofFoundImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 8.75rem;
+        .wordsFavorites{
+            display: flex;
+            flex-direction: column;
+            p{
+                font-size: 22px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                color:#50E3C2;
+            }
+            :last-child{
+                margin-left: 3.125rem;
+            }
+        }
+        img{
+            margin-top: 7.5rem;
+            margin-bottom: 1.875rem;
+            width: 9.375rem;
+            height: 9.375rem;
+        }
+
+        
     }
 }
 .misGifPage{

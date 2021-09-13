@@ -98,17 +98,19 @@ let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusq
                 //Event Handler Modal
                 divHeart.addEventListener("click", ()=>{
     
-                        imgGifUrl = img
-                        userGif = user
-                        nameGif = title
-                        idGif = id
-           
-                        getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
-    
-                        let btnStyles = function changedStyles(){
-                            imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
-                        }
-                        btnStyles()
+                    imgGifUrl = img
+                    userGif = user
+                    nameGif = title
+                    idGif = id
+                    
+                    
+
+                    let favoriteGif = ()=> getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
+                    favoriteGif()
+                    let deleteNotFound = ()=> nullGif()
+                    deleteNotFound() 
+                    let btnStyles = ()=>imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
+                    btnStyles()
                 }) 
     
                 let divDown= document.createElement("div")
