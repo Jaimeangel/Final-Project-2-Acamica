@@ -186,11 +186,11 @@ header{
         }
     
         .title{
-            margin-top: 5rem;
+            margin-top: 2rem;
             margin-bottom: 3.5rem;
             text-align: center;
         }
-    
+        
         .gifBox{
             display: grid;
             grid-template-columns: repeat(4,1fr);
@@ -305,6 +305,7 @@ header{
 
     .img{
         text-align: center;
+        margin: 10px;
     }
 
     .title{
@@ -414,7 +415,7 @@ header{
             }
         }
         img{
-            margin-top: 7.5rem;
+            margin-top: 5.5rem;
             margin-bottom: 1.875rem;
             width: 9.375rem;
             height: 9.375rem;
@@ -519,7 +520,44 @@ header{
         } 
     }
 }
+.nofFoundImg{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4.75rem;
+    .wordsFavorites{
+        display: flex;
+        flex-direction: column;
+        p{
+            font-size: 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            color:#50E3C2;
+        }
+    }
+    img{
+        margin-top: 2.5rem;
+        margin-bottom: 1.875rem;
+        width: 9.375rem;
+        height: 9.375rem;
+    }
+    button{
+            background-color: var(--BackBody);
+            border: 1px solid var(--borderInput);
+            color: var(--colorLetra);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            font-size: 1rem;
+            margin: 1rem;
+            &:hover{
+                color:var(--backBtnWhite);
+                background-color: var(--backBtnPurple);
+            }
+    }
 
+    
+}
 
 .trendingBox{
     height: 37.5rem;

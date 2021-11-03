@@ -237,7 +237,7 @@ header .nav nav .btn button:hover {
 }
 
 .mainPage .gifCtn .title {
-  margin-top: 5rem;
+  margin-top: 2rem;
   margin-bottom: 3.5rem;
   text-align: center;
 }
@@ -385,6 +385,7 @@ header .nav nav .btn button:hover {
 
 .favoritePage .img {
   text-align: center;
+  margin: 10px;
 }
 
 .favoritePage .title {
@@ -525,7 +526,7 @@ header .nav nav .btn button:hover {
 }
 
 .favoritePage .nofFoundImg img {
-  margin-top: 7.5rem;
+  margin-top: 5.5rem;
   margin-bottom: 1.875rem;
   width: 9.375rem;
   height: 9.375rem;
@@ -647,6 +648,60 @@ header .nav nav .btn button:hover {
   background: #572EE5;
   opacity: 0.7;
   z-index: 1;
+}
+
+.nofFoundImg {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 4.75rem;
+}
+
+.nofFoundImg .wordsFavorites {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.nofFoundImg .wordsFavorites p {
+  font-size: 22px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: #50E3C2;
+}
+
+.nofFoundImg img {
+  margin-top: 2.5rem;
+  margin-bottom: 1.875rem;
+  width: 9.375rem;
+  height: 9.375rem;
+}
+
+.nofFoundImg button {
+  background-color: var(--BackBody);
+  border: 1px solid var(--borderInput);
+  color: var(--colorLetra);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+  margin: 1rem;
+}
+
+.nofFoundImg button:hover {
+  color: var(--backBtnWhite);
+  background-color: var(--backBtnPurple);
 }
 
 .trendingBox {
