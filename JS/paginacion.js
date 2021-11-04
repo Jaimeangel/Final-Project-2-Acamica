@@ -18,12 +18,14 @@ function contarGif(){
 }
 
 prev.addEventListener("click",function(){
-	contBtn--
-	showNumberPagination()
+	index--
+	showItems()
+	check()
 })
 next.addEventListener("click",function(){
-	contBtn++
-	showNumberPagination()
+	index++
+	showItems()
+	check()
 })
 
 function check(){
@@ -64,7 +66,7 @@ function showNumberPagination(){
 			ctnNumberPagination.children[i].classList.add("show")
 		}
 	}
-}
+} 
 
 function startBegin(){
 	showItems()
