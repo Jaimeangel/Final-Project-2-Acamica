@@ -12,6 +12,7 @@ let searchValue = document.querySelector(".search_bar")
 let valueSearch = document.querySelector(".search_input")
 
 let btnMoreGif = document.getElementById("moreGifBtn")
+let btnDiv = document.getElementById("btnDiv")
 
 let ctnMain = document.querySelector(".gifCtn")
 let ctnGyphy = document.querySelector(".gifBox")
@@ -22,12 +23,12 @@ let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
 
 //Event
-searchValue.addEventListener("click",getSearch)
-btnMoreGif.addEventListener("click",getMoreGif)
+searchValue.addEventListener("click",(e)=>{getSearch(e)})
+btnMoreGif.addEventListener("click",(e)=>{getMoreGif(e)})
 
 let contador = 1
 //Value Search Input
-function getSearch(e){
+const getSearch = (e)=>{
     e.preventDefault()
     const item = e.target
 
@@ -39,12 +40,11 @@ function getSearch(e){
         newTitle.innerText = `${valueBusqueda}`
         changeTitle.replaceChild(newTitle,parentTitle)
 
-        btnMoreGif.style.display="flex"
         getGyphy(valueBusqueda)
     }
 }
 
-function getMoreGif(e){
+const getMoreGif= (e)=>{
     e.preventDefault()
     const item = e.target
     if(item.classList[0] === "btnGifVermas"){
@@ -56,9 +56,9 @@ function getMoreGif(e){
 }
 
 //get Gif from APIGiphy [Endpoint search]
-let getGyphy= async (valueBusqueda) => {
+const getGyphy= async (valueBusqueda) => {
     
-let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
+    const url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
     const response = await fetch(url)
     const responseJSON = await response.json()
     const gifData = responseJSON.data
@@ -168,7 +168,8 @@ let url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusq
                     ctnGyphy.appendChild(divCtn)
         
                 });
-                let btnStyles = function changedStyles(){
+                const btnStyles =()=>{
+                    btnMoreGif.style.display="flex"
                     if(contador > 1){
                         prev.style.display="flex"
                         next.style.display="flex"
@@ -199,7 +200,7 @@ let leftarrow = document.getElementById("left-arrow")
 let rightarrow = document.getElementById("right-arrow")
 
 //function for get Gif from APYGiphy [Endpoint trending]
-async function getTrending(){
+const getTrending= async ()=>{
     let url= `https://api.giphy.com/v1/gifs/trending?api_key=${conf_k_on}`
 
     const response = await fetch(url)
@@ -290,7 +291,7 @@ async function getTrending(){
 
 getTrending()
 
-function paginationNumber(){
+const paginationNumber=()=>{
     console.log("Funcion contador andando")
 	if(contador){
             let btn = document.createElement("div")
@@ -315,7 +316,7 @@ function paginationNumber(){
 }
 
 const notGifFound = () => {
-    ctnGyphy.style.display="none"
+    btnDiv.style.display="none"
     let divBox = document.createElement("div")
     divBox.classList.add("nofFoundImg")
     divBox.setAttribute("id","notFoundImgId")
@@ -335,10 +336,10 @@ const notGifFound = () => {
     btnBox.setAttribute("id","btnNotFound")
     btnBox.textContent="X"
     btnBox.addEventListener("click",()=>{
-        ctnGyphy.style.display="grid"
+        btnDiv.style.display="inline"
         divBox.remove()
     })
     divBox.appendChild(btnBox)
 
-    let nodeInsert = ctnMain.insertBefore(divBox,ctnGyphy)
+    ctnMain.appendChild(divBox)
 }

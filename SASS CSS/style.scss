@@ -190,111 +190,115 @@ header{
             margin-bottom: 3.5rem;
             text-align: center;
         }
+
+        .btnDiv{ 
+            position: relative;
+            .gifBox{
+                display: grid;
+                grid-template-columns: repeat(4,1fr);
+                grid-gap: 1.8rem;
+                margin: 0px 8.2rem;
         
-        .gifBox{
-            display: grid;
-            grid-template-columns: repeat(4,1fr);
-            grid-gap: 1.8rem;
-            margin: 0px 8.2rem;
-    
-            .box{
-                position: relative;
-                background-image:url();
-                background-repeat: no-repeat;
-                background-size: cover;
-                background-position:center;
-                width: 14.5rem;
-                height: 12.5rem;
-                display:flex;
-                flex-direction:column;
-                justify-content: space-between;
-                
-                .box_li{
-                    z-index: 2;
-                    visibility: hidden; 
+                .box{
+                    position: relative;
+                    background-image:url();
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position:center;
+                    width: 14.5rem;
+                    height: 12.5rem;
                     display:flex;
-                    justify-content:flex-end;
-                    &_btn{
-                        &_heart,&_down,&_max{
-                            margin-top: 0.6rem;
-                            margin-right:0.6rem;
-                            button{
-                                border: none;
-                                opacity: 0.7;
-                                background: #FFFFFF; 
-                                border-radius: 0.4rem;
-                                width: 2rem;
-                                height: 2rem;
-                                &:hover{
-                                    opacity: 1;
+                    flex-direction:column;
+                    justify-content: space-between;
+                    
+                    .box_li{
+                        z-index: 2;
+                        visibility: hidden; 
+                        display:flex;
+                        justify-content:flex-end;
+                        &_btn{
+                            &_heart,&_down,&_max{
+                                margin-top: 0.6rem;
+                                margin-right:0.6rem;
+                                button{
+                                    border: none;
+                                    opacity: 0.7;
+                                    background: #FFFFFF; 
+                                    border-radius: 0.4rem;
+                                    width: 2rem;
+                                    height: 2rem;
+                                    &:hover{
+                                        opacity: 1;
+                                    }
                                 }
                             }
                         }
+                    } 
+                    
+                    .box_autor{
+                        z-index: 2;
+                        visibility: hidden; 
+                        margin-left: 1rem;
+                        margin-bottom: 1.2rem;
+                        color: #FFFFFF;
+                        .p{
+                            font-size: 1rem;
+                            margin-bottom: 0.2rem;
+                        }
+                    }  
+                }
+                //Agregamos efecto :hover
+                .box{
+                    /* position: relative; */
+                    &:hover{
+                        .box_autor{
+                            visibility: visible;
+                        }
+                        .box_li{
+                            visibility: visible;
+                        }
+                        &::before{
+                            content:"";
+                            width: 14.5rem;
+                            height: 12.5rem;
+                            position: absolute;
+                            top:0;
+                            left:0;
+                            background: #572EE5;
+                            opacity:0.7;
+                            z-index: 1;
+                        }                                          
                     }
-                } 
-                
-                .box_autor{
-                    z-index: 2;
-                    visibility: hidden; 
-                    margin-left: 1rem;
-                    margin-bottom: 1.2rem;
-                    color: #FFFFFF;
-                    .p{
-                        font-size: 1rem;
-                        margin-bottom: 0.2rem;
-                    }
+                }
+               .show{
+                    display:flex;
+                }
+                .hide{
+                    display: none;
                 }  
             }
-            //Agregamos efecto :hover
-            .box{
-                /* position: relative; */
-                &:hover{
-                    .box_autor{
-                        visibility: visible;
+            
+            .btn-moreGif{
+                    margin-top: 4.5rem;
+                    margin-bottom: 1.8rem;
+                    display: none;
+                    justify-content: center;
+                    button{
+                        cursor: pointer;
+                        color: var(--borderInput);
+                        font-weight: bold;
+                        width: 6.8rem;
+                        height: 2.8rem;
+                        border-radius: 1.5rem;
+                        border: 1px solid var(--borderInput);
+                        &:hover{
+                            color: var(--backBtnWhite);
+                            background-color: var(--backBtnPurple);
+                        }
                     }
-                    .box_li{
-                        visibility: visible;
-                    }
-                    &::before{
-                        content:"";
-                        width: 14.5rem;
-                        height: 12.5rem;
-                        position: absolute;
-                        top:0;
-                        left:0;
-                        background: #572EE5;
-                        opacity:0.7;
-                        z-index: 1;
-                    }                                          
-                }
-            }
-           .show{
-                display:flex;
-            }
-            .hide{
-                display: none;
-            }  
+            } 
         }
-
-        .btn-moreGif{
-            margin-top: 4.5rem;
-            margin-bottom: 1.8rem;
-            display: none;
-            justify-content: center;
-            button{
-                cursor: pointer;
-                color: var(--borderInput);
-                font-weight: bold;
-                width: 6.8rem;
-                height: 2.8rem;
-                border-radius: 1.5rem;
-                border: 1px solid var(--borderInput);
-                &:hover{
-                    color: var(--backBtnWhite);
-                    background-color: var(--backBtnPurple);
-                }
-            }
-        } 
+       
     }
 }
 .favoritePage{

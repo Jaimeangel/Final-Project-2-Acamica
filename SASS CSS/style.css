@@ -242,7 +242,11 @@ header .nav nav .btn button:hover {
   text-align: center;
 }
 
-.mainPage .gifCtn .gifBox {
+.mainPage .gifCtn .btnDiv {
+  position: relative;
+}
+
+.mainPage .gifCtn .btnDiv .gifBox {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -251,7 +255,7 @@ header .nav nav .btn button:hover {
   margin: 0px 8.2rem;
 }
 
-.mainPage .gifCtn .gifBox .box {
+.mainPage .gifCtn .btnDiv .gifBox .box {
   position: relative;
   background-image: url();
   background-repeat: no-repeat;
@@ -271,7 +275,7 @@ header .nav nav .btn button:hover {
           justify-content: space-between;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_li {
   z-index: 2;
   visibility: hidden;
   display: -webkit-box;
@@ -282,12 +286,12 @@ header .nav nav .btn button:hover {
           justify-content: flex-end;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .gifBox .box .box_li_btn_down, .mainPage .gifCtn .gifBox .box .box_li_btn_max {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max {
   margin-top: 0.6rem;
   margin-right: 0.6rem;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn_heart button, .mainPage .gifCtn .gifBox .box .box_li_btn_down button, .mainPage .gifCtn .gifBox .box .box_li_btn_max button {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart button, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down button, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max button {
   border: none;
   opacity: 0.7;
   background: #FFFFFF;
@@ -296,11 +300,11 @@ header .nav nav .btn button:hover {
   height: 2rem;
 }
 
-.mainPage .gifCtn .gifBox .box .box_li_btn_heart button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_down button:hover, .mainPage .gifCtn .gifBox .box .box_li_btn_max button:hover {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart button:hover, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down button:hover, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max button:hover {
   opacity: 1;
 }
 
-.mainPage .gifCtn .gifBox .box .box_autor {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_autor {
   z-index: 2;
   visibility: hidden;
   margin-left: 1rem;
@@ -308,24 +312,24 @@ header .nav nav .btn button:hover {
   color: #FFFFFF;
 }
 
-.mainPage .gifCtn .gifBox .box .box_autor .p {
+.mainPage .gifCtn .btnDiv .gifBox .box .box_autor .p {
   font-size: 1rem;
   margin-bottom: 0.2rem;
 }
 
-.mainPage .gifCtn .gifBox .box {
+.mainPage .gifCtn .btnDiv .gifBox .box {
   /* position: relative; */
 }
 
-.mainPage .gifCtn .gifBox .box:hover .box_autor {
+.mainPage .gifCtn .btnDiv .gifBox .box:hover .box_autor {
   visibility: visible;
 }
 
-.mainPage .gifCtn .gifBox .box:hover .box_li {
+.mainPage .gifCtn .btnDiv .gifBox .box:hover .box_li {
   visibility: visible;
 }
 
-.mainPage .gifCtn .gifBox .box:hover::before {
+.mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
   content: "";
   width: 14.5rem;
   height: 12.5rem;
@@ -337,17 +341,17 @@ header .nav nav .btn button:hover {
   z-index: 1;
 }
 
-.mainPage .gifCtn .gifBox .show {
+.mainPage .gifCtn .btnDiv .gifBox .show {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.mainPage .gifCtn .gifBox .hide {
+.mainPage .gifCtn .btnDiv .gifBox .hide {
   display: none;
 }
 
-.mainPage .gifCtn .btn-moreGif {
+.mainPage .gifCtn .btnDiv .btn-moreGif {
   margin-top: 4.5rem;
   margin-bottom: 1.8rem;
   display: none;
@@ -356,7 +360,7 @@ header .nav nav .btn button:hover {
           justify-content: center;
 }
 
-.mainPage .gifCtn .btn-moreGif button {
+.mainPage .gifCtn .btnDiv .btn-moreGif button {
   cursor: pointer;
   color: var(--borderInput);
   font-weight: bold;
@@ -366,7 +370,7 @@ header .nav nav .btn button:hover {
   border: 1px solid var(--borderInput);
 }
 
-.mainPage .gifCtn .btn-moreGif button:hover {
+.mainPage .gifCtn .btnDiv .btn-moreGif button:hover {
   color: var(--backBtnWhite);
   background-color: var(--backBtnPurple);
 }
