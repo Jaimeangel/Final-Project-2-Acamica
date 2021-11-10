@@ -27,31 +27,39 @@ searchValue.addEventListener("click",(e)=>{getSearch(e)})
 btnMoreGif.addEventListener("click",(e)=>{getMoreGif(e)})
 
 let contador = 1
+const limite = 10
 //Value Search Input
 const getSearch = (e)=>{
     e.preventDefault()
     const item = e.target
-
-    if(item.classList[0] === "search_img"){
-        let valueBusqueda = valueSearch.value
-
-        let parentTitle = changeTitle.childNodes[1]
-        newTitle = document.createElement("h2")
-        newTitle.innerText = `${valueBusqueda}`
-        changeTitle.replaceChild(newTitle,parentTitle)
-
-        getGyphy(valueBusqueda)
+    if(contador <= limite){
+        if(item.classList[0] === "search_img"){
+            let valueBusqueda = valueSearch.value
+    
+            let parentTitle = changeTitle.childNodes[1]
+            newTitle = document.createElement("h2")
+            newTitle.innerText = `${valueBusqueda}`
+            changeTitle.replaceChild(newTitle,parentTitle)
+    
+            getGyphy(valueBusqueda)
+        }
+    }else{
+        console.log("exedio limite")
     }
 }
 
 const getMoreGif= (e)=>{
     e.preventDefault()
     const item = e.target
-    if(item.classList[0] === "btnGifVermas"){
-        let valueBusqueda = valueSearch.value
-
-        offSetVariable = offSetVariable + numberGifInit
-        getGyphy(valueBusqueda)
+    if(contador <= limite){
+        if(item.classList[0] === "btnGifVermas"){
+            let valueBusqueda = valueSearch.value
+    
+            offSetVariable = offSetVariable + numberGifInit
+            getGyphy(valueBusqueda)
+        }
+    }else{
+        console.log("exceder limite")
     }
 }
 
@@ -170,10 +178,10 @@ const getGyphy= async (valueBusqueda) => {
                 });
                 const btnStyles =()=>{
                     btnMoreGif.style.display="flex"
-                    if(contador > 1){
+/*                     if(contador > 1){
                         prev.style.display="flex"
                         next.style.display="flex"
-                    }
+                    } */
                 }
                 btnStyles()
                 paginationNumber()
@@ -293,26 +301,34 @@ getTrending()
 
 const paginationNumber=()=>{
     console.log("Funcion contador andando")
-	if(contador){
+	if(contador <= limite){
             let btn = document.createElement("div")
             btn.classList.add("btnNumberPagination")
             btn.textContent=`${contador}`
             btn.style.fontSize='1.25rem'
             ctnNumberPagination.appendChild(btn)   
-
+            if(contador === 1){
+                btn.classList.add("hoverBtnPagination")
+            }
             btn.addEventListener("click",(e)=>{
                 e.preventDefault()
                 const item = e.target
                 if(item.classList[0] === "btnNumberPagination"){
-                    const valueBtnContador = btn.textContent
+                    const valueBtnContador = parseInt(btn.textContent) 
                     console.log(valueBtnContador)
-                    index = `${valueBtnContador}`
+                    index = valueBtnContador
                     showItems()
-                    check()
+                    /* check() */
+                    removeHoverBtn()
+                    /* hoverBtn(index,valueBtnContador,btn)  */
+                    hoverBtn(btn)
+
                 }
             })
             console.log("haciendo numeracion")
-	}
+	}else{
+        return
+    }
 }
 
 const notGifFound = () => {

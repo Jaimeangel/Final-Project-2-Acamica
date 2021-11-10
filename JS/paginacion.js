@@ -1,14 +1,17 @@
 const galleryItems = document.querySelector(".gifBox").children
 const paginationInsert = document.querySelector(".pagination")
 const ctnNumberPagination = document.querySelector(".numberPaginationDiv")
+
+
 const prev = document.querySelector(".prev")
 const next = document.querySelector(".next")
-const maxItem = 12
-const maxBtn = 5
-let index = 1
-let contBtn = 1
 
-function contarGif(){
+const maxItem = 12
+let index = 1
+/* const maxBtn = 5 */
+/* let contBtn = 1 */
+
+const contarGif=()=>{
 	if(galleryItems.length > maxItem){
 		console.log(galleryItems.length)
 		startBegin()
@@ -17,18 +20,34 @@ function contarGif(){
 	}
 }
 
-prev.addEventListener("click",function(){
+const removeHoverBtn = ()=>{
+	const ctnHoverPag = document.querySelector(".numberPaginationDiv div.hoverBtnPagination")
+	ctnHoverPag.classList.remove("hoverBtnPagination")
+}
+
+/* const hoverBtn = (index,i,btnSelec)=>{
+	if(index === i){
+		btnSelec.classList.add("hoverBtnPagination")
+	}
+} */
+
+const hoverBtn = (btnSelec)=>{
+	btnSelec.classList.add("hoverBtnPagination")
+}
+
+
+/* prev.addEventListener("click",()=>{
 	index--
 	showItems()
 	check()
 })
-next.addEventListener("click",function(){
+next.addEventListener("click",()=>{
 	index++
 	showItems()
 	check()
-})
+}) */
 
-function check(){
+/* const check=()=>{
     if(index == ctnNumberPagination.lastChild.textContent){
 	    next.classList.add("disabled");
 	}else{
@@ -40,9 +59,9 @@ function check(){
     }else{
   	    prev.classList.remove("disabled");	
     }
-}
+} */
  
-function showItems() {
+const showItems= ()=> {
   	for(let i=0;i<galleryItems.length; i++){
   	 	galleryItems[i].classList.remove("show")
   	 	galleryItems[i].classList.add("hide")
@@ -56,7 +75,7 @@ function showItems() {
   	}
 } 
 
-function showNumberPagination(){
+/* const showNumberPagination= ()=>{
 	for(let i=0; i<ctnNumberPagination.children.length ;i++){
 		ctnNumberPagination.children[i].classList.remove("show")
 		ctnNumberPagination.children[i].classList.add("hide")
@@ -66,10 +85,10 @@ function showNumberPagination(){
 			ctnNumberPagination.children[i].classList.add("show")
 		}
 	}
-} 
+}  */
 
-function startBegin(){
+const startBegin= ()=>{
 	showItems()
-	showNumberPagination()
-	check()
+	/* check() */
+	/* showNumberPagination() */
 } 
