@@ -90,27 +90,22 @@ header .nav nav {
           justify-content: flex-end;
 }
 
-header .nav nav ul {
-  width: 80%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-top: 2.5rem;
-}
-
-header .nav nav ul li {
-  -webkit-box-flex: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+header .nav nav .nav_darkMode {
+  margin-top: 2.8rem;
   list-style: none;
 }
 
-header .nav nav ul li input {
+header .nav nav .nav_darkMode input {
   display: none;
 }
 
-header .nav nav ul li label {
+header .nav nav .nav_darkMode label {
   cursor: pointer;
+}
+
+header .nav nav .nav_darkMode a {
+  text-decoration: none;
+  color: inherit;
 }
 
 header .nav nav .btn {
@@ -191,9 +186,11 @@ header .nav nav .btn button:hover {
   border-radius: 2.5rem;
   background-color: var(--BackBody);
   border: 1px solid var(--borderInput);
-  color: #9CAFC3;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
-  line-height: 1,2rem;
+  outline: none;
+  padding-left: 50px;
 }
 
 .mainPage .search_bar .search_img {
@@ -406,7 +403,7 @@ header .nav nav .btn button:hover {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
-  margin: 0px 8.2rem;
+  margin: 3rem 8.2rem;
 }
 
 .favoritePage .gifBox .box {
@@ -550,6 +547,7 @@ header .nav nav .btn button:hover {
 
 .misGifPage .img {
   text-align: center;
+  margin: 10px;
 }
 
 .misGifPage .title {
@@ -566,7 +564,7 @@ header .nav nav .btn button:hover {
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
-  margin: 0px 8.2rem;
+  margin: 3rem 8.2rem;
 }
 
 .misGifPage .gifBox .box {
@@ -991,6 +989,7 @@ header .nav nav .btn button:hover {
   color: var(--colorLetra);
   padding: 0.375rem 0.6875rem;
   margin: 0.9375rem;
+  font-size: 1.25rem;
 }
 
 .pagination .hoverBtnPagination {

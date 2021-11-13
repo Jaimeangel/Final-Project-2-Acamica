@@ -6,44 +6,37 @@ let mainPage = document.querySelector(".mainPage")
 //Selecioner change tabs
 let favoriteTabMode = document.getElementById("favoriteTab")
 let misGifTabMode = document.getElementById("misGifTab")
-
+let mainTabMode = document.getElementById("mainTab")
 
 
 //Events Handlers Tabs
 favoriteTabMode.addEventListener("click",(e)=>{
     e.preventDefault() 
-    const item = e.target.parentNode.childNodes[1].id
-    /* console.log(item) */
-    selectTab(item)
+    favoriteChangeTab()
 })
 misGifTabMode.addEventListener("click",(e)=>{
     e.preventDefault() 
-    const item = e.target.parentNode.childNodes[1].id
-    /* console.log(item) */
-    selectTab(item)
+    misGifChangeTab()
 }) 
-
-//Selection tab
-function selectTab(item){
-    if(item === "favoriteTab"){
-        favoriteChangeTab()
-    }else if(item === "misGifTab"){
-        misGifChangeTab()
-    }
-}
+mainTabMode.addEventListener("click",(e)=>{
+    e.preventDefault() 
+    mainChangeTab()
+}) 
 
 //Function change tabs
 function favoriteChangeTab(){
-    if(favoriteTabMode.checked){
-        mainPage.style.display="none"
-        misGifPage.style.display="none"
-        favoritePage.style.display="flex"
-    }
+    mainPage.style.display="none"
+    misGifPage.style.display="none"
+    favoritePage.style.display="flex"
 } 
 function misGifChangeTab(){
-    if(misGifTabMode.checked){
-        mainPage.style.display="none"
-        favoritePage.style.display="none"
-        misGifPage.style.display="flex"
-    }
+    mainPage.style.display="none"
+    favoritePage.style.display="none"
+    misGifPage.style.display="flex"
+    
 } 
+function mainChangeTab(){
+    mainPage.style.display="flex"
+    favoritePage.style.display="none"
+    misGifPage.style.display="none"
+}

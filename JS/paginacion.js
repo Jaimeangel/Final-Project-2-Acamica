@@ -3,8 +3,8 @@ const paginationInsert = document.querySelector(".pagination")
 const ctnNumberPagination = document.querySelector(".numberPaginationDiv")
 
 
-const prev = document.querySelector(".prev")
-const next = document.querySelector(".next")
+/* const prev = document.querySelector(".prev")
+const next = document.querySelector(".next") */
 
 const maxItem = 12
 let index = 1
@@ -13,10 +13,7 @@ let index = 1
 
 const contarGif=()=>{
 	if(galleryItems.length > maxItem){
-		console.log(galleryItems.length)
-		startBegin()
-	}else{
-		console.log('No hay suficientes Gif')
+		showItems()
 	}
 }
 
@@ -87,8 +84,8 @@ const showItems= ()=> {
 	}
 }  */
 
-const startBegin= ()=>{
+/* const startBegin= ()=>{
 	showItems()
-	/* check() */
-	/* showNumberPagination() */
-} 
+	check() 
+	showNumberPagination() 
+}  */

@@ -28,6 +28,7 @@ btnMoreGif.addEventListener("click",(e)=>{getMoreGif(e)})
 
 let contador = 1
 const limite = 10
+
 //Value Search Input
 const getSearch = (e)=>{
     e.preventDefault()
@@ -35,7 +36,8 @@ const getSearch = (e)=>{
     if(contador <= limite){
         if(item.classList[0] === "search_img"){
             let valueBusqueda = valueSearch.value
-    
+            
+            
             let parentTitle = changeTitle.childNodes[1]
             newTitle = document.createElement("h2")
             newTitle.innerText = `${valueBusqueda}`
@@ -44,7 +46,7 @@ const getSearch = (e)=>{
             getGyphy(valueBusqueda)
         }
     }else{
-        console.log("exedio limite")
+        return
     }
 }
 
@@ -54,12 +56,11 @@ const getMoreGif= (e)=>{
     if(contador <= limite){
         if(item.classList[0] === "btnGifVermas"){
             let valueBusqueda = valueSearch.value
-    
             offSetVariable = offSetVariable + numberGifInit
             getGyphy(valueBusqueda)
         }
     }else{
-        console.log("exceder limite")
+        return
     }
 }
 
@@ -70,8 +71,6 @@ const getGyphy= async (valueBusqueda) => {
     const response = await fetch(url)
     const responseJSON = await response.json()
     const gifData = responseJSON.data
-    console.log(gifData)
-    console.log(typeof(gifData))
 
     try{
         setTimeout(()=>{
@@ -193,7 +192,7 @@ const getGyphy= async (valueBusqueda) => {
                 
         },0)
     }catch{
-        console.log("Este Gyphy no se encuentra")
+        notGifFound()
     }
 }
 
@@ -300,39 +299,40 @@ const getTrending= async ()=>{
 getTrending()
 
 const paginationNumber=()=>{
-    console.log("Funcion contador andando")
 	if(contador <= limite){
+            //Creando botones de paginacion segun variable contador 1.2.3.... 
             let btn = document.createElement("div")
             btn.classList.add("btnNumberPagination")
             btn.textContent=`${contador}`
-            btn.style.fontSize='1.25rem'
-            ctnNumberPagination.appendChild(btn)   
+            ctnNumberPagination.appendChild(btn) 
+            //Primer pagina con :Hover contador=1
             if(contador === 1){
                 btn.classList.add("hoverBtnPagination")
             }
+            //Evento cambiar de pagina
             btn.addEventListener("click",(e)=>{
                 e.preventDefault()
                 const item = e.target
                 if(item.classList[0] === "btnNumberPagination"){
-                    const valueBtnContador = parseInt(btn.textContent) 
-                    console.log(valueBtnContador)
+                    const valueBtnContador = parseInt(btn.textContent)
                     index = valueBtnContador
-                    showItems()
+                    showItems() //Muestra Gif segun paginacion
                     /* check() */
-                    removeHoverBtn()
+                    removeHoverBtn() // Remueve el :hover de los botones
                     /* hoverBtn(index,valueBtnContador,btn)  */
-                    hoverBtn(btn)
+                    hoverBtn(btn)// Agrega el :hover a los botones
 
                 }
             })
-            console.log("haciendo numeracion")
 	}else{
         return
     }
 }
 
 const notGifFound = () => {
+    //Ocultamos pagina principal de gif
     btnDiv.style.display="none"
+    //Creamos modulo NotFound Gif
     let divBox = document.createElement("div")
     divBox.classList.add("nofFoundImg")
     divBox.setAttribute("id","notFoundImgId")
@@ -347,15 +347,17 @@ const notGifFound = () => {
     textBox1.textContent = `Intenta con otra búsqueda.`
     wordBox.appendChild(textBox1)
     divBox.appendChild(wordBox)
-
+    //Boton cerrar modulo NotFound Gif
     let btnBox = document.createElement("button")
     btnBox.setAttribute("id","btnNotFound")
     btnBox.textContent="X"
+    //Evento cerrar NotFound Gif
     btnBox.addEventListener("click",()=>{
         btnDiv.style.display="inline"
         divBox.remove()
     })
-    divBox.appendChild(btnBox)
 
+    divBox.appendChild(btnBox)
+    //Insertando NotFound en div principal de seccion Main
     ctnMain.appendChild(divBox)
 }
