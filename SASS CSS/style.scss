@@ -11,7 +11,8 @@
     --backBtnPurple : #572EE5;
     --BackBody : white;
     --backTrending: #F3F5F8;
-  }
+    --colorLetraBlack: black;
+}
 .dark-mode{
     --borderColor : #000000;
     --borderInput : #FFFFFF;   
@@ -20,6 +21,7 @@
     --backBtnPurple : #FFFFFF;
     --BackBody : #37383C;
     --backTrending: #222326;
+    --colorLetraBlack: white;
 }
 body{
     background-color: var(--BackBody);
@@ -68,6 +70,62 @@ header{
         nav{
             display: flex;
             justify-content: flex-end;
+            ul{
+                width: 80%;
+                display: flex;
+                margin-top: 2.5rem;
+                li{
+                    flex-grow: 1;
+                    list-style: none;
+                    input{
+                        display: none;
+                    }
+                    label{
+                        cursor: pointer;
+                    }
+                    :hover{
+                        text-decoration: underline #5ED7C6 3px;
+                    }
+                    :active{
+                        color: #9CAFC3;
+                    } 
+                }
+            }
+            .btn{
+                margin-left: 2rem;
+                margin-top: 1.3rem;
+                button{
+                    background-color: var(--BackBody);
+                    border: 1px solid var(--borderInput);
+                    color: var(--colorLetra);
+                    width: 3.5rem;
+                    height: 3.5rem;
+                    border-radius: 50%;
+                    font-size: 1rem;
+                    &:hover{
+                        color:var(--backBtnWhite);
+                        background-color: var(--backBtnPurple);
+                    }
+                    &:active{
+                        background-color: #9CAFC3;
+                        border: 1px solid #9CAFC3;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+    .nav_cam{
+        width: 40%;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        color: var(--colorLetra);
+        font-size: 1rem;
+        line-height: 1rem;
+        margin-right: 6.2rem;
+        nav{
+            display: flex;
+            justify-content: flex-end;
             .nav_darkMode{
                 margin-top: 2.8rem;
                 list-style: none;
@@ -76,13 +134,15 @@ header{
                 }
                 label{
                     cursor: pointer;
-                } 
-                a{
-                    text-decoration: none;
-                    color: inherit;
                 }
+                :hover{
+                    text-decoration: underline #5ED7C6 3px;
+                }
+                :active{
+                    color: #9CAFC3;
+                }  
             }
-            .btn{
+            .btn_cam{
                     margin-left: 2rem;
                     margin-top: 1.3rem;
                     button{
@@ -97,11 +157,17 @@ header{
                             color:var(--backBtnWhite);
                             background-color: var(--backBtnPurple);
                         }
+                        &:active{
+                            background-color: #9CAFC3;
+                            border: 1px solid #9CAFC3;
+                            color: white;
+                        }
                     }
             }
         }
-    }
+    } 
 }
+
 
 .mainPage{
     width: 100%;
@@ -139,7 +205,7 @@ header{
                 border-radius: 2.5rem;
                 background-color: var(--BackBody);
                 border: 1px solid var(--borderInput);
-                color:black;
+                color:var(--colorLetraBlack);
                 font-family: 'Montserrat', sans-serif;
                 font-size: 1rem;
                 outline: none; 
@@ -316,8 +382,7 @@ header{
     .title{
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
-        color: var(--colorLetra);
-        margin-bottom: 3rem;
+        color: var(--colorLetra); 
         text-align: center;
     }
 
@@ -401,33 +466,6 @@ header{
 
     }
 
-    .nofFoundImg{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 8.75rem;
-        .wordsFavorites{
-            display: flex;
-            flex-direction: column;
-            p{
-                font-size: 22px;
-                font-family: 'Montserrat', sans-serif;
-                font-weight: bold;
-                color:#50E3C2;
-            }
-            :last-child{
-                margin-left: 3.125rem;
-            }
-        }
-        img{
-            margin-top: 5.5rem;
-            margin-bottom: 1.875rem;
-            width: 9.375rem;
-            height: 9.375rem;
-        }
-
-        
-    }
 }
 .misGifPage{
     width: 100%;
@@ -444,7 +482,6 @@ header{
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: var(--colorLetra);
-        margin-bottom: 3rem;
         text-align: center;
     }
 
@@ -540,6 +577,7 @@ header{
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
             color:#50E3C2;
+            text-align: center;
         }
     }
     img{

@@ -13,6 +13,7 @@
   --backBtnPurple: #572EE5;
   --BackBody: white;
   --backTrending: #F3F5F8;
+  --colorLetraBlack: black;
 }
 
 .dark-mode {
@@ -23,6 +24,7 @@
   --backBtnPurple: #FFFFFF;
   --BackBody: #37383C;
   --backTrending: #222326;
+  --colorLetraBlack: white;
 }
 
 body {
@@ -90,22 +92,36 @@ header .nav nav {
           justify-content: flex-end;
 }
 
-header .nav nav .nav_darkMode {
-  margin-top: 2.8rem;
+header .nav nav ul {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 2.5rem;
+}
+
+header .nav nav ul li {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
   list-style: none;
 }
 
-header .nav nav .nav_darkMode input {
+header .nav nav ul li input {
   display: none;
 }
 
-header .nav nav .nav_darkMode label {
+header .nav nav ul li label {
   cursor: pointer;
 }
 
-header .nav nav .nav_darkMode a {
-  text-decoration: none;
-  color: inherit;
+header .nav nav ul li :hover {
+  -webkit-text-decoration: underline #5ED7C6 3px;
+          text-decoration: underline #5ED7C6 3px;
+}
+
+header .nav nav ul li :active {
+  color: #9CAFC3;
 }
 
 header .nav nav .btn {
@@ -126,6 +142,79 @@ header .nav nav .btn button {
 header .nav nav .btn button:hover {
   color: var(--backBtnWhite);
   background-color: var(--backBtnPurple);
+}
+
+header .nav nav .btn button:active {
+  background-color: #9CAFC3;
+  border: 1px solid #9CAFC3;
+  color: white;
+}
+
+header .nav_cam {
+  width: 40%;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  color: var(--colorLetra);
+  font-size: 1rem;
+  line-height: 1rem;
+  margin-right: 6.2rem;
+}
+
+header .nav_cam nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+header .nav_cam nav .nav_darkMode {
+  margin-top: 2.8rem;
+  list-style: none;
+}
+
+header .nav_cam nav .nav_darkMode input {
+  display: none;
+}
+
+header .nav_cam nav .nav_darkMode label {
+  cursor: pointer;
+}
+
+header .nav_cam nav .nav_darkMode :hover {
+  -webkit-text-decoration: underline #5ED7C6 3px;
+          text-decoration: underline #5ED7C6 3px;
+}
+
+header .nav_cam nav .nav_darkMode :active {
+  color: #9CAFC3;
+}
+
+header .nav_cam nav .btn_cam {
+  margin-left: 2rem;
+  margin-top: 1.3rem;
+}
+
+header .nav_cam nav .btn_cam button {
+  background-color: var(--BackBody);
+  border: 1px solid var(--borderInput);
+  color: var(--colorLetra);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  font-size: 1rem;
+}
+
+header .nav_cam nav .btn_cam button:hover {
+  color: var(--backBtnWhite);
+  background-color: var(--backBtnPurple);
+}
+
+header .nav_cam nav .btn_cam button:active {
+  background-color: #9CAFC3;
+  border: 1px solid #9CAFC3;
+  color: white;
 }
 
 .mainPage {
@@ -186,7 +275,7 @@ header .nav nav .btn button:hover {
   border-radius: 2.5rem;
   background-color: var(--BackBody);
   border: 1px solid var(--borderInput);
-  color: black;
+  color: var(--colorLetraBlack);
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   outline: none;
@@ -393,7 +482,6 @@ header .nav nav .btn button:hover {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: var(--colorLetra);
-  margin-bottom: 3rem;
   text-align: center;
 }
 
@@ -491,48 +579,6 @@ header .nav nav .btn button:hover {
   z-index: 1;
 }
 
-.favoritePage .nofFoundImg {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 8.75rem;
-}
-
-.favoritePage .nofFoundImg .wordsFavorites {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.favoritePage .nofFoundImg .wordsFavorites p {
-  font-size: 22px;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  color: #50E3C2;
-}
-
-.favoritePage .nofFoundImg .wordsFavorites :last-child {
-  margin-left: 3.125rem;
-}
-
-.favoritePage .nofFoundImg img {
-  margin-top: 5.5rem;
-  margin-bottom: 1.875rem;
-  width: 9.375rem;
-  height: 9.375rem;
-}
-
 .misGifPage {
   width: 100%;
   display: none;
@@ -554,7 +600,6 @@ header .nav nav .btn button:hover {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: var(--colorLetra);
-  margin-bottom: 3rem;
   text-align: center;
 }
 
@@ -681,6 +726,7 @@ header .nav nav .btn button:hover {
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #50E3C2;
+  text-align: center;
 }
 
 .nofFoundImg img {

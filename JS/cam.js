@@ -40,9 +40,6 @@ btnCam.addEventListener("click",(e)=>{
 
 
 function onCam(){
-
-  console.log("Camera Access")
-
   let btnStyles = function changedStyles(){
     //btn style
     btnOne.classList.add("hoverBtnCamAct")
@@ -51,12 +48,9 @@ function onCam(){
     introSlide.style.display="none" 
     camSlide.style.display="flex" 
   }
-
   btnStyles()
 
- 
-
-function getStreamAndDisplay() {
+  function getStreamAndDisplay() {
     navigator.mediaDevices
       .getUserMedia({
         audio: false,
@@ -83,7 +77,6 @@ function getStreamAndDisplay() {
       
           //Changed text btn
           let btnOldCam = btnCam.childNodes[1]
-          console.log(btnOldCam)
           let btnNewCam = document.createElement("button")
           let btnNewCamText = document.createElement("p")
           btnNewCamText.innerText = `GRABAR`
@@ -100,7 +93,7 @@ function getStreamAndDisplay() {
           width: 360,
           height: 240,
           onGifRecordingStarted() {
-            console.log('Grabando ahora mismo')
+            return
           },
         });
       });
@@ -116,7 +109,6 @@ function recordCam(){
   let btnStyles = function changedStyles(){
     cronometreScreen.style.display="flex"
     let btnOldCam = btnCam.childNodes[1]
-    console.log(btnOldCam)
     let btnNewCam = document.createElement("button")
     let btnNewCamText = document.createElement("p")
     btnNewCamText.innerText = `FINALIZAR`
@@ -133,7 +125,6 @@ function stopCam(){
     cronometreScreen.style.display="none"
     textRepeat.style.display="flex"
     let btnOldCam = btnCam.childNodes[1]
-    console.log(btnOldCam)
   
     let btnNewCam = document.createElement("button")
     let btnNewCamText = document.createElement("p")
@@ -142,13 +133,10 @@ function stopCam(){
     btnNewCam.appendChild(btnNewCamText)
     btnCam.replaceChild(btnNewCam,btnOldCam)
   
-    console.log("para de grabar")
   }
   btnStyles()
 
   recorder.stopRecording((recording) => {
-  console.log("grabacion:", recording);
-
   form = new FormData();
   form.append("file", recorder.getBlob(), "myGif.gif");
 
@@ -172,13 +160,10 @@ function uploadGifMethod(){
       if(res.status === 200){
         overVideoImg.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/check.svg")
         overVideotext.innerText="GIFO subido con éxito"
-        console.log("El gif fue subido con exito")
         return res.json()
       }
     })
     .then(function(res){
-      console.log(res)
-      console.log(res.data.id)
       const dataId = res.data.id
 
       let btnStyles = function changedStyles(){
@@ -244,7 +229,7 @@ function deleteRecorder(){
 
 }
 
-
+//FUNCIONES PARA GUARDAR ID GIF PRODUCIDO 
 function saveIdGifLS(dataId){
   let uploadGifId;
   //Toma valor de un arreglo con datos del LS
@@ -253,6 +238,7 @@ function saveIdGifLS(dataId){
   uploadGifId.push(dataId)
   //Agregamos al LS
   localStorage.setItem('uploadGifId', JSON.stringify(uploadGifId))
+  getGifUploadAPI()
 }
 
 
@@ -266,4 +252,64 @@ function getIdGifLS(){
       GifUploadId = JSON.parse(localStorage.getItem('uploadGifId'));
   }
   return GifUploadId;
+}
+
+function obtenerGifsUploadLocalStorage(){
+  let GifUpload;
+  //Comprobar si hay algo en LS
+  if(localStorage.getItem('uploadGif') === null){
+      GifUpload = [];
+  }
+  else {
+      GifUpload = JSON.parse(localStorage.getItem('uploadGif'));
+  }
+  return GifUpload;
+} 
+
+function guardarGifUploadLS(infoGif){
+  let uploadGif;
+  //Toma valor de un arreglo con datos del LS
+  uploadGif = obtenerGifsUploadLocalStorage()
+  //Agregar el producto al carrito
+  uploadGif.push(infoGif)
+  //Agregamos al LS
+  localStorage.setItem('uploadGif', JSON.stringify(uploadGif))
+}
+
+
+const getGifUploadAPI=()=>{
+        
+  let getIdLS = null
+  getIdLS = getIdGifLS()
+
+  getIdLS.forEach(async (GifUpload) => {
+  
+      let url=`https://api.giphy.com/v1/gifs/${GifUpload}?api_key=${conf_k_on}`
+  
+      const response = await fetch(url)
+      const responseJSON = await response.json()
+      const giphyResponse = responseJSON.data
+  
+      let infoGif = {
+          imgGifUrl :giphyResponse.images.original.url,
+          nameGif :giphyResponse.title,
+          userGif :giphyResponse.username,  
+          idGif :giphyResponse.id
+      }
+      
+      let GifsUploadLS;
+      GifsUploadLS = obtenerGifsUploadLocalStorage()
+      GifsUploadLS.forEach((GifUpload)=>{
+          if(GifUpload.idGif === infoGif.idGif){
+              GifsUploadLS = GifUpload.idGif
+          }
+      })
+      if(GifsUploadLS === infoGif.idGif){
+          return
+      }else{
+          guardarGifUploadLS(infoGif)
+          /* leerLSGifUploadLoad()  */
+      }   
+      
+  })
 }

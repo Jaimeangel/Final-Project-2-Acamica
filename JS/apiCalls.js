@@ -1,4 +1,4 @@
-///Apy Key 
+//Api Key 
 const conf_k_on = "wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
 
 /* Search Gif Main Page */
@@ -22,27 +22,28 @@ let gifBox = document.querySelector("box")
 let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
 
-//Event
+//Eventos
+//Evento Barra de Busqueda
 searchValue.addEventListener("click",(e)=>{getSearch(e)})
+//Evento Boton "Ver mas" Gif
 btnMoreGif.addEventListener("click",(e)=>{getMoreGif(e)})
 
 let contador = 1
 const limite = 10
 
-//Value Search Input
+//Funcion barra de busqueda
 const getSearch = (e)=>{
     e.preventDefault()
     const item = e.target
     if(contador <= limite){
         if(item.classList[0] === "search_img"){
             let valueBusqueda = valueSearch.value
-            
-            
+            //Remplazando titulo de cada busqueda de Gif
             let parentTitle = changeTitle.childNodes[1]
             newTitle = document.createElement("h2")
             newTitle.innerText = `${valueBusqueda}`
             changeTitle.replaceChild(newTitle,parentTitle)
-    
+            //Function Fetch Api Giphy 
             getGyphy(valueBusqueda)
         }
     }else{
@@ -50,6 +51,7 @@ const getSearch = (e)=>{
     }
 }
 
+//Funcion boton mas Gif
 const getMoreGif= (e)=>{
     e.preventDefault()
     const item = e.target
@@ -64,7 +66,7 @@ const getMoreGif= (e)=>{
     }
 }
 
-//get Gif from APIGiphy [Endpoint search]
+//Funcion busqueda GIF APIGiphy [Endpoint search]
 const getGyphy= async (valueBusqueda) => {
     
     const url=`https://api.giphy.com/v1/gifs/search?api_key=${conf_k_on}&q=${valueBusqueda}&limit=${numberGifInit}&offset=${offSetVariable}`
@@ -74,7 +76,9 @@ const getGyphy= async (valueBusqueda) => {
 
     try{
         setTimeout(()=>{
+            //Compracion si Fetch es diferente de cero
             if(Object.keys(gifData).length){
+                //Aqui se crea cada Gif con la informacion obtenida de Gif api
                 gifData.forEach( Gif => {
                     
                     /* console.log(giphyResponse[i]) */
@@ -175,23 +179,27 @@ const getGyphy= async (valueBusqueda) => {
                     ctnGyphy.appendChild(divCtn)
         
                 });
+
                 const btnStyles =()=>{
+                    //se muestra el botn de "Ver mas" para traer mas Gif
                     btnMoreGif.style.display="flex"
-/*                     if(contador > 1){
-                        prev.style.display="flex"
-                        next.style.display="flex"
-                    } */
                 }
                 btnStyles()
+                //Muesta FrontEnd de paginacion
                 paginationNumber()
+                //Activa las funciones js de paginacion
                 contarGif()
+                //Lleva la cuenta en numero(importante para hacer correcta paginacion)
+                //Cada vez que se hace una busqueda genera el numero en que se encuentra
+                //En la paginacion
                 contador++
             }else{
+                //Si fetch es cero noo hay gif para mostrar
                 notGifFound()
             }
-                
         },0)
     }catch{
+        //Si hay erro muestra no hay gif modulo
         notGifFound()
     }
 }
@@ -317,9 +325,7 @@ const paginationNumber=()=>{
                     const valueBtnContador = parseInt(btn.textContent)
                     index = valueBtnContador
                     showItems() //Muestra Gif segun paginacion
-                    /* check() */
                     removeHoverBtn() // Remueve el :hover de los botones
-                    /* hoverBtn(index,valueBtnContador,btn)  */
                     hoverBtn(btn)// Agrega el :hover a los botones
 
                 }

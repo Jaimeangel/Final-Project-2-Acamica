@@ -11,15 +11,12 @@ let mainTabMode = document.getElementById("mainTab")
 
 //Events Handlers Tabs
 favoriteTabMode.addEventListener("click",(e)=>{
-    e.preventDefault() 
     favoriteChangeTab()
 })
 misGifTabMode.addEventListener("click",(e)=>{
-    e.preventDefault() 
     misGifChangeTab()
 }) 
 mainTabMode.addEventListener("click",(e)=>{
-    e.preventDefault() 
     mainChangeTab()
 }) 
 

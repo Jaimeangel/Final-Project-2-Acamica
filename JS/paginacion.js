@@ -2,62 +2,32 @@ const galleryItems = document.querySelector(".gifBox").children
 const paginationInsert = document.querySelector(".pagination")
 const ctnNumberPagination = document.querySelector(".numberPaginationDiv")
 
-
-/* const prev = document.querySelector(".prev")
-const next = document.querySelector(".next") */
-
+//Numero maximo de Gif permitidos
 const maxItem = 12
+//Es la pagina actual que repesenta los gif que se muestran segun indique la paginacion
 let index = 1
-/* const maxBtn = 5 */
-/* let contBtn = 1 */
 
+//Si hay mas 12 Gif entonces empieza el proceso de paginacion
+//Con la funcion showItems()
 const contarGif=()=>{
 	if(galleryItems.length > maxItem){
 		showItems()
 	}
 }
 
+//Quita el :Hover de todos lo botones de la seccion paginacion
 const removeHoverBtn = ()=>{
 	const ctnHoverPag = document.querySelector(".numberPaginationDiv div.hoverBtnPagination")
 	ctnHoverPag.classList.remove("hoverBtnPagination")
 }
 
-/* const hoverBtn = (index,i,btnSelec)=>{
-	if(index === i){
-		btnSelec.classList.add("hoverBtnPagination")
-	}
-} */
-
+//Pone hover al boton seleccionado
 const hoverBtn = (btnSelec)=>{
 	btnSelec.classList.add("hoverBtnPagination")
 }
 
-
-/* prev.addEventListener("click",()=>{
-	index--
-	showItems()
-	check()
-})
-next.addEventListener("click",()=>{
-	index++
-	showItems()
-	check()
-}) */
-
-/* const check=()=>{
-    if(index == ctnNumberPagination.lastChild.textContent){
-	    next.classList.add("disabled");
-	}else{
-  	    next.classList.remove("disabled");	
-    }
-
-    if(index == ctnNumberPagination.firstChild.textContent){
-  	    prev.classList.add("disabled");
-    }else{
-  	    prev.classList.remove("disabled");	
-    }
-} */
- 
+//Funcion encargada de mostrar Gif de acuerdo al numero de index
+//El cual es controlado por la funcion paginatioNumber
 const showItems= ()=> {
   	for(let i=0;i<galleryItems.length; i++){
   	 	galleryItems[i].classList.remove("show")
@@ -72,20 +42,3 @@ const showItems= ()=> {
   	}
 } 
 
-/* const showNumberPagination= ()=>{
-	for(let i=0; i<ctnNumberPagination.children.length ;i++){
-		ctnNumberPagination.children[i].classList.remove("show")
-		ctnNumberPagination.children[i].classList.add("hide")
-
-		if(i>=(contBtn*maxBtn)-maxBtn && i<contBtn*maxBtn){
-			ctnNumberPagination.children[i].classList.remove("hide")
-			ctnNumberPagination.children[i].classList.add("show")
-		}
-	}
-}  */
-
-/* const startBegin= ()=>{
-	showItems()
-	check() 
-	showNumberPagination() 
-}  */

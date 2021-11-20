@@ -136,6 +136,7 @@ const guardarGifLS = (infoGif)=>{
     //Agregamos al LS
     localStorage.setItem('favoritos', JSON.stringify(favoritos))
 }
+
 const obtenerGifsFavoritosLocalStorage = ()=>{
     let GifFavorito;
     //Comprobar si hay algo en LS
@@ -263,6 +264,7 @@ const nullGif = ()=>{
     let verifyGif = obtenerGifsFavoritosLocalStorage()
     let articleFav= document.getElementById("articleFavorite")
     if(Object.keys(verifyGif).length === 0){
+        favoriteTemplateGif.style.display="none"
         let divBox = document.createElement("div")
         divBox.classList.add("nofFoundImg")
         divBox.setAttribute("id","notFoundImgId")
@@ -283,6 +285,7 @@ const nullGif = ()=>{
         let divToDelete = document.getElementById("notFoundImgId")
         if(divToDelete){
             divToDelete.remove()
+            favoriteTemplateGif.style.display="grid"
         }else{
             return 
         } 
