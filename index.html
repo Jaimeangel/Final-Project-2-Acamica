@@ -15,7 +15,7 @@
             </div>
 
             <div class="search">
-                <input type="search" placeholder="          Busca GIFOS y mas">
+                <input type="text" placeholder="Busca GIFOS y mas">
                 <div class="search_img">
                     <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
                 </div>
@@ -66,11 +66,20 @@
                 </div>
 
                 <div class="search_bar">
-                    <input class="search_input" type="search" placeholder="Busca GIFOS y mas">
-                    <div class="search_img" id="search_lupa" >
-                        <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
+                    <div class="search_bar_inputSearch">
+                        <input class="search_input" type="text" placeholder="Busca GIFOS y mas">
+                        <div class="search_img" id="search_lupa">
+                            <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-search.svg" alt="">
+                        </div>
+                        <div class="search_img x" id="x">
+                            <i class="fas fa-times"></i>
+                        </div>
+                    </div>
+                    <div class="search_bar_boxHr">
+                        <hr>
                     </div>
                 </div>
+                <div class="suggestions"></div>
                 
             </article>
 
@@ -218,6 +227,7 @@
         <script src="JS/paginacion.js"></script>
         <script src="JS/gifUp.js"></script>
         <script src="JS/modal.js"></script>
+        <script src="JS/autcomplete.js"></script>
     </body>
     
 </html>

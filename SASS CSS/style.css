@@ -263,34 +263,112 @@ header .nav_cam nav .btn_cam button:active {
   margin: auto;
 }
 
-.mainPage .search_bar {
+.mainPage .search_bar_inputSearch {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.mainPage .search_bar input {
+.mainPage .search_bar_inputSearch input {
+  z-index: 1;
   width: 37.5rem;
-  height: 3.2rem;
-  border-radius: 2.5rem;
+  height: 56px;
+  border-radius: 1.5rem;
   background-color: var(--BackBody);
   border: 1px solid var(--borderInput);
   color: var(--colorLetraBlack);
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   outline: none;
-  padding-left: 50px;
+  padding-left: 60px;
+  padding-bottom: 0px;
 }
 
-.mainPage .search_bar .search_img {
+.mainPage .search_bar_inputSearch .search_img {
+  display: block;
+  z-index: 3;
   cursor: pointer;
   position: relative;
-  top: 1rem;
+  top: 1.1rem;
   right: 2.5rem;
 }
 
-.mainPage .search_bar .search_img img {
+.mainPage .search_bar_inputSearch .search_img img {
   pointer-events: none;
+}
+
+.mainPage .search_bar_inputSearch .leftLupa {
+  right: 35.8rem;
+}
+
+.mainPage .search_bar_inputSearch .x {
+  display: none;
+  right: 3.5rem;
+}
+
+.mainPage .search_bar_inputSearch .x i {
+  font-size: 24px;
+  color: var(--borderInput);
+}
+
+.mainPage .search_bar_boxHr {
+  z-index: 2;
+  position: relative;
+  display: none;
+  width: 37.5rem;
+  padding: 0.875rem;
+  background-color: white;
+  top: -22px;
+  border-left: 1px solid var(--borderInput);
+  border-right: 1px solid var(--borderInput);
+}
+
+.mainPage .search_bar_boxHr hr {
+  width: 33rem;
+  height: 1px;
+  color: #9CAFC3;
+  margin: auto;
+}
+
+.mainPage .search .suggestions {
+  position: relative;
+  top: -35px;
+}
+
+.mainPage .search .suggestions ul {
+  width: 37.5rem;
+}
+
+.mainPage .search .suggestions ul .itemList {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  border-left: 1px solid var(--borderInput);
+  border-right: 1px solid var(--borderInput);
+}
+
+.mainPage .search .suggestions ul .itemList:last-child {
+  position: relative;
+  border-left: 1px solid var(--borderInput);
+  border-right: 1px solid var(--borderInput);
+  border-bottom: 1px solid var(--borderInput);
+  border-bottom-right-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.mainPage .search .suggestions ul .itemList img {
+  padding-left: 25px;
+  padding-right: 0px;
+  cursor: pointer;
+}
+
+.mainPage .search .suggestions ul .itemList p {
+  padding-left: 15px;
 }
 
 .mainPage .trending {

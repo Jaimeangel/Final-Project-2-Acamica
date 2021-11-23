@@ -24,7 +24,11 @@ let hrElement = document.getElementById("hr")
 
 //Eventos
 //Evento Barra de Busqueda
-searchValue.addEventListener("click",(e)=>{getSearch(e)})
+searchValue.addEventListener("click",(e)=>{
+    getSearch(e)
+    removeList()
+    document.querySelector(".search_bar_boxHr").style.display="none"
+})
 //Evento Boton "Ver mas" Gif
 btnMoreGif.addEventListener("click",(e)=>{getMoreGif(e)})
 
@@ -36,7 +40,23 @@ const getSearch = (e)=>{
     e.preventDefault()
     const item = e.target
     if(contador <= limite){
-        if(item.classList[0] === "search_img"){
+        if(item.classList[0] === "search_img"){ 
+            let valueBusqueda = valueSearch.value
+            //Remplazando titulo de cada busqueda de Gif
+            let parentTitle = changeTitle.childNodes[1]
+            newTitle = document.createElement("h2")
+            newTitle.innerText = `${valueBusqueda}`
+            changeTitle.replaceChild(newTitle,parentTitle)
+
+            ////
+            document.querySelector(".search_bar_boxHr").style.display="none"
+            document.getElementById("search_lupa").classList.remove("leftLupa")
+            document.getElementById("x").style.display="none"
+
+
+            //Function Fetch Api Giphy 
+            getGyphy(valueBusqueda)
+        }else if(item.classList[0] === "img_search"){
             let valueBusqueda = valueSearch.value
             //Remplazando titulo de cada busqueda de Gif
             let parentTitle = changeTitle.childNodes[1]
