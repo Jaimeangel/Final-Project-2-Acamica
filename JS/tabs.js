@@ -11,9 +11,15 @@ let mainTabMode = document.getElementById("mainTab")
 
 //Events Handlers Tabs
 favoriteTabMode.addEventListener("click",(e)=>{
+    menu.classList.toggle("none")
+    menuX.style.display="none"
+    menuGrip.style.display="block"
     favoriteChangeTab()
 })
 misGifTabMode.addEventListener("click",(e)=>{
+    menu.classList.toggle("none")
+    menuX.style.display="none"
+    menuGrip.style.display="block"
     misGifChangeTab()
 }) 
 mainTabMode.addEventListener("click",(e)=>{
@@ -30,7 +36,6 @@ function misGifChangeTab(){
     mainPage.style.display="none"
     favoritePage.style.display="none"
     misGifPage.style.display="flex"
-    
 } 
 function mainChangeTab(){
     mainPage.style.display="flex"

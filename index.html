@@ -4,6 +4,7 @@
     <head>
         <title>GIFOS</title>
         <link rel="stylesheet" href="SASS CSS/style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     </head>
 
@@ -22,8 +23,7 @@
             </div>
 
             <section class="nav">
-                <nav>
-
+                <nav class="navegador">
                     <ul>
                         <li>
                             <input type="checkbox" id="darkMode" name="dark">
@@ -39,15 +39,20 @@
                         </li>
                         
                     </ul>
-
                     <div class="btn">
                         <a href="cam.html">
                             <button><i class="fas fa-plus"></i></button>
                         </a>
                     </div>
-
                 </nav>
-
+                <div class="menu">
+                    <div class="gripMenu">
+                        <i class="fas fa-grip-lines"></i>
+                    </div>
+                    <div class="xMenu">
+                        <i class="fas fa-times"></i>
+                    </div>
+                </div>
             </section>
 
         </header>
@@ -171,7 +176,7 @@
 
                 <div class="trendingSection_Title">
                     <p>Trending GIFOS</p><br>
-                    <p>Mira los últimos GIFO de nuestra comunidad.</p><br><br>
+                    <p>Mira los últimos GIFO de nuestra comunidad.</p>
                 </div>
 
                 <div class="trendingSection_Carousel">
@@ -200,20 +205,24 @@
         </section>
 
         <footer>
-            <div class="shareIcon">
-                <p>Compartir en:</p>
-                <a>
-                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_facebook.svg" alt="">
-                </a>
-                <a>
-                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-twitter.svg" alt="">
-                </a>
-                <a>
-                    <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_instagram.svg" alt="">
-                </a>
-            </div>
-            <div class="autoRigths">
-                <p> © GIFOS 2020 All Rights Reserved.</p>
+            <div class="cont_ftr">
+                <div class="shareIcon">
+                    <p>Compartir en:</p>
+                    <div>
+                        <a>
+                            <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_facebook.svg" alt="">
+                        </a>
+                        <a>
+                            <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-twitter.svg" alt="">
+                        </a>
+                        <a>
+                            <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon_instagram.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="autoRigths">
+                    <p> © GIFOS 2020 All Rights Reserved.</p>
+                </div>
             </div>
         </footer>
 

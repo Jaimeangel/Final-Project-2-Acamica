@@ -22,7 +22,22 @@ let gifBox = document.querySelector("box")
 let changeTitle = document.getElementById("title")
 let hrElement = document.getElementById("hr")
 
+let menuGrip = document.querySelector(".gripMenu")
+let menuX = document.querySelector(".xMenu")
+let menu = document.querySelector(".navegador")
+
 //Eventos
+menuGrip.addEventListener("click",()=>{
+    menuX.style.display="block"
+    menuGrip.style.display="none"
+    menu.classList.toggle("none")
+})
+menuX.addEventListener("click",()=>{
+    menuX.style.display="none"
+    menuGrip.style.display="block"
+    menu.classList.toggle("none")
+})
+
 //Evento Barra de Busqueda
 searchValue.addEventListener("click",(e)=>{
     getSearch(e)

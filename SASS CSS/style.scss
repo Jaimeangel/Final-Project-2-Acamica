@@ -12,6 +12,7 @@
     --BackBody : white;
     --backTrending: #F3F5F8;
     --colorLetraBlack: black;
+    --colorBackMenu: rgba(87,46,229,0.90);
 }
 .dark-mode{
     --borderColor : #000000;
@@ -22,6 +23,7 @@
     --BackBody : #37383C;
     --backTrending: #222326;
     --colorLetraBlack: white;
+    --colorBackMenu: rgba(27, 27, 29, 0.9)
 }
 body{
     background-color: var(--BackBody);
@@ -38,8 +40,8 @@ header{
         margin-top: 1.2rem;
     }
     .search{
-        visibility: hidden;
         display: flex;
+        display: none;
         color: #9CAFC3;
         margin-top: 1.4rem;
         input{
@@ -114,6 +116,24 @@ header{
                 }
             }
         }
+
+        .menu{
+            display:none;
+            .gripMenu{
+                display: none; 
+                font-size: 30px;
+                position: absolute;
+                right: 40px;
+                top: 40px;
+            }
+            .xMenu{
+                display: none;
+                font-size: 30px;
+                position: absolute;
+                right: 40px;
+                top: 40px;
+            }
+        }
     }
     .nav_cam{
         width: 40%;
@@ -167,8 +187,6 @@ header{
         }
     } 
 }
-
-
 .mainPage{
     width: 100%;
     display: flex;
@@ -193,18 +211,26 @@ header{
 
 
     .search{
+        position: relative;
+        $width-input-desktop:37.5rem; 
         display: flex;
         flex-direction: column;
+        justify-content: center;
         margin-top: 1.5rem;
         &_img-central{
             margin: auto;
+            img{
+                width: 399px;
+                height: 190px;
+            }
         }
         &_bar{
+           margin-left: 2rem;
             &_inputSearch{
                 display: flex;
                 input{
                     z-index: 1;
-                    width: 37.5rem;
+                    width: $width-input-desktop;
                     height: 56px;
                     border-radius: 1.5rem;
                     background-color: var(--BackBody);
@@ -213,7 +239,7 @@ header{
                     font-family: 'Montserrat', sans-serif;
                     font-size: 1rem;
                     outline: none; 
-                    padding-left: 60px; 
+                    padding-left: 3.75rem; 
                     padding-bottom: 0px;
                 }
                 .search_img{
@@ -244,7 +270,7 @@ header{
                 z-index: 2;
                 position: relative;
                 display: none;
-                width: 37.5rem;
+                width: $width-input-desktop;
                 padding: 0.875rem;
                 background-color: white;
                 top: -22px;
@@ -260,10 +286,12 @@ header{
         }
 
         .suggestions{
-            position: relative;
-            top: -35px;
+            margin-left: 2rem;
+            position: absolute;
+            top: 15.3rem;
             ul{
-                width: 37.5rem;
+                background-color: var(--BackBody); 
+                width: $width-input-desktop;
                 .itemList{
                     position: relative;
                     display: flex;
@@ -311,7 +339,7 @@ header{
 
     
     .gifCtn{
-    
+        width: 100%;
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: var(--colorLetra);
@@ -333,11 +361,13 @@ header{
 
         .btnDiv{ 
             position: relative;
+            display: flex;
+            flex-direction: column;
             .gifBox{
                 display: grid;
                 grid-template-columns: repeat(4,1fr);
                 grid-gap: 1.8rem;
-                margin: 0px 8.2rem;
+                margin: auto;
         
                 .box{
                     position: relative;
@@ -345,8 +375,8 @@ header{
                     background-repeat: no-repeat;
                     background-size: cover;
                     background-position:center;
-                    width: 14.5rem;
-                    height: 12.5rem;
+                    width: 20.22vw;
+                    height: 29.67vh;
                     display:flex;
                     flex-direction:column;
                     justify-content: space-between;
@@ -399,8 +429,8 @@ header{
                         }
                         &::before{
                             content:"";
-                            width: 14.5rem;
-                            height: 12.5rem;
+                            width: 20.22vw;
+                            height: 29.67vh;
                             position: absolute;
                             top:0;
                             left:0;
@@ -446,10 +476,10 @@ header{
     display: none;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 
     .img{
         text-align: center;
-        margin: 10px;
     }
 
     .title{
@@ -457,13 +487,14 @@ header{
         font-weight: bold;
         color: var(--colorLetra); 
         text-align: center;
+        margin-bottom: 1rem;
     }
 
     .gifBox{
         display: grid;
         grid-template-columns: repeat(4,1fr);
         grid-gap: 1.8rem;
-        margin: 3rem 8.2rem;
+        margin: auto;
 
         .box{
             background-image:url();
@@ -545,10 +576,10 @@ header{
     display: none;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 30px;
 
     .img{
         text-align: center;
-        margin: 10px;
     }
 
     .title{
@@ -556,13 +587,14 @@ header{
         font-weight: bold;
         color: var(--colorLetra);
         text-align: center;
+        margin-bottom: 1rem;
     }
 
     .gifBox{
         display: grid;
         grid-template-columns: repeat(4,1fr);
         grid-gap: 1.8rem;
-        margin: 3rem 8.2rem;
+        margin: auto;
         
 
         .box{
@@ -680,11 +712,8 @@ header{
 .trendingBox{
     height: 37.5rem;
     background-color: var(--backTrending);
-
+    padding-top: 4.5rem;
     .trendingSection{
-        position: relative;
-        top: 4.5rem;
-
         &_Title{
             text-align: center;
             :first-child{
@@ -717,7 +746,7 @@ header{
                 }
             }
             .carousel{
-                width: 80%;
+                width: 90%;
                 overflow: hidden;
                 scroll-behavior: smooth;
                 .ctn-slide{
@@ -729,7 +758,7 @@ header{
                         background-size: cover;
                         background-position:center;
                         min-width: 30%;
-                        height: 15.5rem;
+                        height: 51.67vh;
                         margin: 1.2rem;
                         display:flex;
                         flex-direction:column;
@@ -870,24 +899,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center; 
-    .prev{
-        display: none;
-        cursor: pointer;
-        margin: 1rem;
-        padding: 1rem;
-        i{
-            font-size: 28px;
-        }
-    }
-    .next{
-        display: none;
-        cursor: pointer;
-        margin: 1rem;
-        padding: 1rem;
-        i{
-            font-size: 28px;
-        }
-    }
+
     .numberPaginationDiv{
         display: flex;
     }
@@ -918,14 +930,14 @@ header{
 
 footer{
     height: 3.5rem;
-    margin-top: 3.2rem;
+    padding: 3.2rem 9.2rem;
     border-bottom: 3px solid var(--borderColor);
     font-family: 'Roboto', sans-serif;
     font-weight: 25rem;
+    display: flex;
+    justify-content: space-between;
     .shareIcon{
-        margin-left: 9.2rem;
         display: flex;
-        float: left;
         p{
             font-size: 1.2rem;
             line-height: 1rem;
@@ -939,8 +951,6 @@ footer{
     .autoRigths{
         font-size: 1rem;
         line-height: 1rem;
-        margin-right: 9.2rem;
-        float: right;
     }  
 }
 
@@ -1122,4 +1132,1080 @@ footer{
         }
     }
 
+}
+
+@media screen and (max-width:1160px) and (min-width:700px){
+    header{
+        .img{
+            margin-left: 1rem;
+        }
+        .search{
+            display: none;
+        }
+        .nav{
+            width: 80%;
+            margin-right: 1rem;
+            nav{
+                ul{
+                    width: 100%;
+                    li{
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+                .btn{
+                    margin-left: 0.5rem;
+                }
+            }
+            .menu{
+                display:none;
+            }
+        }
+        
+    }
+
+    .mainPage{
+        .title{
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+        .search{
+            $width-input-tablet:32rem;
+            &_img-central{
+                img{
+                    width: 349;
+                    height: 139px;
+                }
+            }
+            &_bar{
+                &_inputSearch{
+                    input{
+                        width: $width-input-tablet;
+                    }
+                }
+                &_boxHr{
+                    width: $width-input-tablet;
+                    hr{
+                        width: 25rem;
+                    }
+                }
+                .leftLupa{
+                    right: 30.3rem   
+                }
+
+            }
+            .suggestions{
+                top: 12.3rem;
+                ul{
+                    width: $width-input-tablet;
+                }
+            }
+        }
+        .gifCtn{
+            .title{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1.7rem;
+            }
+            .btnDiv{
+                .gifBox{
+                    grid-template-columns: repeat(3,1fr);
+                    grid-gap: 1rem;
+        
+                    .box{
+                        width: 28.22vw;
+                        height: 33.67vh;
+                        .box_li{
+                            &_btn{
+                                &_heart,&_down,&_max{
+                                    margin-top: 0.4rem;
+                                    margin-right:0.4rem;
+                                    button{
+                                        width: 1.7rem;
+                                        height: 1.7rem;
+                                    }
+                                }
+                            }
+                        }
+                        .box_autor{
+                            margin-left: 0.5rem;
+                            margin-bottom: 1rem;
+                            p{
+                                font-size: 0.8rem;
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                width: 28.22vw;
+                                height: 33.67vh; 
+                            }
+                        }
+                    }
+                }
+                .btn-moreGif{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .favoritePage{
+
+        .gifBox{
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 1rem;
+
+            .box{
+                width: 28.22vw;
+                height: 33.67vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 28.22vw;
+                        height: 33.67vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .misGifPage{
+        .gifBox{
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 1rem;
+
+            .box{
+                width: 28.22vw;
+                height: 33.67vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 28.22vw;
+                        height: 33.67vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination{
+        .btnNumberPagination{
+            margin: 0.3rem;
+        }
+    }
+
+    .trendingBox{
+        height: 27rem;
+        padding-top: 2.5rem;
+        .trendingSection{
+            &_Carousel{
+                .btn{
+                    button{
+                        font-size: 1.2rem;
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+                .carousel{
+                    .ctn-slide{
+                        .box{
+                            min-width: 32.5%;
+                            height: 39vh;
+                            margin: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    footer{
+        padding: 2.8rem 2rem;
+    }
+}
+
+@media screen and (max-width:699px) and (min-width:580px){
+    header{
+        .img{
+            margin-left: 3rem;
+        }
+        .nav{
+            position: absolute;
+            width: 100%;
+            nav{
+                position: relative;
+                display: none; 
+                flex-direction: column;
+                align-items: center;
+                z-index: 2;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--colorBackMenu);
+                top: 5.3rem;
+                ul{
+                    flex-direction: column;
+                    position: relative;
+                    top: -260px;
+                    li{
+                        display: flex;
+                        justify-content: center;
+                        padding: 20px;
+                        color: #FFFFFF;
+                    }
+                }
+                .btn{
+                    position: relative;
+                    top: -250px;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+            }
+            .none{
+                display: flex;
+            }
+            .menu{
+                display: block;
+                .gripMenu{
+                    display:block;
+                }
+            }
+        }
+    }
+
+    .mainPage{
+        .title{
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+        .search{
+            $width-input-tablet:32rem;
+            &_img-central{
+                img{
+                    width: 349;
+                    height: 139px;
+                }
+            }
+            &_bar{
+                &_inputSearch{
+                    input{
+                        width: $width-input-tablet;
+                    }
+                }
+                &_boxHr{
+                    width: $width-input-tablet;
+                    hr{
+                        width: 25rem;
+                    }
+                }
+                .leftLupa{
+                    right: 30.3rem   
+                }
+
+            }
+            .suggestions{
+                top: 12rem;
+                ul{
+                    width: $width-input-tablet;
+                }
+            }
+        }
+        .gifCtn{
+            .title{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1.7rem;
+            }
+            .btnDiv{
+                .gifBox{
+                    grid-template-columns: repeat(3,1fr);
+                    grid-gap: 1rem;
+        
+                    .box{
+                        width: 28.22vw;
+                        height: 33.67vh;
+                        .box_li{
+                            &_btn{
+                                &_heart,&_down,&_max{
+                                    margin-top: 0.4rem;
+                                    margin-right:0.4rem;
+                                    button{
+                                        width: 1.7rem;
+                                        height: 1.7rem;
+                                    }
+                                }
+                            }
+                        }
+                        .box_autor{
+                            margin-left: 0.5rem;
+                            margin-bottom: 1rem;
+                            p{
+                                font-size: 0.8rem;
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                width: 28.22vw;
+                                height: 33.67vh; 
+                            }
+                        }
+                    }
+                }
+                .btn-moreGif{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+    }
+
+    .favoritePage{
+
+        .gifBox{
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 1rem;
+
+            .box{
+                width: 28.22vw;
+                height: 33.67vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 28.22vw;
+                        height: 33.67vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .misGifPage{
+        .gifBox{
+            grid-template-columns: repeat(3,1fr);
+            grid-gap: 1rem;
+
+            .box{
+                width: 28.22vw;
+                height: 33.67vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 28.22vw;
+                        height: 33.67vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination{
+        .btnNumberPagination{
+            margin: 0.3rem;
+        }
+    }
+
+    .trendingBox{
+        height: 27rem;
+        padding-top: 2.5rem;
+        .trendingSection{
+            &_Carousel{
+                .btn{
+                    button{
+                        font-size: 1.2rem;
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+                .carousel{
+                    .ctn-slide{
+                        .box{
+                            min-width: 32.5%;
+                            height: 39vh;
+                            margin: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    footer{
+        padding: 2.8rem 2rem;
+    }
+}
+
+@media screen and (max-width:579px) and (min-width:424px){
+    header{
+        .img{
+            margin-left: 1rem;
+        }
+        .nav{
+            position: absolute;
+            width: 100%;
+            nav{
+                position: relative;
+                display: none; 
+                flex-direction: column;
+                align-items: center;
+                z-index: 2;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--colorBackMenu);
+                top: 5.3rem;
+                ul{
+                    flex-direction: column;
+                    position: relative;
+                    top: -280px;
+                    li{
+                        display: flex;
+                        justify-content: center;
+                        padding: 15px;
+                        color: #FFFFFF;
+                    }
+                }
+                .btn{
+                    position: relative;
+                    top: -270px;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+            }
+            .none{
+                display: flex;
+            }
+            .menu{
+                display: block;
+                .gripMenu{
+                    display:block;
+                }
+            }
+        }
+    }
+
+    .mainPage{
+        .title{
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+        .search{
+            $width-input-tablet:23rem;
+            &_img-central{
+                img{
+                    width: 320px;
+                    height: 100px;
+                }
+            }
+        
+            &_bar{
+                &_inputSearch{
+                    input{
+                        width: $width-input-tablet;
+                        height: 2.5rem;
+                        font-size: 0.8rem;
+                    }
+                    .search_img{
+                        top: 0.5rem; 
+                    }
+                }
+                &_boxHr{
+                    top: -15px;
+                    padding: 0.5rem;
+                    width: $width-input-tablet;
+                    hr{
+                        width: 21rem;
+                    }
+                }
+                .leftLupa{
+                    right: 21.4rem   
+                }
+
+            }
+            .suggestions{
+                top: 8.6rem;
+                ul{
+                    width: $width-input-tablet;
+                    .itemList{
+                        font-size: 0.8rem;
+                        padding-top: 10px;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+        .gifCtn{
+            .title{
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+            .btnDiv{
+                .gifBox{
+                    grid-template-columns: repeat(2,1fr);
+                    grid-gap: 0.5rem;
+        
+                    .box{
+                        width: 41vw;
+                        height: 36vh;
+                        .box_li{
+                            &_btn{
+                                &_heart,&_down,&_max{
+                                    margin-top: 0.4rem;
+                                    margin-right:0.4rem;
+                                    button{
+                                        width: 1.7rem;
+                                        height: 1.7rem;
+                                    }
+                                }
+                            }
+                        }
+                        .box_autor{
+                            margin-left: 0.5rem;
+                            margin-bottom: 1rem;
+                            p{
+                                font-size: 0.8rem;
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                width: 41vw;
+                                height: 36vh; 
+                            }
+                        }
+                    }
+                }
+                .btn-moreGif{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        .trending{
+            text-align: center;
+            width: 252px;
+            margin-top: 2.5rem;
+        }
+    }
+
+    .favoritePage{
+        .title{
+            h1{
+                font-size: 1.3rem;
+            }
+        }
+
+        .gifBox{
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 0.5rem;
+
+            .box{
+                width: 41vw;
+                height: 36vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 41vw;
+                        height: 36vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .misGifPage{
+        .title{
+            h1{
+                font-size: 1.3rem;
+            }
+        }
+        .gifBox{
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 0.5rem;
+
+            .box{
+                width: 41vw;
+                height: 36vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 41vw;
+                        height: 36vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination{
+        .btnNumberPagination{
+            margin: 0.3rem;
+        }
+    }
+
+    .trendingBox{
+        height: 16rem;
+        padding-top: 2rem;
+        .trendingSection{
+            &_Title{
+                :first-child{
+                    font-size: 1.3rem;
+                    line-height: 0.3rem;
+                }
+            }
+            &_Carousel{
+                .btn{
+                    button{
+                        font-size: 1.2rem;
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+                .carousel{
+                    .ctn-slide{
+                        .box{
+                            min-width:48%;
+                            height: 30vh;
+                            margin: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    footer{
+        padding: 1rem 0rem;
+        display: flex;
+        justify-content: center;
+        .cont_ftr{
+            display: flex;
+            flex-direction: column;
+            .shareIcon{
+                display: flex;
+                width: 300px;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width:423px) and (min-width:320px){
+    header{
+        .img{
+            margin-left: 1rem;
+        }
+        .nav{
+            position: absolute;
+            width: 100%;
+            nav{
+                position: relative;
+                display: none; 
+                flex-direction: column;
+                align-items: center;
+                z-index: 2;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--colorBackMenu);
+                top: 5.3rem;
+                ul{
+                    flex-direction: column;
+                    position: relative;
+                    top: -300px;
+                    li{
+                        display: flex;
+                        justify-content: center;
+                        padding: 10px;
+                        color: #FFFFFF;
+                    }
+                }
+                .btn{
+                    position: relative;
+                    top: -290px;
+                    margin: 0;
+                    margin-bottom: 1rem;
+                }
+            }
+            .none{
+                display: flex;
+            }
+            .menu{
+                display: block;
+                .gripMenu{
+                    display:block;
+                }
+            }
+        }
+    }
+
+    .mainPage{
+        .title{
+            margin-top: 2rem;
+            text-align: center;
+            width: 16rem;
+            font-size: 1.5rem;
+            line-height: 1.8rem;
+        }
+        .search{
+            $width-input-tablet:17rem;
+            &_img-central{
+                img{
+                    width: 310px;
+                    height: 90px;
+                }
+            }
+        
+            &_bar{
+                &_inputSearch{
+                    input{
+                        width: $width-input-tablet;
+                        height: 2.5rem;
+                        font-size: 0.8rem;
+                    }
+                    .search_img{
+                        top: 0.5rem; 
+                    }
+                }
+                &_boxHr{
+                    top: -15px;
+                    padding: 0.5rem;
+                    width: $width-input-tablet;
+                    hr{
+                        width: 21rem;
+                    }
+                }
+                .leftLupa{
+                    right: 15.5rem   
+                }
+
+            }
+            .suggestions{
+                top: 8rem;
+                ul{
+                    width: $width-input-tablet;
+                    .itemList{
+                        font-size: 0.8rem;
+                        padding-top: 10px;
+                        padding-bottom: 5px;
+                    }
+                }
+            }
+        }
+        .gifCtn{
+            .title{
+                margin: 0 auto;
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+            }
+            .btnDiv{
+                .gifBox{
+                    grid-template-columns: repeat(2,1fr);
+                    grid-gap: 0.5rem;
+        
+                    .box{
+                        width: 45vw;
+                        height: 30vh;
+                        .box_li{
+                            &_btn{
+                                &_heart,&_down,&_max{
+                                    margin-top: 0.4rem;
+                                    margin-right:0.4rem;
+                                    button{
+                                        width: 1.7rem;
+                                        height: 1.7rem;
+                                    }
+                                }
+                            }
+                        }
+                        .box_autor{
+                            margin-left: 0.5rem;
+                            margin-bottom: 1rem;
+                            p{
+                                font-size: 0.8rem;
+                            }
+                        }
+                        &:hover{
+                            &::before{
+                                width: 45vw;
+                                height: 30vh; 
+                            }
+                        }
+                    }
+                }
+                .btn-moreGif{
+                    margin-top: 1rem;
+                    margin-bottom: 1rem;
+                }
+            }
+        }
+
+        .trending{
+            text-align: center;
+            width: 252px;
+            margin-top: 2.5rem;
+        }
+    }
+
+    .favoritePage{
+        .title{
+            h1{
+                font-size: 1.3rem;
+            }
+        }
+
+        .gifBox{
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 0.5rem;
+
+            .box{
+                width: 45vw;
+                height: 30vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 45vw;
+                        height: 30vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .misGifPage{
+        .title{
+            h1{
+                font-size: 1.3rem;
+            }
+        }
+        .gifBox{
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 0.5rem;
+
+            .box{
+                width: 45vw;
+                height: 30vh;
+                .box_li{
+                    &_btn{
+                        &_heart,&_down,&_max{
+                            margin-top: 0.4rem;
+                            margin-right:0.4rem;
+                            button{
+                                width: 1.7rem;
+                                height: 1.7rem;
+                            }
+                        }
+                    }
+                }
+                .box_autor{
+                    margin-left: 0.5rem;
+                    margin-bottom: 1rem;
+                    p{
+                        font-size: 0.8rem;
+                    }
+                }
+                &:hover{
+                    &::before{
+                        width: 45vw;
+                        height: 30vh; 
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination{
+        .btnNumberPagination{
+            margin: 0.3rem;
+        }
+    }
+
+    .trendingBox{
+        height: 20rem;
+        padding-top: 3rem;
+        .trendingSection{
+            &_Title{
+                :first-child{
+                    font-size: 1.3rem;
+                    line-height: 0.3rem;
+                }
+                :last-child{
+                    margin: 0 auto;
+                    text-align: center;
+                    width: 180px;
+                }
+            }
+            &_Carousel{
+                .btn{
+                    button{
+                        font-size: 1.2rem;
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
+                .carousel{
+                    .ctn-slide{
+                        .box{
+                            min-width:95%;
+                            height: 28vh;
+                            margin: 0.3rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    footer{
+        height: 150px;
+        padding: 35px 20px;
+        .cont_ftr{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .shareIcon{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 300px;
+                margin-bottom: 1rem;
+                div{
+                    margin-top: 1rem;
+                }
+            }
+            .autoRigths{
+                margin-top: 1rem;
+            }
+
+        }
+    }
 }
