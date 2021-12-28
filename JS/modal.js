@@ -24,7 +24,7 @@ function buildingModal(imgGifUrl,userGif,nameGif,idGif){
 
     //Evento close
     spanElement.addEventListener("click",() =>{
-        ctnModal.style.display="none"
+        ctnModal.remove()
     })
     
     //Img Gif
@@ -72,21 +72,24 @@ function buildingModal(imgGifUrl,userGif,nameGif,idGif){
     btnHeartModal.appendChild(imgBtnHeartModal)
     btnHeartBotone.appendChild(btnHeartModal)
     btnCtnMax.appendChild(btnHeartBotone)
-    
-    //Down Button 
-    let btnDownBotone= document.createElement("div")
-    btnDownBotone.classList.add("btnDownBotone")
-    let btnDownModal = document.createElement("button")
-    imgBtnDownModal= document.createElement("img")
 
-    imgBtnDownModal.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
-    btnDownModal.setAttribute("data-id",`${idGif}`)
+    btnHeartBotone.addEventListener("click", ()=>{
+        
+       /*  imgGifUrl = img
+        userGif = user
+        nameGif = title
+        idGif = id */
+        
+        
 
-    btnDownModal.appendChild(imgBtnDownModal)
-    btnDownBotone.appendChild(btnDownModal)
-    btnCtnMax.appendChild(btnDownBotone)
-    
+        let favoriteGif = ()=> getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
+        favoriteGif()
+        let deleteNotFound = ()=> nullGif()
+        deleteNotFound() 
+        let btnStyles = ()=>imgBtnHeartModal.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
+        btnStyles()
+    })
+        
     //Agregando modal content gif
     ctnGyphyBody.appendChild(ctnModal) 
-
 } 

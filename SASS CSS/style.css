@@ -454,6 +454,9 @@ header .nav_cam nav .btn_cam button:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .mainPage .gifCtn .btnDiv .gifBox {
@@ -463,6 +466,8 @@ header .nav_cam nav .btn_cam button:active {
       grid-template-columns: repeat(4, 1fr);
   grid-gap: 1.8rem;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
 }
 
 .mainPage .gifCtn .btnDiv .gifBox .box {
@@ -472,7 +477,7 @@ header .nav_cam nav .btn_cam button:active {
   background-size: cover;
   background-position: center;
   width: 20.22vw;
-  height: 29.67vh;
+  height: 16.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -542,7 +547,7 @@ header .nav_cam nav .btn_cam button:active {
 .mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
   content: "";
   width: 20.22vw;
-  height: 29.67vh;
+  height: 16.75rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -585,6 +590,49 @@ header .nav_cam nav .btn_cam button:active {
   background-color: var(--backBtnPurple);
 }
 
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv {
+  width: 260px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv .btnNumberPagination {
+  border-radius: 50%;
+  border: 1px solid var(--borderInput);
+  color: var(--colorLetra);
+  padding: 6px 11px;
+  margin-right: 12px;
+  margin-bottom: 20px;
+  font-size: 1.25rem;
+}
+
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv .hoverBtnPagination {
+  background-color: var(--backBtnPurple);
+  color: var(--backTrending);
+}
+
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv .disabled {
+  border-color: gray;
+  color: gray;
+  pointer-events: none;
+}
+
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv .show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.mainPage .gifCtn .btnDiv .pagination .numberPaginationDiv .hide {
+  display: none;
+}
+
 .favoritePage {
   width: 100%;
   display: none;
@@ -624,8 +672,8 @@ header .nav_cam nav .btn_cam button:active {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 14.5rem;
-  height: 12.5rem;
+  width: 20.22vw;
+  height: 16.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -694,8 +742,8 @@ header .nav_cam nav .btn_cam button:active {
 
 .favoritePage .gifBox .box:hover::before {
   content: "";
-  width: 14.5rem;
-  height: 12.5rem;
+  width: 20.22vw;
+  height: 16.75rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -743,8 +791,8 @@ header .nav_cam nav .btn_cam button:active {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 14.5rem;
-  height: 12.5rem;
+  width: 20.22vw;
+  height: 16.75rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -813,8 +861,8 @@ header .nav_cam nav .btn_cam button:active {
 
 .misGifPage .gifBox .box:hover::before {
   content: "";
-  width: 14.5rem;
-  height: 12.5rem;
+  width: 20.22vw;
+  height: 16.75rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -879,7 +927,7 @@ header .nav_cam nav .btn_cam button:active {
 }
 
 .trendingBox {
-  height: 37.5rem;
+  height: 31rem;
   background-color: var(--backTrending);
   padding-top: 4.5rem;
 }
@@ -948,7 +996,7 @@ header .nav_cam nav .btn_cam button:active {
   background-size: cover;
   background-position: center;
   min-width: 30%;
-  height: 51.67vh;
+  height: 17.375rem;
   margin: 1.2rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1029,7 +1077,7 @@ header .nav_cam nav .btn_cam button:active {
 }
 
 .ctnModal {
-  z-index: 1;
+  z-index: 5;
   position: fixed;
   /* Stay in place */
   padding-top: 100px;
@@ -1040,8 +1088,6 @@ header .nav_cam nav .btn_cam button:active {
   /* Full width */
   height: 100%;
   /* Full height */
-  overflow: auto;
-  /* Enable scroll if needed */
   background-color: var(--backBtnWhite);
 }
 
@@ -1054,9 +1100,7 @@ header .nav_cam nav .btn_cam button:active {
 }
 
 .ctnModal .contentModal span {
-  position: absolute;
-  top: -60px;
-  right: -60px;
+  top: -20px;
 }
 
 .ctnModal .contentModal span button {
@@ -1067,7 +1111,7 @@ header .nav_cam nav .btn_cam button:active {
 }
 
 .ctnModal .contentModal span button i {
-  font-size: 16px;
+  font-size: 28px;
 }
 
 .ctnModal .contentModal .imgGif {
@@ -1089,10 +1133,21 @@ header .nav_cam nav .btn_cam button:active {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  color: black;
 }
 
 .ctnModal .contentModal .refAutorBtn .autor {
   margin-top: 30px;
+}
+
+.ctnModal .contentModal .refAutorBtn .autor .userData {
+  font-size: 15px;
+}
+
+.ctnModal .contentModal .refAutorBtn .autor .nameData {
+  font-size: 17px;
 }
 
 .ctnModal .contentModal .refAutorBtn .btn {
@@ -1111,55 +1166,7 @@ header .nav_cam nav .btn_cam button:active {
   height: 32px;
 }
 
-.pagination {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.pagination .numberPaginationDiv {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.pagination .btnNumberPagination {
-  border-radius: 50%;
-  border: 1px solid var(--borderInput);
-  color: var(--colorLetra);
-  padding: 0.375rem 0.6875rem;
-  margin: 0.9375rem;
-  font-size: 1.25rem;
-}
-
-.pagination .hoverBtnPagination {
-  background-color: var(--backBtnPurple);
-  color: var(--backTrending);
-}
-
-.pagination .disabled {
-  border-color: gray;
-  color: gray;
-  pointer-events: none;
-}
-
-.pagination .show {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.pagination .hide {
-  display: none;
-}
-
-footer {
+footer .cont_ftr {
   height: 3.5rem;
   padding: 3.2rem 9.2rem;
   border-bottom: 3px solid var(--borderColor);
@@ -1173,22 +1180,22 @@ footer {
           justify-content: space-between;
 }
 
-footer .shareIcon {
+footer .cont_ftr .shareIcon {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-footer .shareIcon p {
+footer .cont_ftr .shareIcon p {
   font-size: 1.2rem;
   line-height: 1rem;
 }
 
-footer .shareIcon a img {
+footer .cont_ftr .shareIcon a img {
   margin: 0 1.25rem;
 }
 
-footer .autoRigths {
+footer .cont_ftr .autoRigths {
   font-size: 1rem;
   line-height: 1rem;
 }
@@ -1412,8 +1419,10 @@ footer .autoRigths {
 }
 
 @media screen and (max-width: 1160px) and (min-width: 700px) {
-  header .img {
-    margin-left: 1rem;
+  header {
+    /* .img{
+            
+        } */
   }
   header .search {
     display: none;
@@ -1476,8 +1485,8 @@ footer .autoRigths {
     grid-gap: 1rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box {
-    width: 28.22vw;
-    height: 33.67vh;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1495,8 +1504,8 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
-    width: 28.22vw;
-    height: 33.67vh;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .mainPage .gifCtn .btnDiv .btn-moreGif {
     margin-top: 1rem;
@@ -1508,8 +1517,8 @@ footer .autoRigths {
     grid-gap: 1rem;
   }
   .favoritePage .gifBox .box {
-    width: 28.22vw;
-    height: 33.67vh;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .favoritePage .gifBox .box .box_li_btn_heart, .favoritePage .gifBox .box .box_li_btn_down, .favoritePage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1527,8 +1536,8 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .favoritePage .gifBox .box:hover::before {
-    width: 28.22vw;
-    height: 33.67vh;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .misGifPage .gifBox {
     -ms-grid-columns: (1fr)[3];
@@ -1536,8 +1545,8 @@ footer .autoRigths {
     grid-gap: 1rem;
   }
   .misGifPage .gifBox .box {
-    width: 28.22vw;
-    height: 33.67vh;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .misGifPage .gifBox .box .box_li_btn_heart, .misGifPage .gifBox .box .box_li_btn_down, .misGifPage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1555,11 +1564,8 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .misGifPage .gifBox .box:hover::before {
-    width: 28.22vw;
-    height: 33.67vh;
-  }
-  .pagination .btnNumberPagination {
-    margin: 0.3rem;
+    width: 29.22vw;
+    height: 17.75rem;
   }
   .trendingBox {
     height: 27rem;
@@ -1572,10 +1578,92 @@ footer .autoRigths {
   }
   .trendingBox .trendingSection_Carousel .carousel .ctn-slide .box {
     min-width: 32.5%;
-    height: 39vh;
+    height: 17.375rem;
     margin: 0.3rem;
   }
-  footer {
+  .ctnModal {
+    z-index: 5;
+    position: fixed;
+    /* Stay in place */
+    padding-top: 50px;
+    /* Location of the box */
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow: hidden; */
+    background-color: var(--backBtnWhite);
+  }
+  .ctnModal .contentModal {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--backBtnWhite);
+    margin: none;
+    padding: none;
+    width: 100%;
+  }
+  .ctnModal .contentModal span {
+    top: -30px;
+    width: 70%;
+  }
+  .ctnModal .contentModal span button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--backBtnWhite);
+    color: var(--colorLetra);
+  }
+  .ctnModal .contentModal span button i {
+    font-size: 35px;
+  }
+  .ctnModal .contentModal .imgGif {
+    width: 70%;
+    height: 350px;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .autor {
+    margin-top: 30px;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 22px;
+    margin-right: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn button {
+    opacity: 0.7;
+    background: var(--backBtnWhite);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+  }
+  footer .cont_ftr {
     padding: 2.8rem 2rem;
   }
 }
@@ -1585,6 +1673,7 @@ footer .autoRigths {
     margin-left: 3rem;
   }
   header .nav {
+    z-index: 5;
     position: absolute;
     width: 100%;
   }
@@ -1677,7 +1766,7 @@ footer .autoRigths {
   }
   .mainPage .gifCtn .btnDiv .gifBox .box {
     width: 28.22vw;
-    height: 33.67vh;
+    height: 220px;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1696,7 +1785,7 @@ footer .autoRigths {
   }
   .mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
     width: 28.22vw;
-    height: 33.67vh;
+    height: 220px;
   }
   .mainPage .gifCtn .btnDiv .btn-moreGif {
     margin-top: 1rem;
@@ -1709,7 +1798,7 @@ footer .autoRigths {
   }
   .favoritePage .gifBox .box {
     width: 28.22vw;
-    height: 33.67vh;
+    height: 13.75rem;
   }
   .favoritePage .gifBox .box .box_li_btn_heart, .favoritePage .gifBox .box .box_li_btn_down, .favoritePage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1728,7 +1817,7 @@ footer .autoRigths {
   }
   .favoritePage .gifBox .box:hover::before {
     width: 28.22vw;
-    height: 33.67vh;
+    height: 13.75rem;
   }
   .misGifPage .gifBox {
     -ms-grid-columns: (1fr)[3];
@@ -1737,7 +1826,7 @@ footer .autoRigths {
   }
   .misGifPage .gifBox .box {
     width: 28.22vw;
-    height: 33.67vh;
+    height: 13.75rem;
   }
   .misGifPage .gifBox .box .box_li_btn_heart, .misGifPage .gifBox .box .box_li_btn_down, .misGifPage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1756,13 +1845,10 @@ footer .autoRigths {
   }
   .misGifPage .gifBox .box:hover::before {
     width: 28.22vw;
-    height: 33.67vh;
-  }
-  .pagination .btnNumberPagination {
-    margin: 0.3rem;
+    height: 13.75rem;
   }
   .trendingBox {
-    height: 27rem;
+    height: 22rem;
     padding-top: 2.5rem;
   }
   .trendingBox .trendingSection_Carousel .btn button {
@@ -1772,10 +1858,92 @@ footer .autoRigths {
   }
   .trendingBox .trendingSection_Carousel .carousel .ctn-slide .box {
     min-width: 32.5%;
-    height: 39vh;
+    height: 12.6875rem;
     margin: 0.3rem;
   }
-  footer {
+  .ctnModal {
+    z-index: 5;
+    position: fixed;
+    /* Stay in place */
+    padding-top: 50px;
+    /* Location of the box */
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow: hidden; */
+    background-color: var(--backBtnWhite);
+  }
+  .ctnModal .contentModal {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--backBtnWhite);
+    margin: none;
+    padding: none;
+    width: 100%;
+  }
+  .ctnModal .contentModal span {
+    width: 70%;
+    top: -30px;
+  }
+  .ctnModal .contentModal span button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--backBtnWhite);
+    color: var(--colorLetra);
+  }
+  .ctnModal .contentModal span button i {
+    font-size: 30px;
+  }
+  .ctnModal .contentModal .imgGif {
+    width: 70%;
+    height: 260px;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn {
+    width: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .autor {
+    margin-top: 30px;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 22px;
+    margin-right: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn button {
+    opacity: 0.7;
+    background: var(--backBtnWhite);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+  }
+  footer .cont_ftr {
     padding: 2.8rem 2rem;
   }
 }
@@ -1785,6 +1953,7 @@ footer .autoRigths {
     margin-left: 1rem;
   }
   header .nav {
+    z-index: 5;
     position: absolute;
     width: 100%;
   }
@@ -1880,7 +2049,7 @@ footer .autoRigths {
   .mainPage .gifCtn .title {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox {
     -ms-grid-columns: (1fr)[2];
@@ -1888,8 +2057,8 @@ footer .autoRigths {
     grid-gap: 0.5rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box {
-    width: 41vw;
-    height: 36vh;
+    width: 42vw;
+    height: 240px;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1907,8 +2076,8 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
-    width: 41vw;
-    height: 36vh;
+    width: 42vw;
+    height: 240px;
   }
   .mainPage .gifCtn .btnDiv .btn-moreGif {
     margin-top: 1rem;
@@ -1928,8 +2097,8 @@ footer .autoRigths {
     grid-gap: 0.5rem;
   }
   .favoritePage .gifBox .box {
-    width: 41vw;
-    height: 36vh;
+    width: 42vw;
+    height: 240px;
   }
   .favoritePage .gifBox .box .box_li_btn_heart, .favoritePage .gifBox .box .box_li_btn_down, .favoritePage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1947,8 +2116,8 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .favoritePage .gifBox .box:hover::before {
-    width: 41vw;
-    height: 36vh;
+    width: 42vw;
+    height: 240px;
   }
   .misGifPage .title h1 {
     font-size: 1.3rem;
@@ -1959,8 +2128,8 @@ footer .autoRigths {
     grid-gap: 0.5rem;
   }
   .misGifPage .gifBox .box {
-    width: 41vw;
-    height: 36vh;
+    width: 42vw;
+    height: 240px;
   }
   .misGifPage .gifBox .box .box_li_btn_heart, .misGifPage .gifBox .box .box_li_btn_down, .misGifPage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -1978,14 +2147,11 @@ footer .autoRigths {
     font-size: 0.8rem;
   }
   .misGifPage .gifBox .box:hover::before {
-    width: 41vw;
-    height: 36vh;
-  }
-  .pagination .btnNumberPagination {
-    margin: 0.3rem;
+    width: 42vw;
+    height: 240px;
   }
   .trendingBox {
-    height: 16rem;
+    height: 19rem;
     padding-top: 2rem;
   }
   .trendingBox .trendingSection_Title :first-child {
@@ -1999,19 +2165,27 @@ footer .autoRigths {
   }
   .trendingBox .trendingSection_Carousel .carousel .ctn-slide .box {
     min-width: 48%;
-    height: 30vh;
+    height: 180px;
     margin: 0.3rem;
   }
-  footer {
-    padding: 1rem 0rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+  .ctnModal {
+    z-index: 5;
+    position: fixed;
+    /* Stay in place */
+    padding-top: 70px;
+    /* Location of the box */
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow: hidden; */
+    background-color: var(--backBtnWhite);
   }
-  footer .cont_ftr {
+  .ctnModal .contentModal {
+    position: absolute;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -2019,12 +2193,96 @@ footer .autoRigths {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--backBtnWhite);
+    margin: none;
+    padding: none;
+    width: 100%;
+  }
+  .ctnModal .contentModal span {
+    width: 90%;
+    top: -15px;
+  }
+  .ctnModal .contentModal span button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--backBtnWhite);
+    color: var(--colorLetra);
+  }
+  .ctnModal .contentModal span button i {
+    font-size: 25px;
+  }
+  .ctnModal .contentModal .imgGif {
+    width: 90%;
+    height: 240px;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .autor {
+    margin-top: 30px;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 22px;
+    margin-right: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn button {
+    opacity: 0.7;
+    background: var(--backBtnWhite);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
+  }
+  footer .cont_ftr {
+    height: 150px;
+    padding: 35px 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   footer .cont_ftr .shareIcon {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     width: 300px;
+    margin-bottom: 1rem;
+  }
+  footer .cont_ftr .shareIcon div {
+    margin-top: 1rem;
+  }
+  footer .cont_ftr .autoRigths {
+    margin-top: 1rem;
   }
 }
 
@@ -2033,6 +2291,7 @@ footer .autoRigths {
     margin-left: 1rem;
   }
   header .nav {
+    z-index: 5;
     position: absolute;
     width: 100%;
   }
@@ -2134,6 +2393,9 @@ footer .autoRigths {
     margin-bottom: 1rem;
     font-size: 1rem;
   }
+  .mainPage .gifCtn .btnDiv {
+    width: 100%;
+  }
   .mainPage .gifCtn .btnDiv .gifBox {
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
@@ -2141,7 +2403,7 @@ footer .autoRigths {
   }
   .mainPage .gifCtn .btnDiv .gifBox .box {
     width: 45vw;
-    height: 30vh;
+    height: 10.9375rem;
   }
   .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_heart, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_down, .mainPage .gifCtn .btnDiv .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -2160,7 +2422,7 @@ footer .autoRigths {
   }
   .mainPage .gifCtn .btnDiv .gifBox .box:hover::before {
     width: 45vw;
-    height: 30vh;
+    height: 10.9375rem;
   }
   .mainPage .gifCtn .btnDiv .btn-moreGif {
     margin-top: 1rem;
@@ -2181,7 +2443,7 @@ footer .autoRigths {
   }
   .favoritePage .gifBox .box {
     width: 45vw;
-    height: 30vh;
+    height: 10.9375rem;
   }
   .favoritePage .gifBox .box .box_li_btn_heart, .favoritePage .gifBox .box .box_li_btn_down, .favoritePage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -2200,10 +2462,10 @@ footer .autoRigths {
   }
   .favoritePage .gifBox .box:hover::before {
     width: 45vw;
-    height: 30vh;
+    height: 10.9375rem;
   }
   .misGifPage .title h1 {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
   .misGifPage .gifBox {
     -ms-grid-columns: (1fr)[2];
@@ -2212,7 +2474,7 @@ footer .autoRigths {
   }
   .misGifPage .gifBox .box {
     width: 45vw;
-    height: 30vh;
+    height: 10.9375rem;
   }
   .misGifPage .gifBox .box .box_li_btn_heart, .misGifPage .gifBox .box .box_li_btn_down, .misGifPage .gifBox .box .box_li_btn_max {
     margin-top: 0.4rem;
@@ -2231,10 +2493,7 @@ footer .autoRigths {
   }
   .misGifPage .gifBox .box:hover::before {
     width: 45vw;
-    height: 30vh;
-  }
-  .pagination .btnNumberPagination {
-    margin: 0.3rem;
+    height: 10.9375rem;
   }
   .trendingBox {
     height: 20rem;
@@ -2256,14 +2515,144 @@ footer .autoRigths {
   }
   .trendingBox .trendingSection_Carousel .carousel .ctn-slide .box {
     min-width: 95%;
-    height: 28vh;
+    height: 10.625rem;
     margin: 0.3rem;
   }
-  footer {
-    height: 150px;
-    padding: 35px 20px;
+  .nofFoundImg {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 3.5rem;
+  }
+  .nofFoundImg .wordsFavorites {
+    width: 220px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .nofFoundImg .wordsFavorites p {
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #50E3C2;
+    text-align: center;
+  }
+  .nofFoundImg img {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+  .nofFoundImg button {
+    background-color: var(--BackBody);
+    border: 1px solid var(--borderInput);
+    color: var(--colorLetra);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+    margin: 2rem;
+  }
+  .nofFoundImg button:hover {
+    color: var(--backBtnWhite);
+    background-color: var(--backBtnPurple);
+  }
+  .ctnModal {
+    z-index: 5;
+    position: fixed;
+    /* Stay in place */
+    padding-top: 80px;
+    /* Location of the box */
+    margin: 0;
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    /* overflow: hidden; */
+    background-color: var(--backBtnWhite);
+  }
+  .ctnModal .contentModal {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: var(--backBtnWhite);
+    margin: none;
+    padding: none;
+    width: 100%;
+  }
+  .ctnModal .contentModal span {
+    width: 90%;
+    top: -10px;
+  }
+  .ctnModal .contentModal span button {
+    cursor: pointer;
+    border: none;
+    background-color: var(--backBtnWhite);
+    color: var(--colorLetra);
+  }
+  .ctnModal .contentModal span button i {
+    font-size: 25px;
+  }
+  .ctnModal .contentModal .imgGif {
+    width: 90%;
+    height: 160px;
+    background-image: url();
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn {
+    width: 90%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .autor {
+    margin-top: 30px;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 22px;
+    margin-right: none;
+  }
+  .ctnModal .contentModal .refAutorBtn .btn button {
+    opacity: 0.7;
+    background: var(--backBtnWhite);
+    border-radius: 6px;
+    width: 32px;
+    height: 32px;
   }
   footer .cont_ftr {
+    height: 150px;
+    padding: 35px 20px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

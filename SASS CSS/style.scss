@@ -343,8 +343,7 @@ header{
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: var(--colorLetra);
-    
-    
+
         hr{
             visibility: hidden;
             margin: auto;
@@ -363,11 +362,14 @@ header{
             position: relative;
             display: flex;
             flex-direction: column;
+            align-items: center;
             .gifBox{
                 display: grid;
                 grid-template-columns: repeat(4,1fr);
                 grid-gap: 1.8rem;
                 margin: auto;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
         
                 .box{
                     position: relative;
@@ -376,7 +378,7 @@ header{
                     background-size: cover;
                     background-position:center;
                     width: 20.22vw;
-                    height: 29.67vh;
+                    height: 16.75rem;
                     display:flex;
                     flex-direction:column;
                     justify-content: space-between;
@@ -430,7 +432,7 @@ header{
                         &::before{
                             content:"";
                             width: 20.22vw;
-                            height: 29.67vh;
+                            height: 16.75rem;
                             position: absolute;
                             top:0;
                             left:0;
@@ -467,6 +469,39 @@ header{
                         }
                     }
             } 
+
+            .pagination{
+                .numberPaginationDiv{
+                    width: 260px;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    .btnNumberPagination{
+                        border-radius: 50%;
+                        border:1px solid var(--borderInput);
+                        color: var(--colorLetra);
+                        padding: 6px 11px; 
+                        margin-right: 12px;
+                        margin-bottom: 20px;
+                        font-size: 1.25rem;
+                    }
+                    .hoverBtnPagination{
+                        background-color: var(--backBtnPurple);
+                        color: var(--backTrending);
+                    }
+                    .disabled{
+                        border-color: gray;
+                        color:gray;
+                        pointer-events: none;
+                    }
+                    .show{
+                        display:flex;
+                    }
+                    .hide{
+                        display: none;
+                    }  
+                }
+            }
         }
        
     }
@@ -501,8 +536,8 @@ header{
             background-repeat: no-repeat;
             background-size: cover;
             background-position:center;
-            width: 14.5rem;
-            height: 12.5rem;
+            width: 20.22vw;
+            height: 16.75rem;
             display:flex;
             flex-direction:column;
             justify-content: space-between;
@@ -555,8 +590,8 @@ header{
                 }
                 &::before{
                     content:"";
-                    width: 14.5rem;
-                    height: 12.5rem;
+                    width: 20.22vw;
+                    height: 16.75rem;
                     position: absolute;
                     top:0;
                     left:0;
@@ -602,8 +637,8 @@ header{
             background-repeat: no-repeat;
             background-size: cover;
             background-position:center;
-            width: 14.5rem;
-            height: 12.5rem;
+            width: 20.22vw;
+            height: 16.75rem;
             display:flex;
             flex-direction:column;
             justify-content: space-between;
@@ -656,8 +691,8 @@ header{
                 }
                 &::before{
                     content:"";
-                    width: 14.5rem;
-                    height: 12.5rem;
+                    width: 20.22vw;
+                    height: 16.75rem;
                     position: absolute;
                     top:0;
                     left:0;
@@ -708,9 +743,8 @@ header{
 
     
 }
-
 .trendingBox{
-    height: 37.5rem;
+    height: 31rem;
     background-color: var(--backTrending);
     padding-top: 4.5rem;
     .trendingSection{
@@ -758,7 +792,7 @@ header{
                         background-size: cover;
                         background-position:center;
                         min-width: 30%;
-                        height: 51.67vh;
+                        height: 17.375rem;
                         margin: 1.2rem;
                         display:flex;
                         flex-direction:column;
@@ -826,17 +860,15 @@ header{
         }
     }
 }
-
 //Estilos modal
 .ctnModal{
-    z-index: 1;
+    z-index: 5;
     position: fixed; /* Stay in place */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
     background-color: var(--backBtnWhite);
 
     .contentModal{
@@ -847,16 +879,14 @@ header{
         width: 50%;
 
         span{
-            position: absolute;
-            top: -60px;
-            right: -60px;
+            top: -20px;
             button{
                 cursor: pointer;
                 border: none;
                 background-color: var(--backBtnWhite);
                 color: var(--colorLetra);
                 i{
-                    font-size: 16px;
+                    font-size: 28px;
                 }
             }
         }
@@ -876,14 +906,24 @@ header{
             display: flex;
             justify-content: space-between;
             margin: auto;
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            color: black;
             .autor{
                 margin-top: 30px;
+                .userData{
+                    font-size: 15px;
+                }
+                .nameData{
+                    font-size: 17px;
+                }
             } 
             .btn{
                 display: flex;
                 margin-top: 22px;
                 margin-right:10px;
                 button{
+                    
                     opacity: 0.7;
                     background: var(--backBtnWhite); 
                     border-radius: 6px;
@@ -894,66 +934,33 @@ header{
         }
 }
 }
-
-.pagination{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-
-    .numberPaginationDiv{
-        display: flex;
-    }
-    .btnNumberPagination{
-        border-radius: 50%;
-        border:1px solid var(--borderInput);
-        color: var(--colorLetra);
-        padding: 0.375rem 0.6875rem;
-        margin: 0.9375rem;
-        font-size: 1.25rem;
-    }
-    .hoverBtnPagination{
-        background-color: var(--backBtnPurple);
-        color: var(--backTrending);
-    }
-    .disabled{
-        border-color: gray;
-        color:gray;
-        pointer-events: none;
-    }
-    .show{
-        display:flex;
-    }
-    .hide{
-        display: none;
-    }  
-}
-
 footer{
-    height: 3.5rem;
-    padding: 3.2rem 9.2rem;
-    border-bottom: 3px solid var(--borderColor);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 25rem;
-    display: flex;
-    justify-content: space-between;
-    .shareIcon{
+    .cont_ftr{
+        height: 3.5rem;
+        padding: 3.2rem 9.2rem;
+        border-bottom: 3px solid var(--borderColor);
+        font-family: 'Roboto', sans-serif;
+        font-weight: 25rem;
         display: flex;
-        p{
-            font-size: 1.2rem;
-            line-height: 1rem;
-        }
-        a{
-            img{
-                margin: 0 1.25rem;
+        justify-content: space-between;
+        .shareIcon{
+            display: flex;
+            p{
+                font-size: 1.2rem;
+                line-height: 1rem;
+            }
+            a{
+                img{
+                    margin: 0 1.25rem;
+                }
             }
         }
+        .autoRigths{
+            font-size: 1rem;
+            line-height: 1rem;
+        }  
     }
-    .autoRigths{
-        font-size: 1rem;
-        line-height: 1rem;
-    }  
 }
-
 .createGif{
     display: flex;
     justify-content: center;
@@ -1057,8 +1064,6 @@ footer{
 
     }
 }
-
-
 .controlBtn{
     position: relative;
     display: flex;
@@ -1136,9 +1141,9 @@ footer{
 
 @media screen and (max-width:1160px) and (min-width:700px){
     header{
-        .img{
-            margin-left: 1rem;
-        }
+        /* .img{
+            
+        } */
         .search{
             display: none;
         }
@@ -1213,8 +1218,8 @@ footer{
                     grid-gap: 1rem;
         
                     .box{
-                        width: 28.22vw;
-                        height: 33.67vh;
+                        width: 29.22vw;
+                        height: 17.75rem;
                         .box_li{
                             &_btn{
                                 &_heart,&_down,&_max{
@@ -1236,8 +1241,8 @@ footer{
                         }
                         &:hover{
                             &::before{
-                                width: 28.22vw;
-                                height: 33.67vh; 
+                                width: 29.22vw;
+                                height: 17.75rem; 
                             }
                         }
                     }
@@ -1257,8 +1262,8 @@ footer{
             grid-gap: 1rem;
 
             .box{
-                width: 28.22vw;
-                height: 33.67vh;
+                width: 29.22vw;
+                height: 17.75rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1280,8 +1285,8 @@ footer{
                 }
                 &:hover{
                     &::before{
-                        width: 28.22vw;
-                        height: 33.67vh; 
+                        width: 29.22vw;
+                        height: 17.75rem; 
                     }
                 }
             }
@@ -1294,8 +1299,8 @@ footer{
             grid-gap: 1rem;
 
             .box{
-                width: 28.22vw;
-                height: 33.67vh;
+                width: 29.22vw;
+                height: 17.75rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1317,17 +1322,11 @@ footer{
                 }
                 &:hover{
                     &::before{
-                        width: 28.22vw;
-                        height: 33.67vh; 
+                        width: 29.22vw;
+                        height: 17.75rem; 
                     }
                 }
             }
-        }
-    }
-
-    .pagination{
-        .btnNumberPagination{
-            margin: 0.3rem;
         }
     }
 
@@ -1347,7 +1346,7 @@ footer{
                     .ctn-slide{
                         .box{
                             min-width: 32.5%;
-                            height: 39vh;
+                            height: 17.375rem;
                             margin: 0.3rem;
                         }
                     }
@@ -1357,8 +1356,80 @@ footer{
 
     }
 
+    .ctnModal{
+        z-index: 5;
+        position: fixed; /* Stay in place */
+        padding-top: 50px; /* Location of the box */
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        /* overflow: hidden; */
+        background-color: var(--backBtnWhite);
+    
+        .contentModal{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--backBtnWhite);
+            margin: none;
+            padding: none;
+            width: 100%;
+    
+            span{
+                top: -30px;
+                width:70%;
+                button{
+                    cursor: pointer;
+                    border: none;
+                    background-color: var(--backBtnWhite);
+                    color: var(--colorLetra);
+                    i{
+                        font-size: 35px;
+                    }
+                }
+            }
+    
+            .imgGif{
+                width:70%;
+                height: 350px;
+                background-image:url();
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position:center;
+                margin: none;
+            }
+    
+            .refAutorBtn{
+                width:70%;
+                display: flex;
+                justify-content: space-between;
+                margin: none;
+                .autor{
+                    margin-top: 30px;
+                } 
+                .btn{
+                    display: flex;
+                    margin-top: 22px;
+                    margin-right:none;
+                    button{
+                        opacity: 0.7;
+                        background: var(--backBtnWhite); 
+                        border-radius: 6px;
+                        width: 32px;
+                        height: 32px;
+                    }
+                } 
+            }
+        }
+    }
+
     footer{
-        padding: 2.8rem 2rem;
+        .cont_ftr{
+            padding: 2.8rem 2rem;
+        }
     }
 }
 
@@ -1368,6 +1439,7 @@ footer{
             margin-left: 3rem;
         }
         .nav{
+            z-index: 5;
             position: absolute;
             width: 100%;
             nav{
@@ -1460,7 +1532,7 @@ footer{
         
                     .box{
                         width: 28.22vw;
-                        height: 33.67vh;
+                        height: 220px;
                         .box_li{
                             &_btn{
                                 &_heart,&_down,&_max{
@@ -1483,7 +1555,7 @@ footer{
                         &:hover{
                             &::before{
                                 width: 28.22vw;
-                                height: 33.67vh; 
+                        height: 220px; 
                             }
                         }
                     }
@@ -1504,7 +1576,7 @@ footer{
 
             .box{
                 width: 28.22vw;
-                height: 33.67vh;
+                        height: 13.75rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1527,7 +1599,7 @@ footer{
                 &:hover{
                     &::before{
                         width: 28.22vw;
-                        height: 33.67vh; 
+                        height: 13.75rem;
                     }
                 }
             }
@@ -1541,7 +1613,7 @@ footer{
 
             .box{
                 width: 28.22vw;
-                height: 33.67vh;
+                        height: 13.75rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1564,21 +1636,15 @@ footer{
                 &:hover{
                     &::before{
                         width: 28.22vw;
-                        height: 33.67vh; 
+                        height: 13.75rem; 
                     }
                 }
             }
         }
     }
 
-    .pagination{
-        .btnNumberPagination{
-            margin: 0.3rem;
-        }
-    }
-
     .trendingBox{
-        height: 27rem;
+        height: 22rem;
         padding-top: 2.5rem;
         .trendingSection{
             &_Carousel{
@@ -1593,7 +1659,7 @@ footer{
                     .ctn-slide{
                         .box{
                             min-width: 32.5%;
-                            height: 39vh;
+                            height: 12.6875rem;
                             margin: 0.3rem;
                         }
                     }
@@ -1603,8 +1669,80 @@ footer{
 
     }
 
+    .ctnModal{
+        z-index: 5;
+        position: fixed; /* Stay in place */
+        padding-top: 50px; /* Location of the box */
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        /* overflow: hidden; */
+        background-color: var(--backBtnWhite);
+    
+        .contentModal{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--backBtnWhite);
+            margin: none;
+            padding: none;
+            width: 100%;
+    
+            span{
+                width:70%;
+                top: -30px;
+                button{
+                    cursor: pointer;
+                    border: none;
+                    background-color: var(--backBtnWhite);
+                    color: var(--colorLetra);
+                    i{
+                        font-size: 30px;
+                    }
+                }
+            }
+    
+            .imgGif{
+                width:70%;
+                height: 260px;
+                background-image:url();
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position:center;
+                margin: none;
+            }
+    
+            .refAutorBtn{
+                width:70%;
+                display: flex;
+                justify-content: space-between;
+                margin: none;
+                .autor{
+                    margin-top: 30px;
+                } 
+                .btn{
+                    display: flex;
+                    margin-top: 22px;
+                    margin-right:none;
+                    button{
+                        opacity: 0.7;
+                        background: var(--backBtnWhite); 
+                        border-radius: 6px;
+                        width: 32px;
+                        height: 32px;
+                    }
+                } 
+            }
+        }
+    }
+
     footer{
-        padding: 2.8rem 2rem;
+        .cont_ftr{
+            padding: 2.8rem 2rem;
+        }
     }
 }
 
@@ -1614,6 +1752,7 @@ footer{
             margin-left: 1rem;
         }
         .nav{
+            z-index: 5;
             position: absolute;
             width: 100%;
             nav{
@@ -1710,7 +1849,7 @@ footer{
             .title{
                 margin-top: 1rem;
                 margin-bottom: 1rem;
-                font-size: 1rem;
+                font-size: 1.5rem;
             }
             .btnDiv{
                 .gifBox{
@@ -1718,8 +1857,8 @@ footer{
                     grid-gap: 0.5rem;
         
                     .box{
-                        width: 41vw;
-                        height: 36vh;
+                        width: 42vw;
+                        height: 240px;
                         .box_li{
                             &_btn{
                                 &_heart,&_down,&_max{
@@ -1741,8 +1880,8 @@ footer{
                         }
                         &:hover{
                             &::before{
-                                width: 41vw;
-                                height: 36vh; 
+                                width: 42vw;
+                        height: 240px; 
                             }
                         }
                     }
@@ -1773,8 +1912,8 @@ footer{
             grid-gap: 0.5rem;
 
             .box{
-                width: 41vw;
-                height: 36vh;
+                width: 42vw;
+                        height: 240px;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1796,8 +1935,8 @@ footer{
                 }
                 &:hover{
                     &::before{
-                        width: 41vw;
-                        height: 36vh; 
+                        width: 42vw;
+                        height: 240px; 
                     }
                 }
             }
@@ -1815,8 +1954,8 @@ footer{
             grid-gap: 0.5rem;
 
             .box{
-                width: 41vw;
-                height: 36vh;
+                width: 42vw;
+                        height: 240px;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -1838,22 +1977,16 @@ footer{
                 }
                 &:hover{
                     &::before{
-                        width: 41vw;
-                        height: 36vh; 
+                        width: 42vw;
+                        height: 240px; 
                     }
                 }
             }
         }
     }
 
-    .pagination{
-        .btnNumberPagination{
-            margin: 0.3rem;
-        }
-    }
-
     .trendingBox{
-        height: 16rem;
+        height: 19rem;
         padding-top: 2rem;
         .trendingSection{
             &_Title{
@@ -1874,7 +2007,7 @@ footer{
                     .ctn-slide{
                         .box{
                             min-width:48%;
-                            height: 30vh;
+                            height: 180px;
                             margin: 0.3rem;
                         }
                     }
@@ -1884,16 +2017,95 @@ footer{
 
     }
 
-    footer{
-        padding: 1rem 0rem;
-        display: flex;
-        justify-content: center;
-        .cont_ftr{
+    .ctnModal{
+        z-index: 5;
+        position: fixed; /* Stay in place */
+        padding-top: 70px; /* Location of the box */
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        /* overflow: hidden; */
+        background-color: var(--backBtnWhite);
+    
+        .contentModal{
+            position: absolute;
             display: flex;
             flex-direction: column;
+            align-items: center;
+            background-color: var(--backBtnWhite);
+            margin: none;
+            padding: none;
+            width: 100%;
+    
+            span{
+                width:90%;
+                top: -15px;
+                button{
+                    cursor: pointer;
+                    border: none;
+                    background-color: var(--backBtnWhite);
+                    color: var(--colorLetra);
+                    i{
+                        font-size: 25px;
+                    }
+                }
+            }
+    
+            .imgGif{
+                width:90%;
+                height: 240px;
+                background-image:url();
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position:center;
+                margin: none;
+            }
+    
+            .refAutorBtn{
+                width:90%;
+                display: flex;
+                justify-content: space-between;
+                margin: none;
+                .autor{
+                    margin-top: 30px;
+                } 
+                .btn{
+                    display: flex;
+                    margin-top: 22px;
+                    margin-right:none;
+                    button{
+                        opacity: 0.7;
+                        background: var(--backBtnWhite); 
+                        border-radius: 6px;
+                        width: 32px;
+                        height: 32px;
+                    }
+                } 
+            }
+        }
+    }
+
+    footer{
+        .cont_ftr{
+            height: 150px;
+            padding: 35px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             .shareIcon{
                 display: flex;
+                flex-direction: column;
+                align-items: center;
                 width: 300px;
+                margin-bottom: 1rem;
+                div{
+                    margin-top: 1rem;
+                }
+            }
+            .autoRigths{
+                margin-top: 1rem;
             }
 
         }
@@ -1906,6 +2118,7 @@ footer{
             margin-left: 1rem;
         }
         .nav{
+            z-index: 5;
             position: absolute;
             width: 100%;
             nav{
@@ -1947,7 +2160,6 @@ footer{
             }
         }
     }
-
     .mainPage{
         .title{
             margin-top: 2rem;
@@ -2009,13 +2221,14 @@ footer{
                 font-size: 1rem;
             }
             .btnDiv{
+                width: 100%;
                 .gifBox{
                     grid-template-columns: repeat(2,1fr);
                     grid-gap: 0.5rem;
         
                     .box{
                         width: 45vw;
-                        height: 30vh;
+                        height: 10.9375rem;
                         .box_li{
                             &_btn{
                                 &_heart,&_down,&_max{
@@ -2038,7 +2251,7 @@ footer{
                         &:hover{
                             &::before{
                                 width: 45vw;
-                                height: 30vh; 
+                        height: 10.9375rem; 
                             }
                         }
                     }
@@ -2056,7 +2269,6 @@ footer{
             margin-top: 2.5rem;
         }
     }
-
     .favoritePage{
         .title{
             h1{
@@ -2070,7 +2282,7 @@ footer{
 
             .box{
                 width: 45vw;
-                height: 30vh;
+                        height: 10.9375rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -2093,17 +2305,16 @@ footer{
                 &:hover{
                     &::before{
                         width: 45vw;
-                        height: 30vh; 
+                        height: 10.9375rem; 
                     }
                 }
             }
         }
     }
-
     .misGifPage{
         .title{
             h1{
-                font-size: 1.3rem;
+                font-size: 1rem;
             }
         }
         .gifBox{
@@ -2112,7 +2323,7 @@ footer{
 
             .box{
                 width: 45vw;
-                height: 30vh;
+                        height: 10.9375rem;
                 .box_li{
                     &_btn{
                         &_heart,&_down,&_max{
@@ -2135,19 +2346,12 @@ footer{
                 &:hover{
                     &::before{
                         width: 45vw;
-                        height: 30vh; 
+                        height: 10.9375rem; 
                     }
                 }
             }
         }
     }
-
-    .pagination{
-        .btnNumberPagination{
-            margin: 0.3rem;
-        }
-    }
-
     .trendingBox{
         height: 20rem;
         padding-top: 3rem;
@@ -2175,7 +2379,7 @@ footer{
                     .ctn-slide{
                         .box{
                             min-width:95%;
-                            height: 28vh;
+                            height: 10.625rem;
                             margin: 0.3rem;
                         }
                     }
@@ -2184,11 +2388,119 @@ footer{
         }
 
     }
-
+    .nofFoundImg{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 3.5rem;
+        .wordsFavorites{
+            width: 220px;
+            display: flex;
+            flex-direction: column;
+            p{
+                font-size: 16px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: bold;
+                color:#50E3C2;
+                text-align: center;
+            }
+        }
+        img{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            width: 6.5rem;
+            height: 6.5rem;
+        }
+        button{
+                background-color: var(--BackBody);
+                border: 1px solid var(--borderInput);
+                color: var(--colorLetra);
+                width: 2.5rem;
+                height: 2.5rem;
+                border-radius: 50%;
+                font-size: 1rem;
+                margin: 2rem;
+                &:hover{
+                    color:var(--backBtnWhite);
+                    background-color: var(--backBtnPurple);
+                }
+        }
+    
+        
+    }
+    .ctnModal{
+        z-index: 5;
+        position: fixed; /* Stay in place */
+        padding-top: 80px; /* Location of the box */
+        margin: 0;
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        /* overflow: hidden; */
+        background-color: var(--backBtnWhite);
+    
+        .contentModal{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--backBtnWhite);
+            margin: none;
+            padding: none;
+            width: 100%;
+    
+            span{
+                width: 90%;
+                top: -10px;
+                button{
+                    cursor: pointer;
+                    border: none;
+                    background-color: var(--backBtnWhite);
+                    color: var(--colorLetra);
+                    i{
+                        font-size: 25px;
+                    }
+                }
+            }
+    
+            .imgGif{
+                width:90%;
+                height: 160px;
+                background-image:url();
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position:center;
+                margin: none;
+            }
+    
+            .refAutorBtn{
+                width:90%;
+                display: flex;
+                justify-content: space-between;
+                margin: none;
+                .autor{
+                    margin-top: 30px;
+                } 
+                .btn{
+                    display: flex;
+                    margin-top: 22px;
+                    margin-right:none;
+                    button{
+                        opacity: 0.7;
+                        background: var(--backBtnWhite); 
+                        border-radius: 6px;
+                        width: 32px;
+                        height: 32px;
+                    }
+                } 
+            }
+        }
+    }
     footer{
-        height: 150px;
-        padding: 35px 20px;
         .cont_ftr{
+            height: 150px;
+            padding: 35px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
