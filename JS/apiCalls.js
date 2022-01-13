@@ -1,6 +1,10 @@
 //Api Key 
 const conf_k_on = "wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
 
+
+document.addEventListener("DOMContentLoaded",()=>{getTrending()})
+document.addEventListener("DOMContentLoaded",()=>{categoryTrending()})
+
 /* Search Gif Main Page */
 
 //Api varibales
@@ -26,7 +30,14 @@ let menuGrip = document.querySelector(".gripMenu")
 let menuX = document.querySelector(".xMenu")
 let menu = document.querySelector(".navegador")
 
-//Eventos
+//Carousel Arrow
+let leftarrow = document.getElementById("left-arrow")
+let rightarrow = document.getElementById("right-arrow")
+
+let rowCarousel = document.querySelector(".carousel")
+let ctnCarousel = document.querySelector(".ctn-slide")
+
+//Eventos Menu Movil
 menuGrip.addEventListener("click",()=>{
     menuX.style.display="block"
     menuGrip.style.display="none"
@@ -37,6 +48,16 @@ menuX.addEventListener("click",()=>{
     menuGrip.style.display="block"
     menu.classList.toggle("none")
 })
+
+//Arrow Carousel
+rightarrow.addEventListener ('click', () => {
+    rowCarousel.scrollLeft += rowCarousel.offsetWidth;
+  });
+  
+leftarrow.addEventListener ('click', () => {
+    rowCarousel.scrollLeft -= rowCarousel.offsetWidth;
+    
+  });
 
 //Evento Barra de Busqueda
 searchValue.addEventListener("click",(e)=>{
@@ -51,7 +72,7 @@ let contador = 1
 const limite = 10
 
 //Funcion barra de busqueda
-const getSearch = (e)=>{
+const getSearch = (e,elemento)=>{
     e.preventDefault()
     const item = e.target
     if(contador <= limite){
@@ -59,8 +80,8 @@ const getSearch = (e)=>{
             let valueBusqueda = valueSearch.value
             //Remplazando titulo de cada busqueda de Gif
             let parentTitle = changeTitle.childNodes[1]
-            newTitle = document.createElement("h2")
-            newTitle.innerText = `${valueBusqueda}`
+            let newTitle = document.createElement("h2")
+            newTitle.innerText = `${valueBusqueda.toUpperCase()}`
             changeTitle.replaceChild(newTitle,parentTitle)
 
             ////
@@ -75,8 +96,8 @@ const getSearch = (e)=>{
             let valueBusqueda = valueSearch.value
             //Remplazando titulo de cada busqueda de Gif
             let parentTitle = changeTitle.childNodes[1]
-            newTitle = document.createElement("h2")
-            newTitle.innerText = `${valueBusqueda}`
+            let newTitle = document.createElement("h2")
+            newTitle.innerText = `${valueBusqueda.toUpperCase()}`
             changeTitle.replaceChild(newTitle,parentTitle)
             //Function Fetch Api Giphy 
             getGyphy(valueBusqueda)
@@ -147,33 +168,22 @@ const getGyphy= async (valueBusqueda) => {
                     //Event Handler Modal
                     divHeart.addEventListener("click", ()=>{
         
-                        imgGifUrl = img
-                        userGif = user
-                        nameGif = title
-                        idGif = id
+                        let imgGifUrl = img
+                        let userGif = user
+                        let nameGif = title
+                        let idGif = id
                         
                         
     
                         let favoriteGif = ()=> getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
                         favoriteGif()
+                        /* La funcion nullGif() remueve el elemento "no hay gif favoritos"*/
                         let deleteNotFound = ()=> nullGif()
                         deleteNotFound() 
                         let btnStyles = ()=>imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
                         btnStyles()
                     }) 
-        
-                    let divDown= document.createElement("div")
-                    divDown.classList.add("box_li_btn_down")
-                    let btnDown = document.createElement("button")
-                    let imgBtnDown = document.createElement("img")
-                    imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-                    divDown.setAttribute("data-id",`${id}`)
-                    btnDown.appendChild(imgBtnDown)
-                    divDown.appendChild(btnDown)
-                    divBtn.appendChild(divDown)
-        
-        
-        
+                
                     let divMax= document.createElement("div")
                     divMax.classList.add("box_li_btn_max")
                     let btnMax = document.createElement("button")
@@ -242,13 +252,6 @@ const getGyphy= async (valueBusqueda) => {
 
 /* Carousel Trending Gif*/
 
-//Carousel Content
-let rowCarousel = document.querySelector(".carousel")
-let ctnCarousel = document.querySelector(".ctn-slide")
-//Carousel Arrow
-let leftarrow = document.getElementById("left-arrow")
-let rightarrow = document.getElementById("right-arrow")
-
 //function for get Gif from APYGiphy [Endpoint trending]
 const getTrending= async ()=>{
     let url= `https://api.giphy.com/v1/gifs/trending?api_key=${conf_k_on}`
@@ -278,22 +281,30 @@ const getTrending= async ()=>{
             let divHeart= document.createElement("div")
             divHeart.classList.add("box_li_btn")
             divHeart.setAttribute("data-id",`${id}`)
-            btnHeart = document.createElement("button")
-            imgBtnHeart= document.createElement("img")
+            let btnHeart = document.createElement("button")
+            let imgBtnHeart= document.createElement("img")
             imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
             divHeart.appendChild(btnHeart)
             btnHeart.appendChild(imgBtnHeart)
             divBtn.appendChild(divHeart)
-            
-            let divDown= document.createElement("div")
-            divDown.classList.add("box_li_btn")
-            divDown.setAttribute("data-id",`${id}`)
-            btnDown = document.createElement("button")
-            imgBtnDown = document.createElement("img")
-            imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-            btnDown.appendChild(imgBtnDown)
-            divDown.appendChild(btnDown)
-            divBtn.appendChild(divDown)
+
+            divHeart.addEventListener("click", ()=>{
+        
+                let imgGifUrl = img
+                let userGif = user
+                let nameGif = title
+                let idGif = id
+                
+                
+
+                let favoriteGif = ()=> getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
+                favoriteGif()
+                /* La funcion nullGif() remueve el elemento "no hay gif favoritos"*/
+                let deleteNotFound = ()=> nullGif()
+                deleteNotFound() 
+                let btnStyles = ()=>imgBtnHeart.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-active.svg")
+                btnStyles()
+            }) 
             
             let divMax= document.createElement("div")
             divMax.classList.add("box_li_btn")
@@ -338,8 +349,6 @@ const getTrending= async ()=>{
         console.log("Este Gyphy no se encuentra")
     } 
 } 
-
-getTrending()
 
 const paginationNumber=()=>{
 	if(contador <= limite){
@@ -401,4 +410,38 @@ const notGifFound = () => {
     divBox.appendChild(btnBox)
     //Insertando NotFound en div principal de seccion Main
     ctnMain.appendChild(divBox)
+}
+
+const categoryTrending = async ()=>{
+    const url=`https://api.giphy.com/v1/trending/searches?api_key=${conf_k_on}`
+    const response = await fetch(url)
+    const responseJSON = await response.json()
+    const gifData = responseJSON.data
+
+    let overflowWord = document.querySelector(".trending_overWords")
+
+    gifData.forEach((element)=>{
+        let word = element
+        let pOverFlow = document.createElement("p")
+        pOverFlow.textContent=`${element.toUpperCase()}`
+        overflowWord.appendChild(pOverFlow)
+
+        pOverFlow.addEventListener("click",(e)=>{
+            e.preventDefault()
+            const search = ()=>{
+                let valueBusqueda = word
+                //Remplazando titulo de cada busqueda de Gif
+                let parentTitle = changeTitle.childNodes[1]
+                let newTitle = document.createElement("h2")
+                newTitle.innerText = `${valueBusqueda.toUpperCase()}`
+                changeTitle.replaceChild(newTitle,parentTitle)
+                //Function Fetch Api Giphy 
+                getGyphy(valueBusqueda)
+            }
+            search()
+        })
+    })
+
+
+
 }

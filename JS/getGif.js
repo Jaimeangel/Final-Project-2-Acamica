@@ -70,19 +70,7 @@ const insertFavoriteSection = (infoGif)=>{
         nullGif()
            
     })   
-       
-    let divDown= document.createElement("div")
-    divDown.classList.add("box_li_btn_down")
-    btnDown = document.createElement("button")
-    imgBtnDown = document.createElement("img")
-    imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-    divDown.setAttribute("data-id",`${infoGif.idGif}`)
-    btnDown.appendChild(imgBtnDown)
-    divDown.appendChild(btnDown)
-    divBtn.appendChild(divDown)
-       
-       
-       
+    
     let divMax= document.createElement("div")
     divMax.classList.add("box_li_btn_max")
     btnMax = document.createElement("button")
@@ -191,20 +179,8 @@ const leerLSGifLoad = ()=>{
         },1000)
         removeItem(GifFavorito.idGif)
         nullGif()
-}) 
-       
-    let divDown= document.createElement("div")
-    divDown.classList.add("box_li_btn_down")
-    let btnDown = document.createElement("button")
-    let imgBtnDown = document.createElement("img")
-    imgBtnDown.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-download.svg")
-    divDown.setAttribute("data-id",`${GifFavorito.idGif}`)
-    btnDown.appendChild(imgBtnDown)
-    divDown.appendChild(btnDown)
-    divBtn.appendChild(divDown)
-       
-       
-       
+    }) 
+           
     let divMax= document.createElement("div")
     divMax.classList.add("box_li_btn_max")
     let btnMax = document.createElement("button")
@@ -261,6 +237,7 @@ const removeItem = (item)=>{
 }
 
 const nullGif = ()=>{
+    /* Esta funcion crea un elemento "No hay gif favoritos" */
     let verifyGif = obtenerGifsFavoritosLocalStorage()
     let articleFav= document.getElementById("articleFavorite")
     if(Object.keys(verifyGif).length === 0){
@@ -282,6 +259,7 @@ const nullGif = ()=>{
         divBox.appendChild(wordBox)
         articleFav.appendChild(divBox)
     }else{
+        /* Si el elemento existe,entonces, se elimina para dar espacion al gif favoriteado  */
         let divToDelete = document.getElementById("notFoundImgId")
         if(divToDelete){
             divToDelete.remove()

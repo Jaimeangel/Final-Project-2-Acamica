@@ -64,7 +64,7 @@ function buildingModal(imgGifUrl,userGif,nameGif,idGif){
     let btnHeartBotone= document.createElement("div")
     btnHeartBotone.classList.add("btnHeartBotone")
     let btnHeartModal = document.createElement("button")
-    imgBtnHeartModal= document.createElement("img")
+    let imgBtnHeartModal= document.createElement("img")
 
     imgBtnHeartModal.setAttribute("src","GIFOS-UI-Desktop+Mobile 6/assets/icon-fav-hover.svg")
     btnHeartModal.setAttribute("data-id",`${idGif}`)
@@ -74,14 +74,6 @@ function buildingModal(imgGifUrl,userGif,nameGif,idGif){
     btnCtnMax.appendChild(btnHeartBotone)
 
     btnHeartBotone.addEventListener("click", ()=>{
-        
-       /*  imgGifUrl = img
-        userGif = user
-        nameGif = title
-        idGif = id */
-        
-        
-
         let favoriteGif = ()=> getGifFavorites(imgGifUrl,userGif,nameGif,idGif)
         favoriteGif()
         let deleteNotFound = ()=> nullGif()
