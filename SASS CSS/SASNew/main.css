@@ -1,0 +1,211 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+main {
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main .title {
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+  width: 70%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main .title p {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+main .title p a {
+  color: #50E3C2;
+}
+
+main section {
+  width: 100%;
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section div img {
+  width: 263px;
+  height: 130px;
+}
+
+main section .search {
+  position: relative;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+main section .search input {
+  font-family: 'Montserrat', sans-serif;
+  -webkit-transform: translateY(-26px);
+          transform: translateY(-26px);
+  width: 90%;
+  height: 45px;
+  border-radius: 30px;
+  outline: none;
+  padding-left: 86px;
+  font-size: 19px;
+}
+
+main section .search .table {
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-bottom: none;
+}
+
+main section .search #right {
+  z-index: 4;
+  position: absolute;
+  font-size: 22px;
+  right: 40px;
+  bottom: 33px;
+}
+
+main section .search #left {
+  z-index: 4;
+  position: absolute;
+  font-size: 22px;
+  left: 49px;
+  bottom: 30px;
+}
+
+main section .suggestions {
+  display: none;
+  position: absolute;
+  -webkit-transform: translateY(11px);
+          transform: translateY(11px);
+  z-index: 3;
+  background-color: white;
+  width: 90%;
+  height: auto;
+  max-height: 170px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border: 1px solid black;
+  border-top: none;
+}
+
+main section .suggestions ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  font-size: 22px;
+  list-style: none;
+  padding-left: 30px;
+  padding-top: 10px;
+}
+
+main section .suggestions ul li {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+
+main section .suggestions ul li i {
+  padding-right: 32px;
+}
+
+main section .suggestions ul li p {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+main section .block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main .trending {
+  z-index: -1;
+  width: 100%;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  font-family: 'Montserrat', sans-serif;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* margin-top: 30px; */
+}
+
+main .trending p {
+  margin-bottom: 10px;
+}
+
+main .trending .dataTrending {
+  height: 98px;
+  overflow: scroll;
+}
+
+main .trending .dataTrending ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=main.css.map */

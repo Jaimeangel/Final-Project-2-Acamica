@@ -6,7 +6,6 @@ const trendingRef = document.querySelector(".dataTrending ul")
 
 const linkTrending = "https://api.giphy.com/v1/trending/searches?api_key="
 const key="wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
-/* const conf_k_on = "wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM" */
 
 document.addEventListener('DOMContentLoaded',()=>{
     categoryTrending(); 
@@ -24,7 +23,7 @@ function loadingFirstElements(){
 
 function loadingIcon(){
     iconRight.innerHTML=`
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i id="glass" class="fa-solid fa-magnifying-glass"></i>
     `
     iconLeft.innerHTML=`
         <i class="fa-solid fa-xmark"></i>
@@ -34,10 +33,10 @@ function loadingIcon(){
 
 function changeIconPlace(){
     iconRight.innerHTML=`
-        <i class="fa-solid fa-xmark"></i>
+        <i id="xmark" class="fa-solid fa-xmark"></i>
     `
     iconLeft.innerHTML=`
-        <i class="fa-solid fa-magnifying-glass"></i>
+        <i id="glass" class="fa-solid fa-magnifying-glass"></i>
     `
     iconLeft.style.display="block" 
 }
@@ -55,6 +54,7 @@ const categoryTrending = async ()=>{
     } catch (error) {
         console.error(error)
     }
+
 
     trendingRef.append(...items)
 

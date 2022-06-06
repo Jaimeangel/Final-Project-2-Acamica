@@ -5,6 +5,27 @@ const suggestions = document.querySelector(".suggestions")
 const linkSearch ="https://api.giphy.com/v1/gifs/search/tags?api_key="
 const boundSearch = "&q="
 
+iconRight.addEventListener("click",(event)=>{
+    inputFunctionalities(event.target.id)
+})
+
+function inputFunctionalities(type){
+    switch(type){
+        case "xmark":
+            emptyInputSearch()
+            break
+        case "glass":
+            console.log("Esto es busqueda")
+    }
+}
+
+function emptyInputSearch(){
+    inputSearch.value=""
+    onkeyChangeIcon("")
+    deleteList()
+    toggleSearch(0)
+}
+
 function onkeyChangeIcon(trigger){
     if(!trigger){
         loadingIcon()
@@ -17,6 +38,38 @@ function deleteList(){
     ul.innerHTML=""
 }
 
+function searchFetchValue(value){
+    inputSearch.value=`${value}`
+    onkeyChangeIcon("")
+    deleteList()
+    toggleSearch(0)
+}
+
+function eventTarget(e){
+    const element = e.target;
+    let item;
+    let value;
+
+    switch(element.tagName){
+        case "I":
+            const parent = element.parentElement;
+            item = parent.children[1];
+            value = item.innerHTML
+            searchFetchValue(value)
+            break
+        case "LI":
+            item = element.children[1];
+            value = item.innerHTML
+            searchFetchValue(value)
+            break
+        case "P":
+            value = element.innerHTML
+            searchFetchValue(value)
+            break
+    }
+
+}
+
 function createSuggestionTable(items){
     deleteList()
     const liItem = []
@@ -25,6 +78,7 @@ function createSuggestionTable(items){
 
     data.forEach( item => {
         const li = document.createElement("li")
+        li.addEventListener("click", (event)=>eventTarget(event))
         li.innerHTML= `
             <i class="fa-solid fa-magnifying-glass"></i>
             <p>${item}</p>
@@ -34,7 +88,6 @@ function createSuggestionTable(items){
 
     ul.append(...liItem)
 }
-
 
 function toggleSearch(items){
     if(items != 0){
