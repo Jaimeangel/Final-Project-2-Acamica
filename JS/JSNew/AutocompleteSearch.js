@@ -2,9 +2,6 @@ const inputSearch = document.querySelector(".search input");
 const ul = document.querySelector(".suggestions ul");
 const suggestions = document.querySelector(".suggestions")
 
-const linkSearch ="https://api.giphy.com/v1/gifs/search/tags?api_key="
-const boundSearch = "&q="
-
 iconRight.addEventListener("click",(event)=>{
     inputFunctionalities(event.target.id)
 })
@@ -99,7 +96,7 @@ function toggleSearch(items){
     }
 } 
 
-inputSearch.onkeyup = async (e)=>{
+/* inputSearch.onkeyup = async (e)=>{
     const valueTarget = e.target.value;
     onkeyChangeIcon(valueTarget);
 
@@ -108,4 +105,4 @@ inputSearch.onkeyup = async (e)=>{
     createSuggestionTable(fetch)
     toggleSearch(fetchLenght)
 
-} 
+}  */

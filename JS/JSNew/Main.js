@@ -4,11 +4,8 @@ const iconRight = document.getElementById("right")
 const iconLeft = document.getElementById("left")
 const trendingRef = document.querySelector(".dataTrending ul")
 
-const linkTrending = "https://api.giphy.com/v1/trending/searches?api_key="
-const key="wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
-
 document.addEventListener('DOMContentLoaded',()=>{
-    categoryTrending(); 
+    /* categoryTrending();  */
     loadingFirstElements();
     loadingIcon();
 })
