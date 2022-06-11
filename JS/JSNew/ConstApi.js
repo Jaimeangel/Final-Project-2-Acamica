@@ -1,3 +1,4 @@
+const giphyGrid = document.querySelector(".gyphy")
 /* Main Key */
 const key="wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
 /* Acces link fetch API */
@@ -11,3 +12,13 @@ const init = 12
 const offSet = 0
 const limit = `&limit=${init}`
 const offSetLink= `&offset=${offSet}`
+
+let currentPage = 1;
+const itemLenght = init;
+
+const nodes = {
+    main: {
+        node:giphyGrid,
+        key:"items"
+    }
+}

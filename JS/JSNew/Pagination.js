@@ -1,0 +1,49 @@
+pagination.addEventListener("click",(event)=>togglePagination(event))
+
+
+function togglePagination(e){
+    const itemGetLS = getLocalStorage(nodes.main.key);
+    const valueButton = Number(e.target.innerText);
+    currentPage = valueButton;
+    displayItems(createGiphyBox,itemGetLS,currentPage,itemLenght,nodes.main.node);
+}
+
+function displayItems(callback,items,page,itemsPorPage,nodo){
+    const ArrayItems = [];
+    page--;
+
+    const start = itemsPorPage*page;
+    const end = start + itemsPorPage;
+    const ArrayItemsSlice = items?.slice(start,end)
+
+    for(let i = 0; i < ArrayItemsSlice?.length; i++) {
+        const item = ArrayItemsSlice[i]
+        ArrayItems.push(item)
+    }
+
+    callback(nodo,ArrayItems);
+}
+
+
+function paginationCreater(nodo,length){
+    nodo.innerHTML="";
+    const pagContainer = document.createElement("div");
+    const numberPage = length/itemLenght +1;
+
+    for (let i= 1; i < numberPage; i++) {
+        const btnPag = document.createElement("button")
+        btnPag.textContent=`${i}`
+        pagContainer.appendChild(btnPag)
+    }
+
+    nodo.appendChild(pagContainer)
+}
+
+
+
+
+
+
+
+
+
