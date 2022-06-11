@@ -1,5 +1,5 @@
 pagination.addEventListener("click",(event)=>togglePagination(event))
-
+/* const btnPagination = document.querySelector(".optionsMoreGifs .pagination div"); */
 
 function togglePagination(e){
     const itemGetLS = getLocalStorage(nodes.main.key);
@@ -26,6 +26,7 @@ function displayItems(callback,items,page,itemsPorPage,nodo){
 
 
 function paginationCreater(nodo,length){
+    console.log("Contando")
     nodo.innerHTML="";
     const pagContainer = document.createElement("div");
     const numberPage = length/itemLenght +1;
@@ -37,8 +38,25 @@ function paginationCreater(nodo,length){
     }
 
     nodo.appendChild(pagContainer)
+    activeButton(pagContainer)
 }
 
+function activeButton(nodo){
+    const botones = nodo.childNodes;
+    botones.forEach( (item) =>{
+        const value = Number(item.innerText)
+
+        if(item.classList.contains("active")){
+            console.log("si incluye")
+            item.classList.remove("active")
+        }
+
+
+        if(value === currentPage){
+            item.classList.add("active")
+        } 
+    })
+}
 
 
 

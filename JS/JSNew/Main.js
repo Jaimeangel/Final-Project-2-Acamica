@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     /* categoryTrending();  */
     loadingFirstElements();
     loadingIcon();
-    /* deleteLocalStorage(nodes.main.key) */
+    deleteLocalStorage(nodes.main.key)
 })
 
 function loadingFirstElements(){
