@@ -1,5 +1,4 @@
-pagination.addEventListener("click",(event)=>togglePagination(event))
-/* const btnPagination = document.querySelector(".optionsMoreGifs .pagination div"); */
+pagination.addEventListener("click",(event)=>togglePagination(event));
 
 function togglePagination(e){
     const itemGetLS = getLocalStorage(nodes.main.key);
@@ -24,6 +23,14 @@ function displayItems(callback,items,page,itemsPorPage,nodo){
     callback(nodo,ArrayItems);
 }
 
+function buttonMoreGif(nodo){
+    nodo.innerHTML="";
+    const btn = document.createElement("button");
+    btn.textContent="Ver más";
+    
+    nodo.appendChild(btn)
+}
+
 
 function paginationCreater(nodo,length){
     console.log("Contando")
@@ -44,7 +51,7 @@ function paginationCreater(nodo,length){
 function activeButton(nodo){
     const botones = nodo.childNodes;
     botones.forEach( (item) =>{
-        const value = Number(item.innerText)
+        const value = Number(item.innerText) 
 
         if(item.classList.contains("active")){
             console.log("si incluye")

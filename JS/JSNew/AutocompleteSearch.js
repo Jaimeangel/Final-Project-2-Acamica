@@ -5,6 +5,7 @@ const titleGiphy = document.querySelector(".fetchGiphy h2")
 
 
 ul.addEventListener("click", (event)=>eventTarget(event))
+btnMoreGIF.addEventListener("click",(event)=>eventTarget(event))
 
 iconRight.addEventListener("click",(event)=>{
     const id = event.target.id
@@ -16,6 +17,7 @@ iconLeft.addEventListener("click",(event)=>{
     inputFunctionalities(id)
 })
 
+/* De Aqui viene la busqueda desde el boton de lupa cuando no hay barra de suggestion */
 function inputFunctionalities(type){
     switch(type){
         case "xmark":
@@ -24,12 +26,12 @@ function inputFunctionalities(type){
         case "glass":
             const value = inputSearch.value;
             titleValueGiphy(value,titleGiphy)
-            getGiphy(value,giphyGrid)
+            getGiphy(value,offSetLink,0)
             emptyInputSearch(value)
             break;
     }
 }
-
+/* repetida */
 function emptyInputSearch(value=""){
     inputSearch.value=`${value}`
     onkeyChangeIcon("")
@@ -48,7 +50,7 @@ function onkeyChangeIcon(trigger){
 function deleteList(){
     ul.innerHTML=""
 }
-
+/* repetida */
 function searchFetchValue(value){
     inputSearch.value=`${value}`
     onkeyChangeIcon("")
@@ -56,7 +58,15 @@ function searchFetchValue(value){
     toggleSearch(0)
 }
 
+function counter(value){
+    let count = nodes.offSet + value
+    nodes.offSet= count
+    return nodes.offSet;
+}
+
+/* De Aqui vienen las busquedas desde la seccion de sugerencias */
 function eventTarget(e){
+    let offCounter;
     const element = e.target;
     let item;
     let value;
@@ -68,20 +78,27 @@ function eventTarget(e){
             value = item.innerHTML
             searchFetchValue(value)
             titleValueGiphy(value,titleGiphy)
-            getGiphy(value,giphyGrid)
+            getGiphy(value,offSetLink,0)
             break
         case "LI":
             item = element.children[1];
             value = item.innerHTML
             searchFetchValue(value)
             titleValueGiphy(value,titleGiphy)
-            getGiphy(value,giphyGrid)
+            getGiphy(value,offSetLink,0)
             break
         case "P":
             value = element.innerHTML
             searchFetchValue(value)
             titleValueGiphy(value,titleGiphy)
-            getGiphy(value,giphyGrid)
+            getGiphy(value,offSetLink,0)
+            break
+        case "BUTTON":
+            offCounter = counter(12)
+            value = inputSearch.value;
+            searchFetchValue(value)
+            titleValueGiphy(value,titleGiphy)
+            getGiphy(value,offSetLink,offCounter)
             break
     }
 

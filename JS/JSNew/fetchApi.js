@@ -1,5 +1,6 @@
 async function fetchApi(link,key,bound="",value="",limit="",offset=""){
     const url=`${link}${key}${bound}${value}${limit}${offset}`
+    console.log(url)
     try {
         const response = await fetch(url)
         const responseJSON = await response.json()

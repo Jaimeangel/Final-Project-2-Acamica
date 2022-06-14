@@ -1,7 +1,7 @@
 const pagination = document.querySelector(".optionsMoreGifs .pagination");
 
-async function getGiphy(value){
-    const fetch = await fetchApi(linkGet,key,boundSearch,value,limit,offSetLink);
+async function getGiphy(value,callback2,numberCall2){
+    const fetch = await fetchApi(linkGet,key,boundSearch,value,limit(12),callback2(numberCall2));
     giphyData(fetch)
 }
 
@@ -60,7 +60,9 @@ function createGiphyBox(nodo,data){
 
     nodo.append(...itemArray);
     const itemGetLSLenght = getLocalStorage(nodes.main.key)?.length;
+    buttonMoreGif(btnMoreGIF);
     paginationCreater(pagination,itemGetLSLenght);
+
 
 }
 
