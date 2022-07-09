@@ -66,7 +66,6 @@ function createGiphyBox(nodo,data){
 
 }
 
-
 function saveLocalStorage(data,key){
     const items = getLocalStorage(key)
     

@@ -7,7 +7,7 @@ const linkSearch ="https://api.giphy.com/v1/gifs/search/tags?api_key="
 const linkTrending = "https://api.giphy.com/v1/trending/searches?api_key="
 const linkGet= "https://api.giphy.com/v1/gifs/search?api_key="
 /* Bound */
-const boundSearch = "&q="
+const boundSearch="&q="
 /* Variables */
 let init = 12
 let limit = (value)=>(`&limit=${value}`) 
@@ -16,7 +16,6 @@ let currentPage = 1;
 const itemLenght = init;
 
 const nodes = {
-
     offSet:0,
     main: {
         node:giphyGrid,
