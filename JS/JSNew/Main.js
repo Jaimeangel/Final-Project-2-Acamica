@@ -1,14 +1,12 @@
 const title = document.querySelector(".title")
 const img = document.querySelector("main div img")
-const iconRight = document.getElementById("right")
-const iconLeft = document.getElementById("left")
 const trendingRef = document.querySelector(".dataTrending ul")
 
 document.addEventListener('DOMContentLoaded',()=>{
-    /* categoryTrending();  */
+    categoryTrending(trendingRef);  
     loadingFirstElements();
     loadingIcon();
-    deleteLocalStorage(nodes.main.key)
+    deleteLocalStorage(nodes.main.key) 
 })
 
 function loadingFirstElements(){
@@ -39,8 +37,13 @@ function changeIconPlace(){
     iconLeft.style.display="block" 
 }
 
-const categoryTrending = async ()=>{
-    const fetch = await fetchApi(linkTrending,key)
+const categoryTrending = async (nodo)=>{
+
+    const MainDataFetch = new FetchData({
+        link:linkTrending
+    })
+
+    const fetch  = await MainDataFetch.fetchApi()
     const items = []
 
     try {
@@ -54,6 +57,15 @@ const categoryTrending = async ()=>{
     }
 
 
-    trendingRef.append(...items)
+    nodo.append(...items)
 
+}
+
+function deleteLocalStorage(key){
+    localStorage.removeItem(key)
+}
+
+function getLocalStorage(key){
+    const items = JSON.parse(localStorage.getItem(`${key}`))
+    return items;
 }

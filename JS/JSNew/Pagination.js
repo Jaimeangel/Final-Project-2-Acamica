@@ -1,72 +1,84 @@
-pagination.addEventListener("click",(event)=>togglePagination(event));
-
-function togglePagination(e){
-    const itemGetLS = getLocalStorage(nodes.main.key);
-    const valueButton = Number(e.target.innerText);
-    currentPage = valueButton;
-    displayItems(createGiphyBox,itemGetLS,currentPage,itemLenght,nodes.main.node);
-}
-
-function displayItems(callback,items,page,itemsPorPage,nodo){
-    const ArrayItems = [];
-    page--;
-
-    const start = itemsPorPage*page;
-    const end = start + itemsPorPage;
-    const ArrayItemsSlice = items?.slice(start,end)
-
-    for(let i = 0; i < ArrayItemsSlice?.length; i++) {
-        const item = ArrayItemsSlice[i]
-        ArrayItems.push(item)
+class PaginationBuilder{
+    constructor({
+        currentPage=0,
+        numberPages=0,
+        boxLenght=12,
+        key,
+        nodoGifs,
+        displayFunction,
+        nodoPagination
+    }){
+        this.currentPage=currentPage;
+        this.boxLenght=boxLenght;
+        this.numberPages=numberPages;
+        this.key=key;
+        this.nodoGifs=nodoGifs;
+        this.displayFunction=displayFunction;
+        this.nodoPagination=nodoPagination;
     }
 
-    callback(nodo,ArrayItems);
-}
-
-function buttonMoreGif(nodo){
-    nodo.innerHTML="";
-    const btn = document.createElement("button");
-    btn.textContent="Ver más";
+    paginationBuild(){
+        
+        const itemGetLSLenght = this.getLocalStorage(this.key).length;
+        const numberPag = Number(itemGetLSLenght/this.boxLenght);
     
-    nodo.appendChild(btn)
-}
-
-
-function paginationCreater(nodo,length){
-    console.log("Contando")
-    nodo.innerHTML="";
-    const pagContainer = document.createElement("div");
-    const numberPage = length/itemLenght +1;
-
-    for (let i= 1; i < numberPage; i++) {
         const btnPag = document.createElement("button")
-        btnPag.textContent=`${i}`
-        pagContainer.appendChild(btnPag)
+        btnPag.textContent=`${numberPag}`
+        this.nodoPagination.appendChild(btnPag)
+    
+        this.numberPages++
+        this.currentPage++
+        this.activeButtonUI()
+    }
+    
+    activeButtonUI(){
+        const botones = Object.values(this.nodoPagination.children);
+
+        botones.forEach( (item) =>{
+            if(item.classList.contains("active")){
+                item.classList.remove("active")
+            }
+        });
+
+        botones.forEach( (item) =>{
+            const value = Number(item.innerText) 
+            if(value === this.currentPage){
+                item.classList.add("active")
+            }  
+        });
+
+        this.currentPage = this.numberPages;
     }
 
-    nodo.appendChild(pagContainer)
-    activeButton(pagContainer)
-}
-
-function activeButton(nodo){
-    const botones = nodo.childNodes;
-    botones.forEach( (item) =>{
-        const value = Number(item.innerText) 
-
-        if(item.classList.contains("active")){
-            console.log("si incluye")
-            item.classList.remove("active")
+    togglePagination(e){
+        const itemGetLS = this.getLocalStorage(this.key);
+        const valueButton = Number(e.target.innerText);
+        this.currentPage = valueButton;
+        this.displayItems(this.displayFunction,itemGetLS,this.currentPage,this.boxLenght,this.nodoGifs);
+    }
+    
+    displayItems(callback,items,page,itemsPorPage,nodo){
+        const ArrayItems = [];
+        page--;
+    
+        const start = itemsPorPage*page;
+        const end = start + itemsPorPage;
+        const ArrayItemsSlice = items?.slice(start,end)
+    
+        for(let i = 0; i < ArrayItemsSlice?.length; i++) {
+            const item = ArrayItemsSlice[i]
+            ArrayItems.push(item)
         }
+    
+        callback(nodo,ArrayItems);
+        this.activeButtonUI()
+    }
 
-
-        if(value === currentPage){
-            item.classList.add("active")
-        } 
-    })
+    getLocalStorage(key){
+        const items = JSON.parse(localStorage.getItem(`${key}`))
+        return items;
+    }
 }
-
-
-
 
 
 

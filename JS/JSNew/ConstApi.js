@@ -22,3 +22,6 @@ const nodes = {
         key:"items"
     }
 }
+
+const iconRight = document.getElementById("right")
+const iconLeft = document.getElementById("left")
