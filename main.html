@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="SASS CSS/SASNew/main.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/fetchGiphy.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/pagination.css">
+    <link rel="stylesheet" href="SASS CSS/SASNew/trendingGif.css">
+    <link rel="stylesheet" href="SASS CSS/SASNew/footer.css">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/741bcac093.js" crossorigin="anonymous"></script>
@@ -71,9 +73,7 @@
         <article class="trending">
             <p>Trending</p>
             <div class="dataTrending">
-                <ul>
-                    
-                </ul>
+               
             </div>
         </article>
 
@@ -82,7 +82,9 @@
     
     <section class="fetchGiphy">
 
-        <h2></h2>
+        <h2>
+            <!-- Titulos de los gif -->
+        </h2>
 
         <section class="gyphy">
             <!-- <div></div> -->
@@ -100,6 +102,54 @@
 
     </section>
 
+    <section class="trendingGif">
+
+        <div class="trendingSection">
+
+            <div class="trendingSection_Title">
+                <p>Trending GIFOS</p><br>
+                <p>Mira los últimos <br> GIFO de nuestra comunidad.</p>
+            </div>
+
+            <div class="trendingSection_Carousel">
+
+                    <div class="btn star">
+                        <button id="left-arrow"><i class="fas fa-chevron-left"></i></button>
+                    </div>
+
+                    <div class="carousel">
+
+                        <div class="ctn-slide">
+
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div class="btn end">
+                        <button id="right-arrow" ><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <div>
+            <h3>Compartir en:</h3>
+            <div>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-instagram-square"></i>
+                <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+        <div>
+            <h3>© GIFOS 2020 All Rights Reserved.</h3>
+        </div>
+    </footer>
+
 
 
     <script src="JS/JSNew/ConstApi.js"></script>
@@ -110,6 +160,7 @@
     <script src="JS/JSNew/GetGiphy.js"></script>
     <script src="JS/JSNew/Pagination.js"></script>
     <script src="JS/JSNew/MainCallApis.js"></script>
+    <script src="JS/JSNew/TrendingSection.js"></script>
     
 </body>
 </html>

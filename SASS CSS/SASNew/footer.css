@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+footer {
+  width: 100%;
+  height: 10rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 15px;
+}
+
+footer div h3 {
+  font-size: 1.3rem;
+}
+
+footer div i {
+  font-size: 2rem;
+  margin: 15px;
+}
+/*# sourceMappingURL=footer.css.map */

@@ -1,9 +1,9 @@
 const title = document.querySelector(".title")
 const img = document.querySelector("main div img")
-const trendingRef = document.querySelector(".dataTrending ul")
+const trendingRef = document.querySelector(".dataTrending")
 
 document.addEventListener('DOMContentLoaded',()=>{
-    categoryTrending(trendingRef);  
+    /* categoryTrending(trendingRef);   */
     loadingFirstElements();
     loadingIcon();
     deleteLocalStorage(nodes.main.key) 
@@ -17,7 +17,7 @@ function loadingFirstElements(){
     `
 }
 
-function loadingIcon(){
+function loadingIcon(value){
     iconRight.innerHTML=`
         <i id="glass" class="fa-solid fa-magnifying-glass"></i>
     `
@@ -39,16 +39,16 @@ function changeIconPlace(){
 
 const categoryTrending = async (nodo)=>{
 
-    const MainDataFetch = new FetchData({
+    const CategoryTrendingDataFetch = new FetchData({
         link:linkTrending
     })
 
-    const fetch  = await MainDataFetch.fetchApi()
+    const fetch  = await CategoryTrendingDataFetch.fetchApi()
     const items = []
 
     try {
         fetch.forEach( item =>{
-            const li = document.createElement("li")
+            const li = document.createElement("p")
             li.textContent=`${item.toUpperCase()}`
             items.push(li) 
         }) 

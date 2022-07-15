@@ -1,0 +1,123 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.trendingGif{
+    border: 1px solid black;
+    height: 28rem;
+    background-color: var(--backTrending);
+    padding-top: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    .trendingSection{
+        &_Title{
+            color: var(--colorLetraBlack);
+            text-align: center;
+            :first-child{
+                font-size: 1.7rem;
+                line-height: 1.8rem;
+                font-weight: bold;
+            }
+            :last-child{
+                font-size: 1.4rem;
+            }
+        }
+        
+        &_Carousel{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            .btn{
+                display: flex;
+                align-items: center;
+                button{
+                    cursor: pointer;
+                    color: var(--colorLetra);
+                    background-color: var(--backTrending);
+                    border: 1px solid var(--borderInput);
+                    font-size: 1.5rem;
+                    width: 2.5rem;
+                    height: 2.5rem;
+                    &:hover{
+                        background-color: var(--backBtnPurple);
+                        color: var(--backBtnWhite);
+                    }
+                }
+            }
+
+            .carousel{
+                width: 90%;
+                overflow: hidden;
+                scroll-behavior: smooth;
+                .ctn-slide{
+                    display: flex;
+                    flex-wrap: nowrap;
+
+                    .giphyBox{
+                        position: relative;          
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position:center;
+
+                        min-width: 90%;
+                        height: 17.375rem;
+                        margin: 0.9rem;
+                        padding: 10px;
+                      
+            
+                        &:hover{
+                            .buttons{
+                                z-index: 2;
+                                visibility: visible;
+                            }
+            
+                            .titles{
+                                z-index: 2;
+                                visibility: visible;
+                            }
+            
+                            &::before{
+                                content:"";
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                top:0;
+                                left:0;
+                                background: #572EE5;
+                                opacity:0.7;
+                                z-index: 1;
+                            } 
+                        }
+                        .buttons{
+                            visibility: hidden; 
+                            display: flex;
+                            justify-content: flex-end;
+                            button{
+                                margin-left: 10px;
+                                border: none;
+                                border-radius: 5px;
+                                i{
+                                    font-size: 25px;
+                                    padding: 4px;
+                                }
+                            }
+                            
+                        }
+            
+                        .titles{
+                            visibility: hidden; 
+                            font-size: 20px;
+                        }
+            
+                    }
+                }
+            }
+        }
+    }
+}

@@ -4,6 +4,7 @@ const suggestions = document.querySelector(".suggestions")
 const titleGiphy = document.querySelector(".fetchGiphy h2")
 const pagination = document.querySelector(".optionsMoreGifs .pagination");
 
+
 pagination.addEventListener("click",(event)=>BuildPagination.togglePagination(event));
 
 function paginationBridge(){
@@ -15,7 +16,6 @@ function paginationBridge(){
 //Se compone de dos instancias de prototipos
 //Esta instancia permite hacer un llamado a la API de busqueda de Gyphy
 //Los parametros estan establecidos para buscar gif segun el valor establecido (value)
-
 const MainDataFetch = new FetchData({
     link:"https://api.giphy.com/v1/gifs/search?api_key=",
     bound:"&q=",
@@ -25,7 +25,7 @@ const MainDataFetch = new FetchData({
 //Esta instancia del prototipo MainGiphy se encarga exclusivamete
 //De la interfaz grafica de los Gifs asi como de guardarlos en LS
 //Recibe dos parametros el Nodo de Main y key donde se debe guardar en LS
-const MainGiphy = new BuildGiphy({
+const MainGiphy = new BuildGiphyExtends({
     nodo:nodes.main.node,
     key:nodes.main.key,
     functionBuildPagination:paginationBridge
@@ -36,6 +36,7 @@ const BuildPagination = new PaginationBuilder({
     nodoGifs:nodes.main.node,
     displayFunction:MainGiphy.createGiphyBox,
     nodoPagination:pagination,
+    nodoButonMoreGif:btnMoreGIF
 }) 
 
 const LoadingGiphysMainRoot= async (value,offset)=>{
@@ -77,6 +78,7 @@ const inputSearchWorking=()=>{
 
 
     ul.addEventListener("click", (event)=>AutocompleteInput.eventTarget(event));
+    btnMoreGIF.addEventListener("click", (event)=>AutocompleteInput.eventTarget(event));
 
     iconRight.addEventListener("click",(event)=>{
         const id = event.target.id

@@ -1,16 +1,6 @@
-
-
-
-
-class BuildGiphy{
-    constructor({
-        nodo,
-        key,
-        functionBuildPagination
-    }){
+class BuildGiphyBasic{
+    constructor(nodo){
        this.nodo=nodo;
-       this.key=key;
-       this.functionBuildPagination=functionBuildPagination;
     }
 
     giphyData(data){
@@ -25,9 +15,7 @@ class BuildGiphy{
             }
             dataArray.push(gif)
         });
-    
-        this.saveLocalStorage(dataArray,this.key)
-        this.functionBuildPagination()
+
         this.createGiphyBox(this.nodo,dataArray)
     }
     
@@ -63,6 +51,37 @@ class BuildGiphy{
         }); 
     
         nodo.append(...itemArray);
+    }
+}
+
+
+class BuildGiphyExtends extends BuildGiphyBasic{
+    constructor({
+        nodo,
+        key,
+        functionBuildPagination
+    }){
+       super(nodo);
+       this.key=key;
+       this.functionBuildPagination=functionBuildPagination;
+    }
+
+    giphyData(data){
+        const dataArray = [];
+    
+        data.forEach( item => {
+            const gif = {
+                img :item.images.original.url,
+                title :item.title,
+                user :item.username,
+                id :item.id
+            }
+            dataArray.push(gif)
+        });
+    
+        this.saveLocalStorage(dataArray,this.key)
+        this.functionBuildPagination() 
+        this.createGiphyBox(this.nodo,dataArray)
     }
 
     saveLocalStorage(data,key){

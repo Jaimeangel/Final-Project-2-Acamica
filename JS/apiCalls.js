@@ -50,14 +50,14 @@ menuX.addEventListener("click",()=>{
 })
 
 //Arrow Carousel
-rightarrow.addEventListener ('click', () => {
+/* rightarrow.addEventListener ('click', () => {
     rowCarousel.scrollLeft += rowCarousel.offsetWidth;
   });
   
 leftarrow.addEventListener ('click', () => {
     rowCarousel.scrollLeft -= rowCarousel.offsetWidth;
     
-  });
+  }); */
 
 //Evento Barra de Busqueda
 searchValue.addEventListener("click",(e)=>{

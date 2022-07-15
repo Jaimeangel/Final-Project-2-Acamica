@@ -60,7 +60,7 @@ class SearchInput{
 
     OrganizeIconAndValueInput(value=""){
         this.inputNodo.value=`${value}`
-        this.changeIconPosition("")
+        this.changeIconPosition(value)
         this.deleteItemsAutocomplete()
         this.autocompleteTableUI(0)
     }
@@ -105,11 +105,12 @@ class SearchInput{
                 this.MainFetch(value,0)
                 break
             case "BUTTON":
-                offCounter = counter(12)
+                offCounter = this.counter(12)
                 value = inputSearch.value;
                 this.OrganizeIconAndValueInput(value)
                 this.titleValueGiphy(value,this.titleNodo)
-                this.MainFetch(value,0)
+                this.MainFetch(value,offCounter)
+                console.log("Activando Boton de ver mas")
                 break
         }
     

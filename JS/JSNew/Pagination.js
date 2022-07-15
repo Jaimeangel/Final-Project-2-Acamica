@@ -6,7 +6,8 @@ class PaginationBuilder{
         key,
         nodoGifs,
         displayFunction,
-        nodoPagination
+        nodoPagination,
+        nodoButonMoreGif
     }){
         this.currentPage=currentPage;
         this.boxLenght=boxLenght;
@@ -15,6 +16,7 @@ class PaginationBuilder{
         this.nodoGifs=nodoGifs;
         this.displayFunction=displayFunction;
         this.nodoPagination=nodoPagination;
+        this.nodoButonMoreGif=nodoButonMoreGif;
     }
 
     paginationBuild(){
@@ -29,6 +31,7 @@ class PaginationBuilder{
         this.numberPages++
         this.currentPage++
         this.activeButtonUI()
+        this.buttonMoreGif()
     }
     
     activeButtonUI(){
@@ -48,6 +51,13 @@ class PaginationBuilder{
         });
 
         this.currentPage = this.numberPages;
+    }
+
+    buttonMoreGif(){
+        this.nodoButonMoreGif.innerHTML=""
+        const btn = document.createElement("button")
+        btn.textContent="Ver Mas"
+        this.nodoButonMoreGif.appendChild(btn)
     }
 
     togglePagination(e){
