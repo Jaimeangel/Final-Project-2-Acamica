@@ -29,15 +29,26 @@ class BuildGiphyBasic{
             div.classList.add("giphyBox")
             div.style.backgroundImage=`url(${item.img})`
             div.setAttribute("id",`${item.id}`)
+
+            div.addEventListener("click",(event)=>{
+                const target = event.target.id;
+                if(target === "buttonHeart"){
+                    this.saveLocalStorage([item],"itemsFav")
+                    div.classList.add("addFont")
+                }else if(target === "buttonMax"){
+                    console.log("Aqui abriendo el modal")
+                    BuildModal(item);
+                }
+            })
         
             div.innerHTML = `
                 <div class="buttons" >
                     <button>
-                        <i class="fa-regular fa-heart"></i>
+                        <i id="buttonHeart" class="fa-solid fa-heart"></i>
                     </button>
         
                     <button>
-                        <i class="fa-solid fa-expand"></i>
+                        <i id="buttonMax" class="fa-solid fa-expand"></i>
                     </button>
                 </div>
         
@@ -48,9 +59,26 @@ class BuildGiphyBasic{
                 </div>
             ` 
             itemArray.push(div)
+
         }); 
-    
+        
         nodo.append(...itemArray);
+    }
+
+    saveLocalStorage(data,key){
+        const items = this.getLocalStorage(key)
+        
+        if(!items){
+            localStorage.setItem(`${key}`,JSON.stringify([...data]))
+        }else{
+            const newData = [...items,...data]
+            localStorage.setItem(`${key}`,JSON.stringify(newData))
+        }
+    }
+
+    getLocalStorage(key){
+        const items = JSON.parse(localStorage.getItem(`${key}`))
+        return items;
     }
 }
 
@@ -78,26 +106,10 @@ class BuildGiphyExtends extends BuildGiphyBasic{
             }
             dataArray.push(gif)
         });
-    
+        
         this.saveLocalStorage(dataArray,this.key)
         this.functionBuildPagination() 
         this.createGiphyBox(this.nodo,dataArray)
-    }
-
-    saveLocalStorage(data,key){
-        const items = this.getLocalStorage(key)
-        
-        if(!items){
-            localStorage.setItem(`${key}`,JSON.stringify([...data]))
-        }else{
-            const newData = [...items,...data]
-            localStorage.setItem(`${key}`,JSON.stringify(newData))
-        }
-    }
-    
-    getLocalStorage(key){
-        const items = JSON.parse(localStorage.getItem(`${key}`))
-        return items;
     }
     
     deleteLocalStorage(key){

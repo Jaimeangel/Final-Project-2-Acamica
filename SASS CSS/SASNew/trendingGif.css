@@ -144,4 +144,8 @@
   visibility: hidden;
   font-size: 20px;
 }
+
+.trendingGif .trendingSection_Carousel .carousel .ctn-slide .addFont #buttonHeart {
+  color: #e60505;
+}
 /*# sourceMappingURL=trendingGif.css.map */

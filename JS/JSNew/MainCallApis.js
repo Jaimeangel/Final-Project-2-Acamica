@@ -5,7 +5,7 @@ const titleGiphy = document.querySelector(".fetchGiphy h2")
 const pagination = document.querySelector(".optionsMoreGifs .pagination");
 
 
-pagination.addEventListener("click",(event)=>BuildPagination.togglePagination(event));
+
 
 function paginationBridge(){
     BuildPagination.paginationBuild()
@@ -39,6 +39,8 @@ const BuildPagination = new PaginationBuilder({
     nodoButonMoreGif:btnMoreGIF
 }) 
 
+pagination.addEventListener("click",(event)=>BuildPagination.togglePagination(event));
+
 const LoadingGiphysMainRoot= async (value,offset)=>{
     //Aqui llamamos  metodo de la instancia fetchApi()
     //Le damos el valor de busqueda y el offse que para primeras busquedas
@@ -50,33 +52,33 @@ const LoadingGiphysMainRoot= async (value,offset)=>{
     MainGiphy.giphyData(DataGifs)
 }
 
+
+//Con esta instancia del prototipo FetchData hacemos el llamador
+//Al endpoint del API que nos devuelve las sugerencias segun el valor ingresado
+const InputSearchDataFetch = new FetchData({
+    link:"https://api.giphy.com/v1/gifs/search/tags?api_key=",
+    bound:"&q="
+});
+
+//Hacemos una instancia del prototipo SearchInput
+//Este prototipo genera las funciones de SearchBar como:
+//-Mostar sugerencias segun la palabra ingresada
+//-Mostar las sugerencias en un barra adherida al SearchBar
+//-Permitir las funciones de busqueda de Gif segun el lugar donde se clickee
+//Los parametros que recibe son principalmente Nodos referentes al input
+//Las funciones que permiten buscar las sugerencias y la funcion que permite
+//Buscar y crear los Gifs
+const AutocompleteInput = new SearchInput({
+    inputNodo:inputSearch,
+    autocompleteNodo:suggestions,
+    ulAutocompleteNodo:ul,
+    titleNodo:titleGiphy,
+    dataSearch:InputSearchDataFetch,
+    MainFetch:LoadingGiphysMainRoot,
+});
+
+
 const inputSearchWorking=()=>{
-
-    //Con esta instancia del prototipo FetchData hacemos el llamador
-    //Al endpoint del API que nos devuelve las sugerencias segun el valor ingresado
-    const InputSearchDataFetch = new FetchData({
-        link:"https://api.giphy.com/v1/gifs/search/tags?api_key=",
-        bound:"&q="
-    });
-    
-    //Hacemos una instancia del prototipo SearchInput
-    //Este prototipo genera las funciones de SearchBar como:
-    //-Mostar sugerencias segun la palabra ingresada
-    //-Mostar las sugerencias en un barra adherida al SearchBar
-    //-Permitir las funciones de busqueda de Gif segun el lugar donde se clickee
-    //Los parametros que recibe son principalmente Nodos referentes al input
-    //Las funciones que permiten buscar las sugerencias y la funcion que permite
-    //Buscar y crear los Gifs
-    const AutocompleteInput = new SearchInput({
-        inputNodo:inputSearch,
-        autocompleteNodo:suggestions,
-        ulAutocompleteNodo:ul,
-        titleNodo:titleGiphy,
-        dataSearch:InputSearchDataFetch,
-        MainFetch:LoadingGiphysMainRoot,
-    });
-
-
     ul.addEventListener("click", (event)=>AutocompleteInput.eventTarget(event));
     btnMoreGIF.addEventListener("click", (event)=>AutocompleteInput.eventTarget(event));
 
@@ -96,8 +98,7 @@ const inputSearchWorking=()=>{
     
     //Aqui se da inicio a las funciones de sugerencia y busqueda de Gifs
     AutocompleteInput.onKeyUpInput();
-
 }
 
-inputSearchWorking()
+inputSearchWorking();
 

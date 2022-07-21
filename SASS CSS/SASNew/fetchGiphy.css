@@ -108,6 +108,10 @@
   font-size: 15px;
 }
 
+.fetchGiphy .gyphy .addFont #buttonHeart {
+  color: #f30606;
+}
+
 @media (min-width: 590px) {
   .fetchGiphy .gyphy {
     -ms-grid-columns: (minmax(200px, 1fr))[3];
