@@ -1,4 +1,18 @@
-const giphyGrid = document.querySelector(".gyphy")
+/* Nodes Main section */
+const nodoMainGiphyParent = document.querySelector(".fetchGiphy");
+const giphyGrid = document.querySelector(".fetchGiphy .gyphy");
+const nodoMainIntroduction = document.querySelector("main");
+
+
+/* Nodes Fav section */
+const nodoFavGiphyParent = document.querySelector(".fetchFavGiphy");
+const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy");
+console.log(nodoFavGiphyParent,favGiphyGrid)
+
+
+
+
+
 const btnMoreGIF = document.querySelector(".optionsMoreGifs .btnPlus"); 
 /* Main Key */
 const key="wIqeb9EIG0bs8oh1pZCWhOdzZjI2BfIM"
@@ -20,6 +34,10 @@ const nodes = {
     main: {
         node:giphyGrid,
         key:"items"
+    },
+    fav:{
+        node:favGiphyGrid,
+        key:"itemsFav"
     }
 }
 

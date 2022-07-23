@@ -6,7 +6,6 @@ const pagination = document.querySelector(".optionsMoreGifs .pagination");
 
 
 
-
 function paginationBridge(){
     BuildPagination.paginationBuild()
 }
@@ -28,7 +27,8 @@ const MainDataFetch = new FetchData({
 const MainGiphy = new BuildGiphyExtends({
     nodo:nodes.main.node,
     key:nodes.main.key,
-    functionBuildPagination:paginationBridge
+    functionBuildPagination:paginationBridge,
+    nodoParent:nodoMainGiphyParent
 })
 
 const BuildPagination = new PaginationBuilder({

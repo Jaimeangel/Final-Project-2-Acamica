@@ -3,6 +3,16 @@ class BuildGiphyBasic{
        this.nodo=nodo;
     }
 
+    giphyDataLS(data){
+        const dataArray = [];
+
+        data.forEach(item=>{
+            dataArray.push(item)
+        });
+        
+        this.createGiphyBox(dataArray);
+    }
+
     giphyData(data){
         const dataArray = [];
     
@@ -16,11 +26,11 @@ class BuildGiphyBasic{
             dataArray.push(gif)
         });
 
-        this.createGiphyBox(this.nodo,dataArray)
+        this.createGiphyBox(dataArray)
     }
     
-    createGiphyBox(nodo,data){
-        nodo.innerHTML="";
+    createGiphyBox(data){
+        this.nodo.innerHTML="";
         const dataArray = data;
         const itemArray = [];
     
@@ -62,7 +72,7 @@ class BuildGiphyBasic{
 
         }); 
         
-        nodo.append(...itemArray);
+        this.nodo.append(...itemArray);
     }
 
     saveLocalStorage(data,key){
@@ -87,11 +97,13 @@ class BuildGiphyExtends extends BuildGiphyBasic{
     constructor({
         nodo,
         key,
-        functionBuildPagination
+        functionBuildPagination,
+        nodoParent=undefined
     }){
        super(nodo);
        this.key=key;
        this.functionBuildPagination=functionBuildPagination;
+       this.nodoParent=nodoParent;
     }
 
     giphyData(data){
@@ -109,7 +121,8 @@ class BuildGiphyExtends extends BuildGiphyBasic{
         
         this.saveLocalStorage(dataArray,this.key)
         this.functionBuildPagination() 
-        this.createGiphyBox(this.nodo,dataArray)
+        this.createGiphyBox(dataArray)
+        this.nodoParent.style.display="flex"
     }
     
     deleteLocalStorage(key){

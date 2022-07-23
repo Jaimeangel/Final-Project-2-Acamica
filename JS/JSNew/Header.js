@@ -13,6 +13,7 @@ function createLeftImg(){
     //cargando la imagen izquierda
     imgHeader.src="GIFOS-UI-Desktop+Mobile 6/assets/logo-desktop.svg"
     imgHeader.alt="Logotype"
+    imgHeader.id="imagenWebPage"
 }
 
 function createRightMenu(){
@@ -51,12 +52,19 @@ function createDropdownMenu(){
     const items = ["Modo Diurno","Favoritos","Mis GIFOS"];
     const itemNav = [];
     
+    navList.addEventListener("click",(event)=>{
+        const tabs = event.target.id;
+        tabSlideFeature(tabs)
+    });
+
     items.forEach( (item) => {
         const li = document.createElement("li")
+        li.setAttribute("id",`${item}`)
         li.textContent=`${item}`
         itemNav.push(li)
     })
 
     navList.append(...itemNav)
+
 }
 

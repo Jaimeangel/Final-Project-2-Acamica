@@ -6,7 +6,6 @@
 }
 
 .trendingGif {
-  border: 1px solid black;
   height: 28rem;
   background-color: var(--backTrending);
   padding-top: 2rem;

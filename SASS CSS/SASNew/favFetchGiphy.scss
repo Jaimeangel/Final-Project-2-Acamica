@@ -4,12 +4,13 @@
     box-sizing: border-box;
 }
 
-.fetchGiphy{
+.fetchFavGiphy{
     transform: translateY(50px);
     width: 100%;
     height: auto;
-    /* display: flex; */
+
     display: none;
+    
     flex-direction: column;
     align-items: center;
 
@@ -27,6 +28,7 @@
         grid-auto-rows: 7.5rem;
         justify-content: center;
         gap: 15px;
+        margin-bottom: 2rem;
 
         .giphyBox{
             position: relative;
@@ -90,31 +92,4 @@
             }
         }
     }
-}
-
-
-@media (min-width: 590px) {
-
-    .fetchGiphy{
-
-
-        .gyphy{
-            grid-template-columns: repeat(3,minmax(200px,1fr));
-            grid-auto-rows: 10rem;
-        }
-    }
-
-}
-
-@media (min-width: 900px) {
-
-    .fetchGiphy{
-
-
-        .gyphy{
-            grid-template-columns: repeat(4,minmax(230px,1fr));
-            grid-auto-rows: 13rem;
-        }
-    }
-
 }
