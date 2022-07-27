@@ -7,7 +7,7 @@ const nodoMainIntroduction = document.querySelector("main");
 /* Nodes Fav section */
 const nodoFavGiphyParent = document.querySelector(".fetchFavGiphy");
 const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy");
-console.log(nodoFavGiphyParent,favGiphyGrid)
+console.log(nodoFavGiphyParent.children,favGiphyGrid)
 
 
 

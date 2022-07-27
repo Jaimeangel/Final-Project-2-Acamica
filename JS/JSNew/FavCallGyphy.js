@@ -3,7 +3,7 @@ function getLocalStorage(key){
     return items;
 };
 
-const FavGiphy = new BuildGiphyBasic(nodes.fav.node);
+const FavGiphy = new BuildGiphyBasic(nodes.fav.node,"favoritos");
 
 
 const LoadingGiphysFavRootUpdate = ()=>{
@@ -22,7 +22,7 @@ const loadgingContentFavRoot=()=>{
 
     nodoFavGiphyParent.append(h2Title,giphyContent);
 
-    const FavGiphy = new BuildGiphyBasic(giphyContent);
+    const FavGiphy = new BuildGiphyBasic(giphyContent,"favoritos");
     const favDataFetch = getLocalStorage(nodes.fav.key)
 
     FavGiphy.giphyDataLS(favDataFetch)

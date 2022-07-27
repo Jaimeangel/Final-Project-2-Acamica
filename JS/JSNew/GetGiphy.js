@@ -1,6 +1,7 @@
 class BuildGiphyBasic{
-    constructor(nodo){
+    constructor(nodo,tipo){
        this.nodo=nodo;
+       this.tipo=tipo;
     }
 
     giphyDataLS(data){
@@ -10,7 +11,7 @@ class BuildGiphyBasic{
             dataArray.push(item)
         });
         
-        this.createGiphyBox(dataArray);
+        this.createGiphyBox(this.nodo,dataArray,this.tipo);
     }
 
     giphyData(data){
@@ -26,16 +27,24 @@ class BuildGiphyBasic{
             dataArray.push(gif)
         });
 
-        this.createGiphyBox(dataArray)
+        this.createGiphyBox(this.nodo,dataArray,this.tipo)
     }
     
-    createGiphyBox(data){
-        this.nodo.innerHTML="";
+    createGiphyBox(nodo,data,tipo){
+        nodo.innerHTML="";
         const dataArray = data;
         const itemArray = [];
-    
+        let buttonFirstGiphy;
+
+        if(tipo === "favoritos"){
+            buttonFirstGiphy = `<i id="buttonDelete" class="fa-solid fa-trash"></i>` 
+        }else{
+            buttonFirstGiphy = `<i id="buttonHeart" class="fa-solid fa-heart"></i>`
+        }
+
         dataArray.forEach( item => {
             const div = document.createElement("div")
+
             div.classList.add("giphyBox")
             div.style.backgroundImage=`url(${item.img})`
             div.setAttribute("id",`${item.id}`)
@@ -45,16 +54,26 @@ class BuildGiphyBasic{
                 if(target === "buttonHeart"){
                     this.saveLocalStorage([item],"itemsFav")
                     div.classList.add("addFont")
+
+                    if(tipo === "trending"){
+                        if(nodoFavGiphyParent.children.length != 0){
+                            loadgingContentFavRoot()
+                        }
+                    }
+
                 }else if(target === "buttonMax"){
-                    console.log("Aqui abriendo el modal")
                     BuildModal(item);
+                }else if(target === "buttonDelete"){
+                    const idGifDelete = div.id;
+                    this.deleteGifLocalStorageById(idGifDelete);
+                    loadgingContentFavRoot() 
                 }
             })
-        
+                    
             div.innerHTML = `
                 <div class="buttons" >
                     <button>
-                        <i id="buttonHeart" class="fa-solid fa-heart"></i>
+                        ${buttonFirstGiphy}
                     </button>
         
                     <button>
@@ -72,7 +91,7 @@ class BuildGiphyBasic{
 
         }); 
         
-        this.nodo.append(...itemArray);
+        nodo.append(...itemArray);
     }
 
     saveLocalStorage(data,key){
@@ -90,20 +109,37 @@ class BuildGiphyBasic{
         const items = JSON.parse(localStorage.getItem(`${key}`))
         return items;
     }
+
+    deleteLocalStorage(key){
+        localStorage.removeItem(key)
+    }
+
+    deleteGifLocalStorageById(id){
+        let indexGifDelete;
+        const arrayGif = this.getLocalStorage("itemsFav")
+
+        arrayGif.forEach( (item,index) =>{
+            if(item.id === id){
+                indexGifDelete = index;
+            }
+        })
+
+        arrayGif.splice(indexGifDelete,1)
+        localStorage.setItem("itemsFav",JSON.stringify([...arrayGif]));
+    }
 }
 
 
 class BuildGiphyExtends extends BuildGiphyBasic{
     constructor({
         nodo,
+        tipo,
         key,
         functionBuildPagination,
-        nodoParent=undefined
     }){
-       super(nodo);
+       super(nodo,tipo);
        this.key=key;
        this.functionBuildPagination=functionBuildPagination;
-       this.nodoParent=nodoParent;
     }
 
     giphyData(data){
@@ -121,11 +157,7 @@ class BuildGiphyExtends extends BuildGiphyBasic{
         
         this.saveLocalStorage(dataArray,this.key)
         this.functionBuildPagination() 
-        this.createGiphyBox(dataArray)
-        this.nodoParent.style.display="flex"
-    }
-    
-    deleteLocalStorage(key){
-        localStorage.removeItem(key)
+        this.createGiphyBox(this.nodo,dataArray,this.tipo)
+        this.nodo.parentElement.style.display="flex"
     }
 }

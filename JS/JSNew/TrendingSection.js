@@ -16,7 +16,7 @@ const CarouselDataFetch = new FetchData({
     link:"https://api.giphy.com/v1/gifs/trending?api_key="
 });
 
-const CarouselGiphy = new BuildGiphyBasic(nodoCarousel);
+const CarouselGiphy = new BuildGiphyBasic(nodoCarousel,"trending");
 
 const trendingSection = async ()=>{
     const data = await CarouselDataFetch.fetchApi();

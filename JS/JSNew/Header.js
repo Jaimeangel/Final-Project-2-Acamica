@@ -9,11 +9,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     createDropdownMenu()
 })
 
+imgHeader.addEventListener("click",(event)=>{
+    const target = event.target.id;
+    tabSlideFeature(target);
+})
+
 function createLeftImg(){
     //cargando la imagen izquierda
     imgHeader.src="GIFOS-UI-Desktop+Mobile 6/assets/logo-desktop.svg"
     imgHeader.alt="Logotype"
-    imgHeader.id="imagenWebPage"
+    imgHeader.id="MainInit"
 }
 
 function createRightMenu(){
@@ -27,6 +32,13 @@ function createRightMenu(){
     //Evento para cambiar forma de icono menu right
     const checkBox = document.querySelector(".menuRight input")
     checkBox.addEventListener("click",toggleIconMenu)
+
+    navList.addEventListener("click",(event)=>{
+        const tabs = event.target.id;
+        tabSlideFeature(tabs)
+        checkBox.click()
+        toggleIconMenu()
+    });
 }
 
 function toggleIconMenu(){
@@ -52,10 +64,10 @@ function createDropdownMenu(){
     const items = ["Modo Diurno","Favoritos","Mis GIFOS"];
     const itemNav = [];
     
-    navList.addEventListener("click",(event)=>{
+    /* navList.addEventListener("click",(event)=>{
         const tabs = event.target.id;
         tabSlideFeature(tabs)
-    });
+    }); */
 
     items.forEach( (item) => {
         const li = document.createElement("li")

@@ -9,8 +9,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     deleteLocalStorage(nodes.main.key) 
 })
 
+img.addEventListener("click",()=>{
+    console.log("clickeando")
+})
+
 function loadingFirstElements(){
     img.src="GIFOS-UI-Desktop+Mobile 6/assets/ilustra_header.svg"
+    img.setAttribute("id","MainInit")
+
     title.innerHTML=`
         <p>Inspírate, busca, guarda, y crea </p>
         <p>los mejores <a> GIFOS </a> </p>

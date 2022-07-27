@@ -26,9 +26,9 @@ const MainDataFetch = new FetchData({
 //Recibe dos parametros el Nodo de Main y key donde se debe guardar en LS
 const MainGiphy = new BuildGiphyExtends({
     nodo:nodes.main.node,
+    tipo:"main",
     key:nodes.main.key,
     functionBuildPagination:paginationBridge,
-    nodoParent:nodoMainGiphyParent
 })
 
 const BuildPagination = new PaginationBuilder({
