@@ -1,3 +1,17 @@
+function deleteGifLocalStorageById(id){
+    let indexGifDelete;
+    const arrayGif = this.getLocalStorage("itemsFav")
+
+    arrayGif.forEach( (item,index) =>{
+        if(item.id === id){
+            indexGifDelete = index;
+        }
+    })
+
+    arrayGif.splice(indexGifDelete,1)
+    localStorage.setItem("itemsFav",JSON.stringify([...arrayGif]));
+}
+
 class BuildGiphyBasic{
     constructor(nodo,tipo){
        this.nodo=nodo;
@@ -65,7 +79,7 @@ class BuildGiphyBasic{
                     BuildModal(item);
                 }else if(target === "buttonDelete"){
                     const idGifDelete = div.id;
-                    this.deleteGifLocalStorageById(idGifDelete);
+                    deleteGifLocalStorageById(idGifDelete);
                     loadgingContentFavRoot() 
                 }
             })
@@ -113,20 +127,6 @@ class BuildGiphyBasic{
     deleteLocalStorage(key){
         localStorage.removeItem(key)
     }
-
-    deleteGifLocalStorageById(id){
-        let indexGifDelete;
-        const arrayGif = this.getLocalStorage("itemsFav")
-
-        arrayGif.forEach( (item,index) =>{
-            if(item.id === id){
-                indexGifDelete = index;
-            }
-        })
-
-        arrayGif.splice(indexGifDelete,1)
-        localStorage.setItem("itemsFav",JSON.stringify([...arrayGif]));
-    }
 }
 
 
@@ -135,11 +135,9 @@ class BuildGiphyExtends extends BuildGiphyBasic{
         nodo,
         tipo,
         key,
-        functionBuildPagination,
     }){
        super(nodo,tipo);
        this.key=key;
-       this.functionBuildPagination=functionBuildPagination;
     }
 
     giphyData(data){
@@ -156,8 +154,21 @@ class BuildGiphyExtends extends BuildGiphyBasic{
         });
         
         this.saveLocalStorage(dataArray,this.key)
-        this.functionBuildPagination() 
+        /* this.functionBuildPagination()  */
         this.createGiphyBox(this.nodo,dataArray,this.tipo)
         this.nodo.parentElement.style.display="flex"
+    }
+
+    giphyDataLS(data){
+        const dataArray = [];
+
+        data.forEach(item=>{
+            dataArray.push(item)
+        });
+        
+        /* this.saveLocalStorage(dataArray,this.key) */
+        /* this.functionBuildPagination()  */
+        this.createGiphyBox(this.nodo,dataArray,this.tipo)
+        /* this.nodo.parentElement.style.display="flex" */
     }
 }

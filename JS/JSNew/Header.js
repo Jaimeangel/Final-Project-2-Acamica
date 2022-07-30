@@ -64,17 +64,12 @@ function createDropdownMenu(){
     const items = ["Modo Diurno","Favoritos","Mis GIFOS"];
     const itemNav = [];
     
-    /* navList.addEventListener("click",(event)=>{
-        const tabs = event.target.id;
-        tabSlideFeature(tabs)
-    }); */
-
     items.forEach( (item) => {
         const li = document.createElement("li")
         li.setAttribute("id",`${item}`)
         li.textContent=`${item}`
         itemNav.push(li)
-    })
+    });
 
     navList.append(...itemNav)
 

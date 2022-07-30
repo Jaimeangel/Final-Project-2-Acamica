@@ -21,6 +21,7 @@ function tabSlideFeature(target){
         nodoMainIntroduction.style.display="none";
         nodoFavGiphyParent.style.display="flex";
         loadgingContentFavRoot()
+
     }else if(target === "MainInit"){
         nodoMainGiphyParent.style.display="flex";
         nodoMainIntroduction.style.display="flex";

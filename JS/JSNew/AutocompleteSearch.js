@@ -29,8 +29,10 @@ class SearchInput{
 
     itemsAutocompleteTable(array,nodo){
         this.deleteItemsAutocomplete()
-        const liItem = []
-        const data = []
+
+        const liItem = [];
+        const data = [];
+
         array.forEach(item => data.push(item.name))
         data.forEach( item => {
             const li = document.createElement("li")
@@ -110,7 +112,6 @@ class SearchInput{
                 this.OrganizeIconAndValueInput(value)
                 this.titleValueGiphy(value,this.titleNodo)
                 this.MainFetch(value,offCounter)
-                console.log("Activando Boton de ver mas")
                 break
         }
     

@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     deleteLocalStorage(nodes.main.key) 
 })
 
-img.addEventListener("click",()=>{
-    console.log("clickeando")
-})
 
 function loadingFirstElements(){
     img.src="GIFOS-UI-Desktop+Mobile 6/assets/ilustra_header.svg"

@@ -3,27 +3,40 @@ function getLocalStorage(key){
     return items;
 };
 
-const FavGiphy = new BuildGiphyBasic(nodes.fav.node,"favoritos");
+/* const FavGiphy = new BuildGiphyBasic(nodes.fav.node,"favoritos"); */
 
 
-const LoadingGiphysFavRootUpdate = ()=>{
+/* const LoadingGiphysFavRootUpdate = ()=>{
     const favDataFetch = getLocalStorage(nodes.fav.key);
     FavGiphy.giphyData(favDataFetch)
-}; 
+};  */
+
+const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy");
+const favPagination= document.querySelector(".fetchFavGiphy .optionsMoreGifs .pagination");
+
+
+
+
+const FavGiphy = new BuildGiphyExtends({
+    nodo:favGiphyGrid,
+    tipo:"favoritos",
+    key:"itemsFav"
+});
+
+const FavBuildPagination = new PaginationBuilder({
+    keyLS:"itemsFav",
+    nodoGifs:favGiphyGrid,
+    displayFunction:FavGiphy.createGiphyBox,
+    nodoPagination:favPagination,
+    tipo:"favoritos"
+}) 
+
+favPagination.addEventListener("click",(event)=>FavBuildPagination.togglePagination(event));
 
 const loadgingContentFavRoot=()=>{
-    nodoFavGiphyParent.innerHTML=""
+    const favDataFetch = getLocalStorage("itemsFav");
 
-    const h2Title = document.createElement("h2");
-    h2Title.textContent="Favoritos"
-    
-    const giphyContent = document.createElement("section");
-    giphyContent.classList.add("gyphy")
-
-    nodoFavGiphyParent.append(h2Title,giphyContent);
-
-    const FavGiphy = new BuildGiphyBasic(giphyContent,"favoritos");
-    const favDataFetch = getLocalStorage(nodes.fav.key)
-
-    FavGiphy.giphyDataLS(favDataFetch)
+    FavGiphy.giphyDataLS(favDataFetch);
+    FavBuildPagination.paginationBuilMethodTwo();
+    FavBuildPagination.displayItems();
 };

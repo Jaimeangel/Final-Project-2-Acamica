@@ -6,8 +6,8 @@ const nodoMainIntroduction = document.querySelector("main");
 
 /* Nodes Fav section */
 const nodoFavGiphyParent = document.querySelector(".fetchFavGiphy");
-const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy");
-console.log(nodoFavGiphyParent.children,favGiphyGrid)
+/* const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy"); */
+/* console.log(nodoFavGiphyParent.children,favGiphyGrid) */
 
 
 
@@ -35,10 +35,10 @@ const nodes = {
         node:giphyGrid,
         key:"items"
     },
-    fav:{
+    /* fav:{
         node:favGiphyGrid,
         key:"itemsFav"
-    }
+    } */
 }
 
 const iconRight = document.getElementById("right")

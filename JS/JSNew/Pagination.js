@@ -3,27 +3,31 @@ class PaginationBuilder{
         currentPage=0,
         numberPages=0,
         boxLenght=12,
-        key,
-        nodoGifs,
+        keyLS,
         displayFunction,
+        nodoGifs,
         nodoPagination,
-        nodoButonMoreGif
+        nodoButonMoreGif,
+        tipo=null
     }){
         this.currentPage=currentPage;
         this.boxLenght=boxLenght;
         this.numberPages=numberPages;
-        this.key=key;
+        this.keyLS=keyLS;
         this.nodoGifs=nodoGifs;
         this.displayFunction=displayFunction;
         this.nodoPagination=nodoPagination;
         this.nodoButonMoreGif=nodoButonMoreGif;
+        this.tipo=tipo;
     }
 
     paginationBuild(){
         
-        const itemGetLSLenght = this.getLocalStorage(this.key).length;
-        const numberPag = Number(itemGetLSLenght/this.boxLenght);
-    
+        const itemGetLSLenght = this.getLocalStorage(this.keyLS).length;
+        const numberPag = Math.ceil(Number(itemGetLSLenght/this.boxLenght))
+
+
+
         const btnPag = document.createElement("button")
         btnPag.textContent=`${numberPag}`
         this.nodoPagination.appendChild(btnPag)
@@ -32,6 +36,32 @@ class PaginationBuilder{
         this.currentPage++
         this.activeButtonUI()
         this.buttonMoreGif()
+    }
+
+    paginationBuilMethodTwo(){
+        this.nodoPagination.innerHTML=""
+
+        const itemGetLSLenght = this.getLocalStorage(this.keyLS).length;
+        const numberPag = Math.ceil(Number(itemGetLSLenght/this.boxLenght));
+        const itemPagination= [];
+    
+
+        for (let i=1; i < numberPag +1; i++) {
+            itemPagination.push(i)
+        }
+
+        const maxItemPagination = Math.max(...itemPagination)
+
+        for (let index = 0; index < itemPagination.length; index++) {
+            const btnPag = document.createElement("button")
+            btnPag.textContent= itemPagination[index]
+            this.nodoPagination.append(btnPag)
+            
+        }
+
+        this.currentPage = maxItemPagination;
+        this.numberPages = maxItemPagination;
+        this.activeButtonUI();
     }
     
     activeButtonUI(){
@@ -54,33 +84,38 @@ class PaginationBuilder{
     }
 
     buttonMoreGif(){
-        this.nodoButonMoreGif.innerHTML=""
-        const btn = document.createElement("button")
-        btn.textContent="Ver Mas"
-        this.nodoButonMoreGif.appendChild(btn)
+        if(this.nodoButonMoreGif){
+            this.nodoButonMoreGif.innerHTML=""
+            const btn = document.createElement("button")
+            btn.textContent="Ver Mas"
+            this.nodoButonMoreGif.appendChild(btn)
+        }
     }
 
     togglePagination(e){
-        const itemGetLS = this.getLocalStorage(this.key);
+        /* const itemGetLS = this.getLocalStorage(this.keyLS); */
         const valueButton = Number(e.target.innerText);
         this.currentPage = valueButton;
-        this.displayItems(this.displayFunction,itemGetLS,this.currentPage,this.boxLenght,this.nodoGifs);
+        /* this.displayItems(this.displayFunction,itemGetLS,this.currentPage,this.boxLenght,this.nodoGifs); */
+        this.displayItems()
     }
     
-    displayItems(callback,items,page,itemsPorPage,nodo){
+    displayItems(){
+        const itemGetLS = this.getLocalStorage(this.keyLS);
         const ArrayItems = [];
-        page--;
+        let page = this.currentPage;
+        page--
     
-        const start = itemsPorPage*page;
-        const end = start + itemsPorPage;
-        const ArrayItemsSlice = items?.slice(start,end)
+        const start = this.boxLenght*page;
+        const end = start + this.boxLenght;
+        const ArrayItemsSlice = itemGetLS?.slice(start,end)
     
         for(let i = 0; i < ArrayItemsSlice?.length; i++) {
             const item = ArrayItemsSlice[i]
             ArrayItems.push(item)
         }
     
-        callback(nodo,ArrayItems);
+        this.displayFunction(this.nodoGifs,ArrayItems,this.tipo);
         this.activeButtonUI()
     }
 
