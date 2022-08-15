@@ -11,11 +11,12 @@ const MainDataFetch = new FetchData({
     limit:"&limit=12"
 })
 
-const MainGiphy = new BuildGiphyExtends({
+const MainGiphy = new BuildGiphyBasic({
     nodo:nodes.main.node,
     tipo:"main",
     key:nodes.main.key
-})
+}
+)
 
 const BuildPagination = new PaginationBuilder({
     keyLS:nodes.main.key,

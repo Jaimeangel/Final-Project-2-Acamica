@@ -53,7 +53,7 @@
                 scroll-behavior: smooth;
                 .ctn-slide{
                     display: flex;
-                    flex-wrap: nowrap;
+                    /* flex-wrap: nowrap; */
 
                     .giphyBox{
                         position: relative;          
@@ -68,8 +68,9 @@
                         height: 17.375rem;
                         margin: 0.9rem;
                         padding: 10px;
-                      
-            
+
+                        object-fit: cover;
+
                         &:hover{
                             .buttons{
                                 z-index: 2;

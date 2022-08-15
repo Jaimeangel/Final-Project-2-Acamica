@@ -3,25 +3,16 @@ function getLocalStorage(key){
     return items;
 };
 
-/* const FavGiphy = new BuildGiphyBasic(nodes.fav.node,"favoritos"); */
-
-
-/* const LoadingGiphysFavRootUpdate = ()=>{
-    const favDataFetch = getLocalStorage(nodes.fav.key);
-    FavGiphy.giphyData(favDataFetch)
-};  */
-
 const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy");
 const favPagination= document.querySelector(".fetchFavGiphy .optionsMoreGifs .pagination");
 
-
-
-
-const FavGiphy = new BuildGiphyExtends({
+const FavGiphy = new BuildGiphyBasic(
+    {
     nodo:favGiphyGrid,
     tipo:"favoritos",
-    key:"itemsFav"
-});
+    key: "itemsFav"
+    }
+);
 
 const FavBuildPagination = new PaginationBuilder({
     keyLS:"itemsFav",

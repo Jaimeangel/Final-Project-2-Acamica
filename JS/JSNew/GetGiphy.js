@@ -12,10 +12,35 @@ function deleteGifLocalStorageById(id){
     localStorage.setItem("itemsFav",JSON.stringify([...arrayGif]));
 }
 
+function saveLocalStorage(data,key){
+    const items = this.getLocalStorage(key)
+    
+    if(!items){
+        localStorage.setItem(`${key}`,JSON.stringify([...data]))
+    }else{
+        const newData = [...items,...data]
+        localStorage.setItem(`${key}`,JSON.stringify(newData))
+    }
+}
+
+function getLocalStorage(key){
+    const items = JSON.parse(localStorage.getItem(`${key}`))
+    return items;
+}
+
+function deleteLocalStorage(key){
+    localStorage.removeItem(key)
+}
+
 class BuildGiphyBasic{
-    constructor(nodo,tipo){
+    constructor({
+        nodo,
+        tipo,
+        key=undefined
+    }){
        this.nodo=nodo;
        this.tipo=tipo;
+       this.key=key;
     }
 
     giphyDataLS(data){
@@ -41,7 +66,15 @@ class BuildGiphyBasic{
             dataArray.push(gif)
         });
 
-        this.createGiphyBox(this.nodo,dataArray,this.tipo)
+
+
+        if(this.tipo === "main" || this.tipo ===  "favoritos"){
+            saveLocalStorage(dataArray,this.key)
+            this.createGiphyBox(this.nodo,dataArray,this.tipo)
+            this.nodo.parentElement.style.display="flex"
+        }else{
+            this.createGiphyBox(this.nodo,dataArray,this.tipo)
+        }
     }
     
     createGiphyBox(nodo,data,tipo){
@@ -66,7 +99,7 @@ class BuildGiphyBasic{
             div.addEventListener("click",(event)=>{
                 const target = event.target.id;
                 if(target === "buttonHeart"){
-                    this.saveLocalStorage([item],"itemsFav")
+                    saveLocalStorage([item],"itemsFav")
                     div.classList.add("addFont")
 
                     if(tipo === "trending"){
@@ -107,68 +140,6 @@ class BuildGiphyBasic{
         
         nodo.append(...itemArray);
     }
-
-    saveLocalStorage(data,key){
-        const items = this.getLocalStorage(key)
-        
-        if(!items){
-            localStorage.setItem(`${key}`,JSON.stringify([...data]))
-        }else{
-            const newData = [...items,...data]
-            localStorage.setItem(`${key}`,JSON.stringify(newData))
-        }
-    }
-
-    getLocalStorage(key){
-        const items = JSON.parse(localStorage.getItem(`${key}`))
-        return items;
-    }
-
-    deleteLocalStorage(key){
-        localStorage.removeItem(key)
-    }
 }
 
 
-class BuildGiphyExtends extends BuildGiphyBasic{
-    constructor({
-        nodo,
-        tipo,
-        key,
-    }){
-       super(nodo,tipo);
-       this.key=key;
-    }
-
-    giphyData(data){
-        const dataArray = [];
-    
-        data.forEach( item => {
-            const gif = {
-                img :item.images.original.url,
-                title :item.title,
-                user :item.username,
-                id :item.id
-            }
-            dataArray.push(gif)
-        });
-        
-        this.saveLocalStorage(dataArray,this.key)
-        /* this.functionBuildPagination()  */
-        this.createGiphyBox(this.nodo,dataArray,this.tipo)
-        this.nodo.parentElement.style.display="flex"
-    }
-
-    giphyDataLS(data){
-        const dataArray = [];
-
-        data.forEach(item=>{
-            dataArray.push(item)
-        });
-        
-        /* this.saveLocalStorage(dataArray,this.key) */
-        /* this.functionBuildPagination()  */
-        this.createGiphyBox(this.nodo,dataArray,this.tipo)
-        /* this.nodo.parentElement.style.display="flex" */
-    }
-}

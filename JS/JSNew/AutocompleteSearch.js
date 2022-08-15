@@ -107,11 +107,15 @@ class SearchInput{
                 this.MainFetch(value,0)
                 break
             case "BUTTON":
-                offCounter = this.counter(12)
-                value = inputSearch.value;
-                this.OrganizeIconAndValueInput(value)
-                this.titleValueGiphy(value,this.titleNodo)
-                this.MainFetch(value,offCounter)
+                if(this.inputNodo.value){
+                    offCounter = this.counter(12)
+                    value = inputSearch.value;
+                    this.OrganizeIconAndValueInput(value)
+                    this.titleValueGiphy(value,this.titleNodo)
+                    this.MainFetch(value,offCounter)
+                }else{
+                    return
+                }
                 break
         }
     

@@ -71,8 +71,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  /* flex-wrap: nowrap; */
 }
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox {
@@ -94,6 +93,8 @@
   height: 17.375rem;
   margin: 0.9rem;
   padding: 10px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox:hover .buttons {

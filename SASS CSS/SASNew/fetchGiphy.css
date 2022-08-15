@@ -32,8 +32,8 @@
   width: 90%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(156px, 1fr))[2];
-      grid-template-columns: repeat(2, minmax(156px, 1fr));
+  -ms-grid-columns: (minmax(140px, 1fr))[2];
+      grid-template-columns: repeat(2, minmax(140px, 1fr));
   grid-auto-rows: 7.5rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
