@@ -23,7 +23,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 5px;
+  margin-bottom: 8px;
 }
 
 .optionsMoreGifs .btnPlus button {
@@ -51,8 +51,6 @@
           justify-content: center;
   width: 250px;
   height: auto;
-  margin: 10px;
-  margin-bottom: 1.5rem;
 }
 
 .optionsMoreGifs .pagination button {

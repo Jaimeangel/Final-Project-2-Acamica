@@ -30,7 +30,7 @@ function createRightMenu(){
         </label>
     `
     //Evento para cambiar forma de icono menu right
-    const checkBox = document.querySelector(".menuRight input")
+    const checkBox = document.querySelector(".menuRight")
     checkBox.addEventListener("click",toggleIconMenu)
 
     navList.addEventListener("click",(event)=>{

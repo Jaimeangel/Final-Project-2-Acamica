@@ -36,4 +36,16 @@ let swiper = new Swiper(".mySwiper", {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
+    breakpoints: {
+      590: {
+        slidesPerView: 2,
+        spaceBetween: 16,
+        slidesPerGroup: 2,
+      },
+      900: {
+        slidesPerView: 3,
+        spaceBetween: 16,
+        slidesPerGroup: 3,
+      },
+    }
   });

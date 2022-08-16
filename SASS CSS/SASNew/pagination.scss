@@ -7,13 +7,13 @@
 .optionsMoreGifs{
     display: flex;
     flex-direction: column;
-    margin: 20px;
+    margin: 20px; 
 
             
     .btnPlus{
         display: flex;
         justify-content: center;
-        margin-top: 5px;
+        margin-bottom: 8px;
         button{
             cursor: pointer;
             border: 1px solid black;
@@ -35,8 +35,6 @@
         justify-content: center;
         width: 250px;
         height: auto;
-        margin: 10px;
-        margin-bottom: 1.5rem;
         button{
             cursor: pointer;
             border-radius: 30px;

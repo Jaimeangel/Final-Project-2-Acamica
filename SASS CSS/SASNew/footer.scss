@@ -11,12 +11,52 @@ footer{
     font-weight: bold;
     text-align: center;
     padding-top: 15px;
+
+    .boxOne{
+        h3{
+            font-size: 1.2rem;   
+        }
+        div i{
+            font-size: 1.7rem;
+            margin: 15px;
+        }
+
+    }
+
+    .boxTwo{
+        h3{
+            font-size: 1.2rem;   
+        }
+    }
     
-    div h3{
-        font-size: 1.2rem;   
-    }
-    div i{
-        font-size: 1.7rem;
-        margin: 15px;
-    }
 }
+
+@media (min-width: 590px) {
+    footer{
+        height: 7rem;
+        display: flex;
+        justify-content: space-around;
+
+        .boxOne{
+            display: flex;
+            h3{
+                font-size: 1.3rem;
+                padding-top: 1rem;   
+            }
+            div i{
+                font-size: 1.7rem;
+                margin: 10px;
+            }
+    
+        }
+
+        .boxTwo{
+            h3{
+                font-size: 1.3rem;
+                padding-top: 1rem;    
+            }
+        }
+    }
+    
+}
+

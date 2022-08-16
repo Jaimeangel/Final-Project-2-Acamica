@@ -6,8 +6,8 @@
 }
 
 .trendingGif {
-  height: 28rem;
-  background-color: var(--backTrending);
+  background: #F3F5F8;
+  height: auto;
   padding-top: 2rem;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
@@ -16,6 +16,7 @@
 .trendingGif .trendingSection_Title {
   color: var(--colorLetraBlack);
   text-align: center;
+  margin-bottom: 1rem;
 }
 
 .trendingGif .trendingSection_Title :first-child {
@@ -26,6 +27,10 @@
 
 .trendingGif .trendingSection_Title :last-child {
   font-size: 1.4rem;
+}
+
+.trendingGif .trendingSection_Carousel {
+  padding-bottom: 3rem;
 }
 
 .trendingGif .trendingSection_Carousel .carousel {
@@ -109,5 +114,43 @@
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide .addFont #buttonHeart {
   color: #e60505;
+}
+
+@media (min-width: 590px) {
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox {
+    height: 16rem;
+  }
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox .buttons button i {
+    font-size: 27px;
+    padding: 5px;
+  }
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox .titles {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 900px) {
+  .trendingGif .trendingSection_Title {
+    margin-bottom: 2rem;
+  }
+  .trendingGif .trendingSection_Title :first-child {
+    font-size: 2rem;
+  }
+  .trendingGif .trendingSection_Title :last-child {
+    font-size: 1.6rem;
+  }
+  .trendingGif .trendingSection_Carousel {
+    padding-bottom: 4rem;
+  }
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox {
+    height: 19rem;
+  }
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox .buttons button i {
+    font-size: 28px;
+    padding: 6px;
+  }
+  .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox .titles {
+    font-size: 25px;
+  }
 }
 /*# sourceMappingURL=trendingGif.css.map */

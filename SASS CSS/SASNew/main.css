@@ -19,11 +19,11 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 4rem;
 }
 
 main .title {
-  -webkit-transform: translateY(10px);
-          transform: translateY(10px);
+  margin-top: 10px;
   width: 70%;
   font-family: 'Montserrat', sans-serif;
 }
@@ -40,8 +40,7 @@ main .title p a {
 
 main section {
   width: 100%;
-  -webkit-transform: translateY(20px);
-          transform: translateY(20px);
+  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -65,19 +64,14 @@ main section .search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 main section .search input {
   font-family: 'Montserrat', sans-serif;
-  -webkit-transform: translateY(-26px);
-          transform: translateY(-26px);
+  margin-top: -26px;
   width: 90%;
   height: 45px;
   border-radius: 30px;
@@ -97,7 +91,7 @@ main section .search #right {
   position: absolute;
   font-size: 22px;
   right: 40px;
-  bottom: 33px;
+  bottom: 7px;
 }
 
 main section .search #left {
@@ -105,14 +99,13 @@ main section .search #left {
   position: absolute;
   font-size: 22px;
   left: 49px;
-  bottom: 30px;
+  bottom: 7px;
 }
 
 main section .suggestions {
   display: none;
   position: absolute;
-  -webkit-transform: translateY(11px);
-          transform: translateY(11px);
+  margin-top: 11px;
   z-index: 3;
   background-color: white;
   width: 90%;
@@ -141,6 +134,7 @@ main section .suggestions ul {
   list-style: none;
   padding-left: 30px;
   padding-top: 10px;
+  margin-bottom: 2rem;
 }
 
 main section .suggestions ul li {
@@ -157,8 +151,7 @@ main section .suggestions ul li i {
 }
 
 main section .suggestions ul li p {
-  -webkit-transform: translateY(-5px);
-          transform: translateY(-5px);
+  padding-top: -5px;
 }
 
 main section .block {
@@ -214,5 +207,67 @@ main .trending ::-webkit-scrollbar-track {
 main .trending ::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 10px var(--borderColor);
+}
+
+@media (min-width: 590px) {
+  main .title {
+    margin-top: 20px;
+    width: 90%;
+  }
+  main .title p {
+    font-size: 32px;
+  }
+  main section div img {
+    width: 300px;
+    height: 150px;
+  }
+  main section .search input {
+    width: 85%;
+  }
+  main section .search #right {
+    right: 60px;
+  }
+  main section .search #left {
+    left: 77px;
+  }
+  main section .suggestions {
+    width: 85%;
+  }
+  main section .suggestions ul {
+    font-size: 26px;
+    margin-bottom: 1.4rem;
+  }
+}
+
+@media (min-width: 900px) {
+  main {
+    margin-bottom: 4rem;
+  }
+  main .title {
+    margin-top: 30px;
+    width: 90%;
+  }
+  main .title p {
+    font-size: 42px;
+  }
+  main section div img {
+    width: 400px;
+    height: 190px;
+  }
+  main section .search input {
+    max-width: 700px;
+  }
+  main section .search #right {
+    right: 345px;
+  }
+  main section .search #left {
+    left: 344px;
+  }
+  main section .suggestions {
+    max-width: 700px;
+  }
+  main section .suggestions ul {
+    font-size: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

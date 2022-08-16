@@ -15,7 +15,8 @@ header {
           justify-content: space-between;
   width: 100%;
   height: 90px;
-  /* border: 1px solid black; */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 header div img {
@@ -26,7 +27,7 @@ header div img {
 }
 
 header nav {
-  z-index: 3;
+  z-index: 5;
   position: absolute;
   display: none;
   width: 100%;
@@ -56,6 +57,10 @@ header nav ul li {
   padding: 10px 0px;
 }
 
+header nav .btn {
+  display: none;
+}
+
 header .rigtTools .menuRight {
   -webkit-transform: translate(-26px, 30px);
           transform: translate(-26px, 30px);
@@ -70,5 +75,93 @@ header .rigtTools .menuRight input {
   display: none;
   width: 30px;
   height: 30px;
+}
+
+@media (min-width: 590px) {
+  header nav ul li {
+    font-size: 28px;
+  }
+  header nav .btn {
+    display: none;
+  }
+  header .rigtTools .menuRight {
+    -webkit-transform: translate(-18px, 30px);
+            transform: translate(-18px, 30px);
+  }
+  header .rigtTools .menuRight label {
+    font-size: 40px;
+    cursor: pointer;
+  }
+  header .rigtTools .menuRight input {
+    display: none;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (min-width: 900px) {
+  header div img {
+    -webkit-transform: translate(100px, 20px);
+            transform: translate(100px, 20px);
+    width: 70px;
+    height: 70px;
+  }
+  header nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 5;
+    position: relative;
+    width: 80%;
+    height: auto;
+    background-color: white;
+    -webkit-transform: translateY(10px);
+            transform: translateY(10px);
+  }
+  header nav ul {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    list-style: none;
+  }
+  header nav ul li {
+    font-size: 28px;
+    margin: 0px 20px;
+    padding: 0px 0px;
+  }
+  header nav .btn {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  header nav .btn button {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 50%;
+    font-size: 1rem;
+  }
+  header nav .btn button:hover {
+    color: white;
+    background-color: red;
+  }
+  header nav .btn button:active {
+    background-color: #9CAFC3;
+    border: 1px solid #9CAFC3;
+    color: white;
+  }
+  header .rigtTools {
+    display: none;
+  }
 }
 /*# sourceMappingURL=header.css.map */

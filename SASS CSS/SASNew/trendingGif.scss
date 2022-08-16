@@ -5,8 +5,8 @@
 }
 
 .trendingGif{
-    height: 28rem;
-    background-color: var(--backTrending);
+    background: #F3F5F8;
+    height: auto;
     padding-top: 2rem;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
@@ -14,6 +14,7 @@
         &_Title{
             color: var(--colorLetraBlack);
             text-align: center;
+            margin-bottom: 1rem;
             :first-child{
                 font-size: 1.7rem;
                 line-height: 1.8rem;
@@ -24,11 +25,13 @@
             }
         }
         
-        &_Carousel{    
+        &_Carousel{ 
+            padding-bottom: 3rem;   
             .carousel{
                 width: 100%;
                 padding-left: 1rem;
                 padding-right: 1rem;
+                
     
                 .ctn-slide{
                     position: relative;
@@ -102,6 +105,81 @@
                     }
                 }
             }
+        }
+    }
+}
+
+
+@media (min-width: 590px) {
+
+    .trendingGif{
+        .trendingSection{
+            &_Carousel{
+                .carousel{
+                    .ctn-slide{
+                        .giphyBox{
+                            height: 16rem;
+
+                            .buttons{
+                               
+                                button{
+                                    i{
+                                        font-size: 27px;
+                                        padding: 5px;
+                                    }
+                                }
+                                
+                            }
+                
+                            .titles{
+                                font-size: 24px;
+                            }
+                        }
+                    }
+                }
+            }        
+        }
+    }
+}
+
+@media (min-width: 900px) {
+
+    .trendingGif{
+        .trendingSection{
+            &_Title{
+                margin-bottom: 2rem;
+                :first-child{
+                    font-size: 2rem;
+                }
+                :last-child{
+                    font-size: 1.6rem;
+                }
+            }
+            &_Carousel{
+                padding-bottom: 4rem; 
+                .carousel{
+                    .ctn-slide{
+                        .giphyBox{
+                            height: 19rem;
+
+                            .buttons{
+                               
+                                button{
+                                    i{
+                                        font-size: 28px;
+                                        padding: 6px;
+                                    }
+                                }
+                                
+                            }
+                
+                            .titles{
+                                font-size: 25px;
+                            }
+                        }
+                    }
+                }
+            }        
         }
     }
 }

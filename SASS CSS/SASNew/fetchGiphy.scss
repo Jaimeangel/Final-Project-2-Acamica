@@ -5,10 +5,11 @@
 }
 
 .fetchGiphy{
-    transform: translateY(50px);
+    
+    margin-top: 20px;
     width: 100%;
     height: auto;
-    /* display: flex; */
+    
     display: none;
     flex-direction: column;
     align-items: center;
