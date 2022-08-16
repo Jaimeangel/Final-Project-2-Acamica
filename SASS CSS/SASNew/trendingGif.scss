@@ -24,36 +24,15 @@
             }
         }
         
-        &_Carousel{
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-
-            .btn{
-                display: flex;
-                align-items: center;
-                button{
-                    cursor: pointer;
-                    color: var(--colorLetra);
-                    background-color: var(--backTrending);
-                    border: 1px solid var(--borderInput);
-                    font-size: 1.5rem;
-                    width: 2.5rem;
-                    height: 2.5rem;
-                    &:hover{
-                        background-color: var(--backBtnPurple);
-                        color: var(--backBtnWhite);
-                    }
-                }
-            }
-
+        &_Carousel{    
             .carousel{
-                width: 90%;
-                overflow: hidden;
-                scroll-behavior: smooth;
+                width: 100%;
+                padding-left: 1rem;
+                padding-right: 1rem;
+    
                 .ctn-slide{
-                    display: flex;
-                    /* flex-wrap: nowrap; */
+                    position: relative;
+                    width: 100%;
 
                     .giphyBox{
                         position: relative;          
@@ -64,12 +43,11 @@
                         background-size: cover;
                         background-position:center;
 
-                        min-width: 90%;
+                        max-width: 100%;
                         height: 17.375rem;
-                        margin: 0.9rem;
                         padding: 10px;
 
-                        object-fit: cover;
+                      
 
                         &:hover{
                             .buttons{

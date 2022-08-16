@@ -96,6 +96,10 @@ class BuildGiphyBasic{
             div.style.backgroundImage=`url(${item.img})`
             div.setAttribute("id",`${item.id}`)
 
+            if(this.tipo === "trending"){
+                div.classList.add("swiper-slide")
+            }
+
             div.addEventListener("click",(event)=>{
                 const target = event.target.id;
                 if(target === "buttonHeart"){

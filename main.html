@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="SASS CSS/SASNew/footer.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/modal.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/favFetchGiphy.css">
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
     
     <title>Document</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap" rel="stylesheet">
@@ -135,22 +140,23 @@
 
             <div class="trendingSection_Carousel">
 
-                    <div class="btn star">
-                        <button id="left-arrow"><i class="fas fa-chevron-left"></i></button>
-                    </div>
+                   
 
-                    <div class="carousel">
+                    <div class="carousel swiper mySwiper">
 
-                        <div class="ctn-slide">
+                        <div class="ctn-slide swiper-wrapper">
 
                             
                         </div>
 
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+
                     </div>
+
+
                     
-                    <div class="btn end">
-                        <button id="right-arrow" ><i class="fas fa-chevron-right"></i></button>
-                    </div>
+                    
 
             </div>
 
@@ -173,6 +179,8 @@
     </footer>
 
     
+</body>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="JS/JSNew/Modal.js"></script>
     <script src="JS/JSNew/ConstApi.js"></script>
@@ -186,6 +194,4 @@
     <script src="JS/JSNew/FavCallGyphy.js"></script>
     <script src="JS/JSNew/MainCallApis.js"></script>
     <script src="JS/JSNew/TrendingSection.js"></script>
-    
-</body>
 </html>

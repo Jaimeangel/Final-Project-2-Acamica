@@ -28,50 +28,15 @@
   font-size: 1.4rem;
 }
 
-.trendingGif .trendingSection_Carousel {
-  width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.trendingGif .trendingSection_Carousel .btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.trendingGif .trendingSection_Carousel .btn button {
-  cursor: pointer;
-  color: var(--colorLetra);
-  background-color: var(--backTrending);
-  border: 1px solid var(--borderInput);
-  font-size: 1.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
-}
-
-.trendingGif .trendingSection_Carousel .btn button:hover {
-  background-color: var(--backBtnPurple);
-  color: var(--backBtnWhite);
-}
-
 .trendingGif .trendingSection_Carousel .carousel {
-  width: 90%;
-  overflow: hidden;
-  scroll-behavior: smooth;
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  /* flex-wrap: nowrap; */
+  position: relative;
+  width: 100%;
 }
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox {
@@ -89,12 +54,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  min-width: 90%;
+  max-width: 100%;
   height: 17.375rem;
-  margin: 0.9rem;
   padding: 10px;
-  -o-object-fit: cover;
-     object-fit: cover;
 }
 
 .trendingGif .trendingSection_Carousel .carousel .ctn-slide .giphyBox:hover .buttons {
