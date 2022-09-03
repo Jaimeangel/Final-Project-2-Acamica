@@ -30,6 +30,9 @@ header nav {
   z-index: 5;
   position: absolute;
   display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
   height: 100vh;
   background-color: gray;
@@ -52,13 +55,28 @@ header nav ul {
 }
 
 header nav ul li {
-  font-size: 20px;
+  font-size: 17px;
   margin: 25px 0px;
   padding: 10px 0px;
 }
 
+header nav ul li:hover {
+  -webkit-text-decoration: underline red solid 4px;
+          text-decoration: underline red solid 4px;
+}
+
+header nav ul li:active {
+  color: #bab9b9;
+}
+
 header nav .btn {
   display: none;
+}
+
+header .toggle_nav_display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 header .rigtTools .menuRight {
@@ -78,6 +96,12 @@ header .rigtTools .menuRight input {
 }
 
 @media (min-width: 590px) {
+  header div img {
+    -webkit-transform: translate(50px, 15px);
+            transform: translate(50px, 15px);
+    width: 55px;
+    height: 55px;
+  }
   header nav ul li {
     font-size: 28px;
   }
@@ -85,8 +109,8 @@ header .rigtTools .menuRight input {
     display: none;
   }
   header .rigtTools .menuRight {
-    -webkit-transform: translate(-18px, 30px);
-            transform: translate(-18px, 30px);
+    -webkit-transform: translate(-50px, 30px);
+            transform: translate(-50px, 30px);
   }
   header .rigtTools .menuRight label {
     font-size: 40px;

@@ -24,39 +24,32 @@ function createLeftImg(){
 function createRightMenu(){
     //Creando checkbox y icono
     menuRight.innerHTML= `
-        <input name="menu" type="checkbox" id="menu">
-        <label for="menu">
-            <i class="fas fa-grip-lines"></i>
+        <label class="menu">
+            <i id="menuContraido" class="fas fa-grip-lines"></i>
         </label>
     `
-    //Evento para cambiar forma de icono menu right
-    const checkBox = document.querySelector(".menuRight")
-    checkBox.addEventListener("click",toggleIconMenu)
+    
+    const menu_hamburguesa = document.querySelector(".menuRight .menu")
+    menu_hamburguesa.addEventListener("click",toggleIconMenu)
 
     navList.addEventListener("click",(event)=>{
         const tabs = event.target.id;
         tabSlideFeature(tabs)
-        checkBox.click()
         toggleIconMenu()
     });
 }
 
 function toggleIconMenu(){
-    //Cambio de icono del menu right
-    //Funcion usada en evento de la funcion "createMenuRight"
-    const checkBox = document.querySelector(".menuRight input")
-    const label = document.querySelector(".menuRight label")
+    const menu_hamburguesa = document.querySelector(".menuRight .menu");
+    const menu_hamburguesa_id = document.querySelector(".menuRight .menu i").id;
 
-    if(!checkBox.checked){
-        //icono rejillas
-        label.innerHTML=`<i class="fas fa-grip-lines"></i>`
-        //Escondemos el nav
-        nav.style.display="none"
-    }else{
-        //icono x
-        label.innerHTML=`<i class="fas fa-times"></i>`
-        //Abrimos el nav
-        nav.style.display="block"
+    if(menu_hamburguesa_id === "menuDesplegado"){
+        menu_hamburguesa.innerHTML=`<i  id="menuContraido" class="fas fa-grip-lines"></i>`
+        nav.classList.toggle("toggle_nav_display")
+    }else if(menu_hamburguesa_id === "menuContraido" ){
+       
+        menu_hamburguesa.innerHTML=`<i id="menuDesplegado" class="fas fa-times"></i>`
+        nav.classList.toggle("toggle_nav_display")
     }
 }
 
