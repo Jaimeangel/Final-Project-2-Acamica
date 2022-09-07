@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.parentNoContent {
+  z-index: 5;
+  position: fixed;
+  /* Stay in place */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  background-color: white;
+}
+
+.parentNoContent .noContent {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.parentNoContent .noContent div img {
+  width: 100px;
+  height: 100px;
+}
+
+.parentNoContent .noContent .message {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.parentNoContent .noContent div button {
+  border-radius: 30px;
+}
+
+.parentNoContent .noContent div button i {
+  font-size: 30px;
+  cursor: pointer;
+}
+/*# sourceMappingURL=noContent.css.map */

@@ -11,6 +11,13 @@ const MainDataFetch = new FetchData({
     limit:"&limit=12"
 })
 
+const MainNoContent = new NoContent({
+    type:"Main",
+    nodo:nodes.main.node,
+    message1:"Intenta con otra búsqueda.",
+    img:"https://cdn.iconscout.com/icon/premium/png-256-thumb/ouch-bubble-3468672-2900993.png" 
+})
+
 const MainGiphy = new BuildGiphyBasic({
     nodo:nodes.main.node,
     tipo:"main",
@@ -30,10 +37,15 @@ pagination.addEventListener("click",(event)=>BuildPagination.togglePagination(ev
 
 const LoadingGiphysMainRoot= async (value,offset)=>{
     const DataGifs = await MainDataFetch.fetchApi(value,"&offset=",offset)
-    
-    MainGiphy.giphyData(DataGifs);
-    
-    BuildPagination.paginationBuild();
+
+    if (Object.keys(DataGifs).length === 0) {
+        MainNoContent.publicMessage()
+        console.log("Aqui no hay ningun resultado de busqueda")
+    }else{
+        MainGiphy.giphyData(DataGifs);
+        BuildPagination.paginationBuild();
+    }
+
 }
 
 

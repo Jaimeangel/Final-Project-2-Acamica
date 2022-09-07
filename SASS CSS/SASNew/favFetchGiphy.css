@@ -6,7 +6,6 @@
 }
 
 .fetchFavGiphy {
-  margin-top: 20px;
   width: 100%;
   height: auto;
   display: none;
@@ -19,7 +18,25 @@
           align-items: center;
 }
 
-.fetchFavGiphy h2 {
+.fetchFavGiphy .favTitles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fetchFavGiphy .favTitles img {
+  width: 30px;
+  height: 23px;
+}
+
+.fetchFavGiphy .favTitles h2 {
   font-family: 'Montserrat', sans-serif;
   margin-bottom: 1.5rem;
   font-weight: bold;
@@ -110,7 +127,7 @@
 }
 
 @media (min-width: 590px) {
-  h2 {
+  .fetchFavGiphy .favTitles h2 {
     font-size: 30px;
   }
   .fetchFavGiphy .gyphy {
@@ -128,8 +145,11 @@
 }
 
 @media (min-width: 900px) {
-  h2 {
-    font-size: 35px;
+  .fetchFavGiphy .favTitles {
+    margin-top: 20px;
+  }
+  .fetchFavGiphy .favTitles h2 {
+    font-size: 30px;
   }
   .fetchFavGiphy .gyphy {
     -ms-grid-columns: (minmax(230px, 1fr))[4];

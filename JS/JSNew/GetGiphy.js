@@ -55,7 +55,8 @@ class BuildGiphyBasic{
 
     giphyData(data){
         const dataArray = [];
-    
+        const parentNodo = this.nodo.parentElement.parentElement;
+
         data.forEach( item => {
             const gif = {
                 img :item.images.original.url,
@@ -71,7 +72,7 @@ class BuildGiphyBasic{
         if(this.tipo === "main" || this.tipo ===  "favoritos"){
             saveLocalStorage(dataArray,this.key)
             this.createGiphyBox(this.nodo,dataArray,this.tipo)
-            this.nodo.parentElement.style.display="flex"
+            parentNodo.style.display="flex"
         }else{
             this.createGiphyBox(this.nodo,dataArray,this.tipo)
         }

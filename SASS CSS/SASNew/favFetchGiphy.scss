@@ -6,8 +6,6 @@
 
 
 .fetchFavGiphy{
-    
-    margin-top: 20px;
     width: 100%;
     height: auto;
     
@@ -15,10 +13,21 @@
     flex-direction: column;
     align-items: center;
 
-    h2{
-        font-family: 'Montserrat', sans-serif;
-        margin-bottom: 1.5rem;
-        font-weight: bold;
+    .favTitles{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img{
+            width: 30px;
+            height: 23px;
+        }
+
+        h2{
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
     }
 
     .gyphy{
@@ -96,13 +105,16 @@
 
 @media (min-width: 590px) {
 
-    h2{
-      
-        font-size: 30px;
-    }
-
+    
     .fetchFavGiphy{
-
+        
+        .favTitles{
+    
+            h2{
+              
+                font-size: 30px;
+            }
+        }
 
         .gyphy{
             grid-template-columns: repeat(3,minmax(200px,1fr));
@@ -135,13 +147,17 @@
 
 @media (min-width: 900px) {
 
-    h2{
-      
-        font-size: 35px;
-    }
-
     .fetchFavGiphy{
 
+        .favTitles{
+            
+            margin-top: 20px;
+
+            h2{
+              
+                font-size: 30px;
+            }
+        }
 
         .gyphy{
             grid-template-columns: repeat(4,minmax(230px,1fr));

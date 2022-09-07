@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.parentNoContent{
+    z-index: 5;
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: white;
+    
+    .noContent{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div img{
+            width: 100px;
+            height: 100px;
+        }
+    
+        .message{
+            font-size: 24px;
+            font-weight: bold;
+        }
+    
+        div button{
+            border-radius: 30px;
+            i{
+                font-size: 30px;
+                cursor: pointer;
+            }
+        }
+    }
+}

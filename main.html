@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="SASS CSS/SASNew/footer.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/modal.css">
     <link rel="stylesheet" href="SASS CSS/SASNew/favFetchGiphy.css">
+    <link rel="stylesheet" href="SASS CSS/SASNew/noContent.css">
 
     <link
       rel="stylesheet"
@@ -54,9 +55,13 @@
     </header>
 
     <section class="fetchFavGiphy">
-        <h2>
-            Favoritos
-        </h2>
+
+        <div class="favTitles">
+            <img src="GIFOS-UI-Desktop+Mobile 6/assets/icon-favoritos.svg" alt="">
+            <h2>
+                Favoritos
+            </h2>
+        </div>
 
         <section class="gyphy">
             <!-- Aqui los gifs -->
@@ -118,19 +123,24 @@
             <!-- Titulos de los gif -->
         </h2>
 
-        <section class="gyphy">
-            <!-- Aqui los gifs -->
-        </section>
+        <div class="sectionGifMain">
 
-        <article class="optionsMoreGifs">
-
-            <div class="btnPlus">
-            </div>
-
-            <section class="pagination">
-                
+            <section class="gyphy">
+                <!-- Aqui los gifs -->
             </section>
-        </article>
+    
+            <article class="optionsMoreGifs">
+    
+                <div class="btnPlus">
+                </div>
+    
+                <section class="pagination">
+                    
+                </section>
+            </article>
+
+        </div>
+        
 
     </section>
 
@@ -190,8 +200,9 @@
 </body>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-    <script src="JS/JSNew/Modal.js"></script>
     <script src="JS/JSNew/ConstApi.js"></script>
+    <script src="JS/JSNew/NoContent.js"></script>
+    <script src="JS/JSNew/Modal.js"></script>
     <script src="JS/JSNew/FetchApi.js"></script>
     <script src="JS/JSNew/Header.js"></script>
     <script src="JS/JSNew/Main.js" ></script>
