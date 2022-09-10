@@ -7,7 +7,7 @@
 
 .parentNoContent {
   z-index: 5;
-  position: fixed;
+  position: relative;
   /* Stay in place */
   left: 0;
   top: 0;

@@ -100,8 +100,23 @@
 
     }
 
+    .toogleDisplayFlex{
+        display: flex;
+    }
+    
+    .toogleDisplayNone{
+        display: none;
+    }
+
 }
 
+.toogleDisplayFlex{
+    display: flex;
+}
+
+.toogleDisplayNone{
+    display: none;
+}
 
 @media (min-width: 590px) {
 

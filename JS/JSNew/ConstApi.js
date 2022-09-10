@@ -1,6 +1,7 @@
 /* Nodes Main section */
 const nodoMainGiphyParent = document.querySelector(".fetchGiphy");
-const giphyGrid = document.querySelector(".fetchGiphy .gyphy");
+const giphyGrid = document.querySelector(".fetchGiphy .sectionGifMain .gyphy");
+const nodoMainGif = document.querySelector(".fetchGiphy .sectionGifMain");
 const nodoMainIntroduction = document.querySelector("main");
 
 

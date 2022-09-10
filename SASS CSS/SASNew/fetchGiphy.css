@@ -123,6 +123,26 @@
   color: #f30606;
 }
 
+.fetchGiphy .toogleDisplayFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.fetchGiphy .toogleDisplayNone {
+  display: none;
+}
+
+.toogleDisplayFlex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.toogleDisplayNone {
+  display: none;
+}
+
 @media (min-width: 590px) {
   .fetchGiphy h2 {
     font-size: 30px;

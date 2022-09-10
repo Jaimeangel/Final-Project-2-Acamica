@@ -1,12 +1,10 @@
 class NoContent{
     constructor({
         type,
-        nodo,
         img,
         message1,
-        message2=undefined
+        message2
     }){
-        this.nodo=nodo;
         this.img=img;
         this.message1=message1;
         this.message2=message2;
@@ -20,6 +18,7 @@ class NoContent{
         nodoMessage.addEventListener("click",(event)=>{
             const target = event.target.id;
             if(target === `closeMessage${this.type}`){
+                this.conditions(null,target) 
                 nodoMessage.remove()
             }
         })
@@ -41,6 +40,32 @@ class NoContent{
                 
             </div>
         `
-        this.nodo.appendChild(nodoMessage);
+        this.conditions(nodoMessage)
+    }
+
+    conditions(nodo=null,target=null){
+        if(this.type ==="main"){
+
+            if(target != null){
+                nodoMainGif.classList.toggle("toogleDisplayNone")
+            }else{
+
+                if(nodo != null){
+
+                    if(nodoMainGiphyParent.style.display != "flex"){
+                        nodoMainGiphyParent.classList.toggle("toogleDisplayFlex")
+                    }
+                    
+                    nodoMainGif.classList.toggle("toogleDisplayNone")
+                    nodoMainGiphyParent.insertBefore(nodo,nodoMainGif)
+                }
+
+
+            }
+
+
+        }else if(this.type ==="favoritos"){
+            
+        }
     }
 }
