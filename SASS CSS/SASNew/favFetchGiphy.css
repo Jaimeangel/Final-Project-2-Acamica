@@ -42,7 +42,21 @@
   font-weight: bold;
 }
 
-.fetchFavGiphy .gyphy {
+.fetchFavGiphy .sectionGifFavoritos {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.fetchFavGiphy .sectionGifFavoritos .gyphy {
   font-family: 'Montserrat', sans-serif;
   width: 90%;
   display: -ms-grid;
@@ -56,7 +70,7 @@
   gap: 15px;
 }
 
-.fetchFavGiphy .gyphy .giphyBox {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox {
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -74,17 +88,17 @@
   padding: 5px;
 }
 
-.fetchFavGiphy .gyphy .giphyBox:hover .buttons {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox:hover .buttons {
   z-index: 2;
   visibility: visible;
 }
 
-.fetchFavGiphy .gyphy .giphyBox:hover .titles {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox:hover .titles {
   z-index: 2;
   visibility: visible;
 }
 
-.fetchFavGiphy .gyphy .giphyBox:hover::before {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox:hover::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -96,7 +110,7 @@
   z-index: 1;
 }
 
-.fetchFavGiphy .gyphy .giphyBox .buttons {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox .buttons {
   visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,23 +120,23 @@
           justify-content: flex-end;
 }
 
-.fetchFavGiphy .gyphy .giphyBox .buttons button {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox .buttons button {
   margin-left: 10px;
   border: none;
   border-radius: 5px;
 }
 
-.fetchFavGiphy .gyphy .giphyBox .buttons button i {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox .buttons button i {
   font-size: 18px;
   padding: 4px;
 }
 
-.fetchFavGiphy .gyphy .giphyBox .titles {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .giphyBox .titles {
   visibility: hidden;
   font-size: 15px;
 }
 
-.fetchFavGiphy .gyphy .addFont #buttonHeart {
+.fetchFavGiphy .sectionGifFavoritos .gyphy .addFont #buttonHeart {
   color: #f30606;
 }
 

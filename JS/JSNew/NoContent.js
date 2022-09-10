@@ -2,12 +2,10 @@ class NoContent{
     constructor({
         type,
         img,
-        message1,
-        message2
+        message1
     }){
         this.img=img;
         this.message1=message1;
-        this.message2=message2;
         this.type=type;
     }
 
@@ -31,7 +29,6 @@ class NoContent{
 
                 <div class="message">
                     <p>${this.message1}</p>
-                    <p>${this.message2}</p>
                 </div>
 
                 <div>
@@ -65,7 +62,22 @@ class NoContent{
 
 
         }else if(this.type ==="favoritos"){
-            
+            if(target === "noGif"){
+                const elementRemove = document.querySelector(".fetchFavGiphy .parentNoContent");
+                if(!elementRemove){
+                    this.publicMessage()
+                }
+            }else if(target === "Gif"){
+                const elementRemove = document.querySelector(".fetchFavGiphy .parentNoContent");
+                if(elementRemove){
+                    elementRemove.remove()
+                }
+            }
+
+            if(nodo){
+                nodoFavGiphyParent.insertBefore(nodo,nodoFavGif);
+            }
+
         }
     }
 }

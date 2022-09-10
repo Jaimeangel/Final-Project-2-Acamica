@@ -13,7 +13,6 @@ const MainDataFetch = new FetchData({
 
 const MainNoContent = new NoContent({
     type:"main",
-    nodo:nodes.main.node,
     message1:"Intenta con otra búsqueda.",
     img:"https://cdn.iconscout.com/icon/premium/png-256-thumb/ouch-bubble-3468672-2900993.png" 
 })

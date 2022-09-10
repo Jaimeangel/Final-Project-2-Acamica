@@ -7,6 +7,7 @@ const nodoMainIntroduction = document.querySelector("main");
 
 /* Nodes Fav section */
 const nodoFavGiphyParent = document.querySelector(".fetchFavGiphy");
+const nodoFavGif = document.querySelector(".fetchFavGiphy .sectionGifFavoritos");
 /* const favGiphyGrid = document.querySelector(".fetchFavGiphy .gyphy"); */
 /* console.log(nodoFavGiphyParent.children,favGiphyGrid) */
 

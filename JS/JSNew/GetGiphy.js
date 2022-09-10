@@ -106,6 +106,7 @@ class BuildGiphyBasic{
                 if(target === "buttonHeart"){
                     saveLocalStorage([item],"itemsFav")
                     div.classList.add("addFont")
+                    loadgingContentFavRoot() 
 
                     if(tipo === "trending"){
                         if(nodoFavGiphyParent.children.length != 0){
